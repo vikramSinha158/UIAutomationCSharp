@@ -32,6 +32,27 @@ namespace R1.Hub.AutomationBase.Config
         [JsonProperty("NumberOfDaysToKeepScreenShots")]
         public string NumberOfDaysToKeepScreenShots { get; set; }
 
+        [JsonProperty("ScreenShotsWithPassTestCases")]
+        public string ScreenShotsWithPassTestCases { get; set; }
+
+        [JsonProperty("ScreenShotsWithFailTestCases")]
+        public string ScreenShotsWithFailTestCases { get; set; }
+
+        [JsonProperty("AppUserName")]
+        public string AppUserName { get; set; }
+
+        [JsonProperty("AppPassword")]
+        public string AppPassword { get; set; }
+
+        [JsonProperty("TestDataFolderName")]
+        public string TestDataFolderName { get; set; }
+
+        [JsonProperty("TestDataFileName")]
+        public string TestDataFileName { get; set; }
+      
+        [JsonProperty("BrowserFlag")]
+        public string BrowserFlag { get; set; }
+
 
     }
 }

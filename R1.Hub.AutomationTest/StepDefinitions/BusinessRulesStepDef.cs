@@ -11,7 +11,7 @@ namespace R1.Hub.AutomationTest.StepDefinitions
 {
 
     [Binding]
-    class BusinessRulesStepDef:Base
+    class BusinessRulesStepDef: BaseStep
     {
 
         //R1HubLoginPage login;
@@ -20,19 +20,16 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         {
             _scenarioContext = scenarioContext;
 
-            //login = new R1HubLoginPage(_scenarioContext);
         }
         
-
-        [Given(@"user is on R(.*)Access login page")]
-        public void GivenUserIsOnRAccessLoginPage(int p0)
-        {
-            CurrentPage = new R1HubLoginPage(_scenarioContext);
+        //[Given(@"user is on R(.*)Access login page")]
+        //public void GivenUserIsOnRAccessLoginPage(int p0)
+        //{
+        //    CurrentPage = new R1HubLoginPage(_scenarioContext);
  
-            CurrentPage.As<R1HubLoginPage>().Login("Rsingh45", "Summer01*");
-            CurrentPage=CurrentPage.As<R1HubLoginPage>().ClickLoginButton();
-
-        }
+        //    CurrentPage.As<R1HubLoginPage>().Login("Rsingh45", "Summer01*");
+        //    CurrentPage=CurrentPage.As<R1HubLoginPage>().ClickLoginButton();
+        //}
 
         [When(@"user logins into the applicationoutcome]")]
         public void WhenUserLoginsIntoTheApplicationoutcome()

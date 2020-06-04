@@ -25,6 +25,20 @@ namespace R1.Hub.AutomationBase.Config
             Settings.ScreenShotsPath = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().ScreenShotsFolderName;
 
             Settings.LastScreenShotDays = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().NumberOfDaysToKeepScreenShots;
+
+            Settings.PassScreenShotReq = bool.Parse(Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().ScreenShotsWithPassTestCases);
+
+            Settings.FailScreenShotReq = bool.Parse(Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().ScreenShotsWithFailTestCases);
+
+            Settings.UserName = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().AppUserName;
+
+            Settings.Password = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().AppPassword;
+
+            Settings.TestDataFolder = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().TestDataFolderName;
+
+            Settings.TestDataFile = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().TestDataFileName;
+
+            Settings.BrowserFlag = bool.Parse(Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().BrowserFlag);
         }
     }
 }
