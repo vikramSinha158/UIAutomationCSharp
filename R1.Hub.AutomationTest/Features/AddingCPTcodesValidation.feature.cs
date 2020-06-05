@@ -19,7 +19,7 @@ namespace R1.Hub.AutomationTest.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class BusinesRuleFeature : object, Xunit.IClassFixture<BusinesRuleFeature.FixtureData>, System.IDisposable
+    public partial class AdditionalMSPCallOnAddingCPTCodesFeature : object, Xunit.IClassFixture<AdditionalMSPCallOnAddingCPTCodesFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace R1.Hub.AutomationTest.Features
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "BusinesRule.feature"
+#line 1 "AddingCPTcodesValidation.feature"
 #line hidden
         
-        public BusinesRuleFeature(BusinesRuleFeature.FixtureData fixtureData, R1_Hub_AutomationTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public AdditionalMSPCallOnAddingCPTCodesFeature(AdditionalMSPCallOnAddingCPTCodesFeature.FixtureData fixtureData, R1_Hub_AutomationTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace R1.Hub.AutomationTest.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BusinesRule", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Additional MSP call on adding CPT codes", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,83 +75,55 @@ namespace R1.Hub.AutomationTest.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 3
+#line hidden
+#line 4
+  testRunner.Given("user is on R1 Hub login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         void System.IDisposable.Dispose()
         {
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Verify validation message when user enters any value other than 1 or 2 in excepti" +
-            "on level")]
-        [Xunit.TraitAttribute("FeatureTitle", "BusinesRule")]
-        [Xunit.TraitAttribute("Description", "Verify validation message when user enters any value other than 1 or 2 in excepti" +
-            "on level")]
-        public virtual void VerifyValidationMessageWhenUserEntersAnyValueOtherThan1Or2InExceptionLevel()
+        [Xunit.SkippableFactAttribute(DisplayName="Validate entries in R1Necessity tab when CPT codes are added on the account")]
+        [Xunit.TraitAttribute("FeatureTitle", "Additional MSP call on adding CPT codes")]
+        [Xunit.TraitAttribute("Description", "Validate entries in R1Necessity tab when CPT codes are added on the account")]
+        [Xunit.TraitAttribute("Category", "tag1")]
+        public virtual void ValidateEntriesInR1NecessityTabWhenCPTCodesAreAddedOnTheAccount()
         {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify validation message when user enters any value other than 1 or 2 in excepti" +
-                    "on level", null, ((string[])(null)));
-#line 3
- this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 4
- testRunner.Given("user is on R1 Hub login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 5
- testRunner.When("user logins into the applicationoutcome]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Verify validation message")]
-        [Xunit.TraitAttribute("FeatureTitle", "BusinesRule")]
-        [Xunit.TraitAttribute("Description", "Verify validation message")]
-        public virtual void VerifyValidationMessage()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify validation message", null, ((string[])(null)));
-#line 7
- this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
+            string[] tagsOfScenario = new string[] {
+                    "tag1"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate entries in R1Necessity tab when CPT codes are added on the account", null, new string[] {
+                        "tag1"});
 #line 8
- testRunner.Given("user is on R1 Hub login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 3
+this.FeatureBackground();
 #line hidden
 #line 9
- testRunner.When("user logins into the applicationoutcome]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("user navigates to the Patient Access > Preregistrations worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -164,12 +136,12 @@ namespace R1.Hub.AutomationTest.Features
             
             public FixtureData()
             {
-                BusinesRuleFeature.FeatureSetup();
+                AdditionalMSPCallOnAddingCPTCodesFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                BusinesRuleFeature.FeatureTearDown();
+                AdditionalMSPCallOnAddingCPTCodesFeature.FeatureTearDown();
             }
         }
     }

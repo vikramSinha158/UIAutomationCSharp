@@ -15,16 +15,16 @@ namespace R1.Hub.AutomationTest.Pages
                 
         }
 
-        private IWebElement txtUserName = DriverContext.driver.FindElement(By.XPath("//input[contains(@id,'Username')]"));
-
-        IWebElement txtPassword= DriverContext.driver.FindElement(By.XPath("//input[contains(@id,'Password')]"));
-
-        IWebElement btnLogin = DriverContext.driver.FindElement(By.XPath("//a[contains(@id,'Login') and @title = 'Login']"));
+        private readonly IWebElement txtUserName = DriverContext.driver.FindElement(By.XPath("//input[contains(@id,'Username')]"));
+        private readonly IWebElement txtPassword= DriverContext.driver.FindElement(By.XPath("//input[contains(@id,'Password')]"));
+        private readonly IWebElement btnLogin = DriverContext.driver.FindElement(By.XPath("//a[contains(@id,'Login') and @title = 'Login']"));
 
 
         public void Login(string userName, string password)
         {
+            txtUserName.Clear();
             txtUserName.SendKeys(userName);
+            txtPassword.Clear();
             txtPassword.SendKeys(password);
         }
 

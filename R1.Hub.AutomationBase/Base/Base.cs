@@ -27,7 +27,8 @@ namespace R1.Hub.AutomationBase.Base
         protected TPage GetInstance<TPage>() where TPage : BasePage, new()
         {
             return (TPage)Activator.CreateInstance(typeof(TPage));
-        }
+            
+    }
 
         public TPage As<TPage>() where TPage : BasePage
         {
