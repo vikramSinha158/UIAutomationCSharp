@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using R1.Hub.AutomationBase.Base;
+using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,14 +12,18 @@ namespace R1.Hub.AutomationTest.Pages
     {
         public PatientAccessPage(ScenarioContext scenarioContext) : base(scenarioContext)
         {
-
+            PageFactory.InitElements(DriverContext.driver, this);
         }
 
-        private readonly IWebElement lnkPreRegistration = DriverContext.driver.FindElement(By.XPath("//a[contains(@href,'Pre-Registration')]"));
+        [FindsBy(How = How.XPath, Using = "//a[contains(@href,'Pre-Registration')]")]
+        private IWebElement lnkPreRegistration;
 
-        public void ClickOnPreRegistration()
+ 
+        public PreRegistrationPage ClickOnPreRegistration()
         {
             lnkPreRegistration.Click();
+
+            return new PreRegistrationPage(_scenarioContext);
         }
 
 

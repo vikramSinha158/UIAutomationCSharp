@@ -42,7 +42,16 @@ namespace R1.Hub.AutomationTest.StepDefinitions
             CurrentPage.As<HomePage>().VerifyHomePageVisible();
         }
 
-     
+        [Given(@"Select Facilty Code")]
+        public void GivenSelectFaciltyCode()
+        {
+            CurrentPage.As<HomePage>().ClickFaciclityCode();
+            CurrentPage.As<HomePage>().SelectFacilityCode("SJPK");
+           
+        }
+
+
+
 
 
     }

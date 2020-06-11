@@ -82,6 +82,9 @@ namespace R1.Hub.AutomationTest.Features
 #line 4
   testRunner.Given("user is on R1 Hub login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
+#line 6
+  testRunner.And("Select Facilty Code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
         }
         
         void System.IDisposable.Dispose()
@@ -99,7 +102,7 @@ namespace R1.Hub.AutomationTest.Features
                     "tag1"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate entries in R1Necessity tab when CPT codes are added on the account", null, new string[] {
                         "tag1"});
-#line 8
+#line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -122,8 +125,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 3
 this.FeatureBackground();
 #line hidden
-#line 9
+#line 10
  testRunner.When("user navigates to the Patient Access > Preregistrations worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 11
+    testRunner.And("user open any account with Medicare coverage with passed status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

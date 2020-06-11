@@ -13,9 +13,7 @@ namespace R1.Hub.AutomationTest.TestData
 
             Settings.TData = CommonUtility.TestData(Settings.TestDataFolder + "/" + Settings.TestDataFile);
 
-            Settings.FacilatyCode= Settings.TData.GetSection("TestData").Get<DataSettings>().Facility;
-
-
+            Settings.SerachCoverageType = Settings.TData.GetSection("TestData").Get<DataSettings>().CoverageType;
 
         }
     }

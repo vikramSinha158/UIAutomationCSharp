@@ -6,6 +6,7 @@ using System.Text;
 using TechTalk.SpecFlow;
 using Xunit;
 using R1.Automation.UI.core.Selenium.Extensions;
+using SeleniumExtras.PageObjects;
 
 namespace R1.Hub.AutomationTest.Pages
 {
@@ -13,21 +14,37 @@ namespace R1.Hub.AutomationTest.Pages
     {
         public HomePage(ScenarioContext scenarioContext) : base(scenarioContext)
         {
-
+            PageFactory.InitElements(DriverContext.driver, this);
         }
 
-        private readonly IWebElement txtLogout = DriverContext.driver.FindElement(By.XPath("//a[@title='Logout']"));
+        private readonly string lnkPatientAccess = "//span[contains(@class,'id52')]//a";
 
-        private readonly IWebElement lnkPatientAccess = DriverContext.driver.FindElement(By.XPath("//span[contains(@class,'id52')]//a"));
+        [FindsBy(How = How.XPath, Using = "//a[@title='Logout']")]
+        private IWebElement txtLogout;
 
-        private readonly IWebElement lblHome = DriverContext.driver.FindElement(By.XPath("//a[contains(@href,'Home')]//span[text()='Home']"));
+        [FindsBy(How = How.XPath, Using = "//a[contains(@href,'Home')]//span[text()='Home']")]
+        private IWebElement lblHome;
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(@id,'LocationChooser_hypLoc')]")]
+        private IWebElement lnkFacilityCode;
+
+        [FindsBy(How = How.XPath, Using = "//Select[contains(@name,'LocationChooser$ddlLocation')]")]
+        private IWebElement dropDwnFacilityCode;
 
         public void ClickLogOut()=> txtLogout.Click();
 
+        public void ClickFaciclityCode() => lnkFacilityCode.Click();
+
+        public void SelectFacilityCode(string text)
+        {
+
+            dropDwnFacilityCode.ClickDropDownValuebyContainingText(text);
+        }
+
         public PatientAccessPage ClickPatientAccessTab()
         {
-           
-            lnkPatientAccess.Click();
+            DriverContext.driver.FindElement(By.XPath(lnkPatientAccess)).Click();
+            //lnkPatientAccess.Click();
             return new PatientAccessPage(_scenarioContext);
         }
 

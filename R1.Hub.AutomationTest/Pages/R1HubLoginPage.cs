@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using R1.Hub.AutomationBase.Base;
+using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,12 +13,17 @@ namespace R1.Hub.AutomationTest.Pages
 
         public R1HubLoginPage(ScenarioContext scenarioContext):base(scenarioContext)
         {
-                
+            PageFactory.InitElements(DriverContext.driver, this);
         }
 
-        private readonly IWebElement txtUserName = DriverContext.driver.FindElement(By.XPath("//input[contains(@id,'Username')]"));
-        private readonly IWebElement txtPassword= DriverContext.driver.FindElement(By.XPath("//input[contains(@id,'Password')]"));
-        private readonly IWebElement btnLogin = DriverContext.driver.FindElement(By.XPath("//a[contains(@id,'Login') and @title = 'Login']"));
+        [FindsBy(How = How.XPath, Using = "//input[contains(@id,'Username')]")]
+        private readonly IWebElement txtUserName;
+
+        [FindsBy(How = How.XPath, Using = "//input[contains(@id,'Password')]")]
+        private IWebElement txtPassword;
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(@id,'Login') and @title = 'Login']")]
+        private IWebElement btnLogin;
 
 
         public void Login(string userName, string password)

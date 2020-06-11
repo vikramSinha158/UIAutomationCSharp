@@ -9,8 +9,8 @@ namespace R1.Hub.AutomationTest.TestData
     [JsonObject("TestData")]
     public  class DataSettings
     {
-        [JsonProperty("Facility")]
-        public string Facility { get; set; }
+        [JsonProperty("CoverageType")]
+        public string CoverageType { get; set; }
 
     }
 }
