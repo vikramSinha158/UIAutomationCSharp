@@ -70,9 +70,11 @@ pipeline {
             }
             stage ("Set build result") {
 				steps{
+				script{
 				currentBuild.result = 'SUCCESS'
 				
 				echo "Build Result ${currentBuild.result}"
+				}
 				}
 			}
             
