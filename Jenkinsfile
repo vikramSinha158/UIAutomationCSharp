@@ -3,12 +3,14 @@ pipeline {
 	agent any
 	stages {
 			
-			 stage('Set project version')
+			 stage("Set project version")
             {
-				script{
-					projectVersion =readFile file: "version"
-					projectVersion = projectVersion.trim() + ".${env.BUILD_NUMBER}"
-					echo "Project version ${projectVersion}"
+				steps{
+					script{
+						projectVersion =readFile file: "version"
+						projectVersion = projectVersion.trim() + ".${env.BUILD_NUMBER}"
+						echo "Project version ${projectVersion}"
+						}
 					}
             }
              stage ("Restore Packages") 
