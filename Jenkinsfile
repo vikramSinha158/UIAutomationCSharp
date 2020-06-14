@@ -54,6 +54,7 @@ pipeline {
             stage("Create Artifact")
             {
 				steps{
+				script{
 				def artifactLocation = "${env:WORKSPACE}\\Published"
 				def artifactName = "r1-UI-Automation"
                 def exportLoc = "**\\Artifact\\**\\"
@@ -64,6 +65,7 @@ pipeline {
                 
                  echo "Archive File Name ${artifactName}.zip"
                  archiveArtifacts artifacts: '**/*.zip*', onlyIfSuccessful: true
+				 }
 				 }
             }
             stage ("Set build result") {
