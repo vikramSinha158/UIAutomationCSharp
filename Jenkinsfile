@@ -1,20 +1,16 @@
+projectVersion = ''
 pipeline {
 	agent any
 	stages {
-			stage("Clean Workspace")
+			
+			 stage('Set project version')
             {
-			steps{
-               cleanWs()
-               echo "clean workspace"
-				}
-			}
-            stage("checkout code")
-            {
-				steps{
-                echo "checkout branch"
-                git credentialsId: '618c53ea-c4b3-42aa-b49e-ae3f08a22e34', url: 'https://bitbucket.org/r1rcm/r1-hub-uiautomation/src/', branch: 'master'
-				}
-			}
+				script{
+					projectVersion =readFile file: "version"
+					projectVersion = projectVersion.trim() + ".${env.BUILD_NUMBER}"
+					echo "Project version ${projectVersion}"
+					}
+            }
              stage ("Restore Packages") 
             {
 			  steps{
@@ -56,7 +52,7 @@ pipeline {
 				steps{
 				script{
 				def artifactLocation = "${env:WORKSPACE}\\Published"
-				def artifactName = "r1-UI-Automation"
+				def artifactName = "r1-UI-Automation ${projectVersion}"
                 def exportLoc = "**\\Artifact\\**\\"
                  echo "Archive Location ${artifactName}"
                 /* archiveArtifacts artifacts: 'Published/*.*'  */
