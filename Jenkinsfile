@@ -2,15 +2,28 @@ projectVersion = ''
 pipeline {
 	agent any
 	stages {
-			
-			 stage("Set project version")
+			stage("Clean Workspace")
+            {
+			steps{
+               cleanWs()
+               echo "clean workspace"
+				}
+			}
+            stage("checkout code")
             {
 				steps{
-					script{
-						projectVersion =readFile file: "version"
-						projectVersion = projectVersion.trim() + ".${env.BUILD_NUMBER}"
-						echo "Project version ${projectVersion}"
-						}
+                echo "checkout branch"
+                git credentialsId: '618c53ea-c4b3-42aa-b49e-ae3f08a22e34', url: 'https://bitbucket.org/r1rcm/r1-hub-uiautomation/src/', branch: 'master'
+				}
+			}
+			 stage("Set project version")
+            {
+			steps{
+				script{
+					projectVersion =readFile file: "version"
+					projectVersion = projectVersion.trim() + ".${env.BUILD_NUMBER}"
+					echo "Project version ${projectVersion}"
+					}
 					}
             }
              stage ("Restore Packages") 
