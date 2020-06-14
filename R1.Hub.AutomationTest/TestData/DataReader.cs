@@ -15,6 +15,8 @@ namespace R1.Hub.AutomationTest.TestData
 
             Settings.SerachCoverageType = Settings.TData.GetSection("TestData").Get<DataSettings>().CoverageType;
 
+            Settings.SerachServiceCode = Settings.TData.GetSection("TestData").Get<DataSettings>().SearchSevice;
+
         }
     }
 }

@@ -131,6 +131,25 @@ this.FeatureBackground();
 #line 11
     testRunner.And("user open any account with Medicare coverage with passed status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 12
+    testRunner.And("user clicks on complete button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 13
+    testRunner.And("R1Necesity tab is enabled on the account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 14
+    testRunner.When("user navigates to the services tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 15
+    testRunner.And("user adds CPT code on the account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 16
+    testRunner.And("user clicks on complete button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 17
+    testRunner.Then("An entry should get inserted into the R1Necessity tab for each CPT code being add" +
+                        "ed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

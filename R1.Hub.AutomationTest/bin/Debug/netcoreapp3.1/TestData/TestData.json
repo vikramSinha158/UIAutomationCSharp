@@ -1,6 +1,7 @@
 ﻿{
   "TestData": {
     "TestPlanSummary": "TestPlanSummary",
-    "CoverageType": "MEDICARE"
+    "CoverageType": "MEDICARE",
+    "SearchSevice": "skin"
   }
 }

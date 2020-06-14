@@ -12,5 +12,8 @@ namespace R1.Hub.AutomationTest.TestData
         [JsonProperty("CoverageType")]
         public string CoverageType { get; set; }
 
+        [JsonProperty("SearchSevice")]
+        public string SearchSevice { get; set; }
+
     }
 }

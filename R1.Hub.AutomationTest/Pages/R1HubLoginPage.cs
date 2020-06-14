@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using TechTalk.SpecFlow;
+using R1.Automation.UI.core.Selenium.Extensions;
 
 namespace R1.Hub.AutomationTest.Pages
 {

@@ -2,6 +2,7 @@
 using R1.Hub.AutomationBase.Base;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xunit;
 
@@ -65,6 +66,15 @@ namespace R1.Hub.AutomationTest.Utility
 				}
 			}
 			return colValues;
+		}
+
+		public bool CompareList<T>(List<T> list, List<T> otherlist) where T : IEquatable<T>
+		{
+			if (list.Except(otherlist).Any())
+				return false;
+			if (otherlist.Except(list).Any())
+				return false;
+			return true;
 		}
 	}
 }
