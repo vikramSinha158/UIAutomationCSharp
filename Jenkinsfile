@@ -32,11 +32,13 @@ pipeline {
             stage("Run: Automated Test")
             {
 				steps{
-				def automatedTest = "${workspace}/R1.Hub.AutomationTest/R1.Hub.AutomationTest.csproj"
-				echo "Unit test location ${automatedTest}"
-                bat returnStatus: true, script: "dotnet test \"${automatedTest}\" /p:CollectCoverage=true /p:CoverletOutput=TestResults/ --logger \"trx;LogFileName=UIAutomation_unitTest.trx\" "
-                step([$class: 'MSTestPublisher', testResultsFile:"**/*.trx", failOnError: true, keepLongStdio: true])
-                echo "publish Test result file"
+					script{
+					def automatedTest = "${workspace}/R1.Hub.AutomationTest/R1.Hub.AutomationTest.csproj"
+					echo "Unit test location ${automatedTest}"
+					bat returnStatus: true, script: "dotnet test \"${automatedTest}\" /p:CollectCoverage=true /p:CoverletOutput=TestResults/ --logger \"trx;LogFileName=UIAutomation_unitTest.trx\" "
+					step([$class: 'MSTestPublisher', testResultsFile:"**/*.trx", failOnError: true, keepLongStdio: true])
+					echo "publish Test result file"
+					}
 				}
 			}
             stage("Publish")
