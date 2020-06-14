@@ -1,12 +1,10 @@
 pipeline {
-	timestamps
-{
-    node()
-    {
-        def projectVersion
-        catchError
-        {
-            stage('Clean Workspace')
+	agent any
+	options {
+		timestamps()
+	}
+	stages {
+	stage('Clean Workspace')
             {
                cleanWs()
                echo "clean workspace"
@@ -15,11 +13,6 @@ pipeline {
             {
                 echo "checkout branch"
                 git credentialsId: '618c53ea-c4b3-42aa-b49e-ae3f08a22e34', url: 'https://bitbucket.org/r1rcm/r1-hub-uiautomation/src/', branch: 'master'
-            }
-             stage('Set project version')
-            {
-                projectVersion =".${env.BUILD_NUMBER}"
-                echo "Project version ${projectVersion}"
             }
              stage ('Restore Packages') 
             {
@@ -49,7 +42,7 @@ pipeline {
             }
             
             def artifactLocation = "${env:WORKSPACE}\\Published"
-            def artifactName = "r1-UI-Automation ${projectVersion}"
+            def artifactName = "r1-UI-Automation"
             stage('Create Artifact')
             {
                 def exportLoc = "**\\Artifact\\**\\"
@@ -66,10 +59,6 @@ pipeline {
 				
 				echo "Build Result ${currentBuild.result}"
 			}
-            
-        }
-        
-    
-    }
-}
+	}
+   
 }
