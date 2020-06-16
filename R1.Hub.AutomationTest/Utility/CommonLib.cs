@@ -76,5 +76,17 @@ namespace R1.Hub.AutomationTest.Utility
 				return false;
 			return true;
 		}
+
+		public bool CheckContainList<T>(List<T> list1, List<T> otherlist) where T : IEquatable<T>
+		{
+			if (list1.Intersect(otherlist).Any())
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }

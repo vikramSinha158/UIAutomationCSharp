@@ -18,9 +18,9 @@ namespace R1.Hub.AutomationTest.Pages
             PageFactory.InitElements(DriverContext.driver, this);
         }
 
-        private string HeaderTypeCol = "Type";
+        private string HeaderTypeCol = "Plan Name";
         private readonly int toprow = 1;
-        private readonly int verifiedHeader = 15;
+        private string delCoverageRows = "//table[contains(@id,'grdCoverageSelected')]//tr[@class='PanelDetail']//td//a//img[@title='Delete']";
         private string searchResult = String.Empty;
         private string searchRowLocator = "//table[contains(@id,'grdCoverageSearchResults')]//tr[@class='PanelDetail']";
         private string passCoveragetatus = "Passed";
@@ -37,8 +37,8 @@ namespace R1.Hub.AutomationTest.Pages
         [FindsBy(How = How.XPath, Using = "//a[text()='Redo']")]
         private IWebElement btnRedo;
 
-        [FindsBy(How = How.XPath, Using = "//table[@id='Table1']//table//tr[@class='PanelDetail']//td//a//img[@title='Delete']")]
-        private IList<IWebElement> btnCovergeDel;
+        [FindsBy(How = How.XPath, Using = "//table[contains(@id,'grdCoverageSelected')]//tr[@class='PanelDetail']")]
+        private IList<IWebElement> covergeTblRows;
 
         [FindsBy(How = How.XPath, Using = "//table[contains(@id,'grdCoverageSearchResults')]//tr[@class='PanelTitle']//td")]
         private IList<IWebElement> serachResultCol;
@@ -77,20 +77,38 @@ namespace R1.Hub.AutomationTest.Pages
             { }
         }
 
-        public void AddNewCoverage()
+        public void AddNewCoverage(string CoverageType)
         {
             try
             {
-                foreach (IWebElement delBtn in btnCovergeDel)
+                if (covergeTblRows.Count > 0)
                 {
-                    delBtn.Click();
+                    int delBtnCnt = covergeTblRows.Count;
+                    for (int i = 1; i <= delBtnCnt; i++)
+                    {
+                        IWebElement delele = DriverContext.driver.FindElement(By.XPath(delCoverageRows));
+                        DriverContext.driver.ScrollInView(delele);
+                        delele.Click();
+                        //DriverContext.driver.ScrollInView(txtSearchService);
+                    }
+
                 }
+                //foreach (IWebElement delBtn in covergeTblRows)
+                //{
+                //    delBtn.Click();
+                //}
             }
             catch (NoSuchElementException e) { }
-            txtSearchCoverage.SendKeys(Settings.SerachCoverageType);
+            //txtSearchCoverage.SendKeys(Settings.MedicareCoverageType);
+            DriverContext.driver.ScrollInView(txtSearchCoverage);
+            if (CoverageType.Equals("Medicare", StringComparison.OrdinalIgnoreCase))
+                txtSearchCoverage.SendKeys(Settings.MedicareCoverageType);
+            if (CoverageType.Equals("NonMedicare",StringComparison.OrdinalIgnoreCase))
+                txtSearchCoverage.SendKeys(Settings.AETNACovergaeType);
+
             btnFindCoverage.Click();
             SearchCoverage();
-            btnNewCoverage.Click();
+           
             ChangeCoverageStatus();
 
         }
@@ -111,9 +129,13 @@ namespace R1.Hub.AutomationTest.Pages
             {
                 searchResult = DriverContext.driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + searchEleCount + "]")).Text;
 
-                if (searchResult.Contains(Settings.SerachCoverageType))
+                if (searchResult.Contains(Settings.MedicareCoverageType))
                     DriverContext.driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
+                if (searchResult.Contains(Settings.AETNACovergaeType))
+                   DriverContext.driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
             }
+            //DriverContext.driver.ScrollInView(btnNewCoverage);
+            btnNewCoverage.Click();
 
         }
 
@@ -131,6 +153,9 @@ namespace R1.Hub.AutomationTest.Pages
                 Assert.True(false, "Coverage Not Added,table not found");
             }
         }
+
+       
+
 
         //public void ClickComplete()
         //{

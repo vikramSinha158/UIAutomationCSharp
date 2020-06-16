@@ -13,9 +13,11 @@ namespace R1.Hub.AutomationTest.TestData
 
             Settings.TData = CommonUtility.TestData(Settings.TestDataFolder + "/" + Settings.TestDataFile);
 
-            Settings.SerachCoverageType = Settings.TData.GetSection("TestData").Get<DataSettings>().CoverageType;
+            Settings.MedicareCoverageType = Settings.TData.GetSection("TestData").Get<DataSettings>().MedicareCoverageType;
 
             Settings.SerachServiceCode = Settings.TData.GetSection("TestData").Get<DataSettings>().SearchSevice;
+
+            Settings.AETNACovergaeType = Settings.TData.GetSection("TestData").Get<DataSettings>().AETNACoverageType;
 
         }
     }

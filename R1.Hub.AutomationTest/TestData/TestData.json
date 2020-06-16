@@ -1,7 +1,8 @@
 ﻿{
   "TestData": {
     "TestPlanSummary": "TestPlanSummary",
-    "CoverageType": "MEDICARE",
+    "MedicareCoverageType": "MEDICARE",
+    "AETNACoverageType": "AETNA",
     "SearchSevice": "skin"
   }
 }

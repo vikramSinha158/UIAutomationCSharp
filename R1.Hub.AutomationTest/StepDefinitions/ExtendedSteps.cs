@@ -50,6 +50,13 @@ namespace R1.Hub.AutomationTest.StepDefinitions
            
         }
 
+        [AfterScenario]
+        public void AppLogOut()
+        {
+            new HomePage(_scenarioContext).ClickLogOut();
+        }
+
+
 
 
 

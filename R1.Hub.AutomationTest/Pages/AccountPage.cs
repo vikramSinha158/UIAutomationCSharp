@@ -42,7 +42,19 @@ namespace R1.Hub.AutomationTest.Pages
 
         public bool IsR1NecessityVisible()
         {
-            return R1NecessityTab.Displayed;
+            bool isvisble = false;
+            try
+            {
+                if (R1NecessityTab.Displayed)
+                    isvisble = true;
+                return isvisble;
+            }
+            catch (NoSuchElementException e)
+            {
+                return isvisble;
+                //Assert.True(isvisble, " R1NecessityTab is not visble");
+            }
+            
         }
 
         public ServicesPage ClickOnServicesTab()

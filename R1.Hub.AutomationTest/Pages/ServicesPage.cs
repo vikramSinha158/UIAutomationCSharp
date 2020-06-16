@@ -24,6 +24,9 @@ namespace R1.Hub.AutomationTest.Pages
         private string delRowsHCPCSelected = "//table[contains(@id,'grdHCPCSelected')]//tr[@class='PanelDetail']//td//a/img[@src='/images/delete.gif']";
         private string rowsHCPCSelected = "//table[contains(@id,'grdHCPCSelected')]//tr[@class='PanelDetail']";
         private string colHCPCSelected = "//table[contains(@id,'grdHCPCSelected')]//tr[@class='PanelTitle tableHeader']//td";
+        private string delRowsICDSelected = "//table[contains(@id,'grdICD9Selected')]//tr[@class='PanelDetail']//td//a/img[@src='/images/delete.gif']";
+        private string rowsICDSelected = "//table[contains(@id,'grdICD9Selected')]//tr[@class='PanelDetail']";
+        private string colICDSelected = "//table[contains(@id,'grdICD9Selected')]//tr[@class='PanelTitle tableHeader']//td";
 
         [FindsBy(How = How.XPath, Using = "//a[contains(@id,'lnkViewMode') and text()='Admitting']")]
         private IWebElement lnkAdmiitingServices;
@@ -34,6 +37,9 @@ namespace R1.Hub.AutomationTest.Pages
         [FindsBy(How = How.XPath, Using = "//a[contains(@id,'btnSearch')]")]
         private IWebElement btnSearchService;
 
+        [FindsBy(How = How.XPath, Using = "//a[ text()='Continue']")]
+        private IWebElement btnComplete;
+
         [FindsBy(How = How.XPath, Using = "//a[contains(@id,'grdHCPCSearchResults_btnSelectHCPC')]")]
         private IList<IWebElement> rowsHCPCSearch;
 
@@ -42,6 +48,15 @@ namespace R1.Hub.AutomationTest.Pages
 
         [FindsBy(How = How.XPath, Using = "//table[contains(@id,'grdHCPCSelected')]//tr[@class='PanelDetail']")]
         private IList<IWebElement> delHCPCSelected;
+
+        [FindsBy(How = How.XPath, Using = "//table[contains(@id,'grdICD9Selected')]//tr[@class='PanelDetail']")]
+        private IList<IWebElement> delICDSelected;
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(@id,'grdICD9SearchResults')]")]
+        private IList<IWebElement> rowsICDSearch;
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(@id,'grdICD9SearchResults')][1]")]
+        private IWebElement firstRowICDSearch;
 
 
         public void ClickAddmittingServices()
@@ -55,18 +70,84 @@ namespace R1.Hub.AutomationTest.Pages
             
         }
 
+        public void ClicContinue()
+        {
+            
+            try
+            {
+                btnComplete.Click();
+            }
+            catch (NoSuchElementException) { }
+
+        }
+
         public void AddServiceCode()
+        {
+            AddCode(delHCPCSelected, delRowsHCPCSelected, rowsHCPCSearch, firstRowHCPCSearch);
+            //AddCode(delICDSelected, delRowsICDSelected, rowsICDSearch, firstRowICDSearch);
+            //DriverContext.driver.ScrollInView(txtSearchService);
+
+            //try
+            //{
+            //    if (delHCPCSelected.Count > 0)
+            //    {
+            //        int delBtnCnt = delHCPCSelected.Count;
+            //        for (int i = 1; i <= delBtnCnt; i++)
+            //        {
+            //            IWebElement delele = DriverContext.driver.FindElement(By.XPath(delRowsHCPCSelected));
+            //            delele.Click();
+            //            DriverContext.driver.ScrollInView(txtSearchService);
+            //        }
+
+            //    }
+
+            //}
+            //catch (NoSuchElementException) { }
+            //txtSearchService.SendKeys(Settings.SerachServiceCode);
+            //btnSearchService.Click();
+
+            //try
+            //{
+            //    if (rowsHCPCSearch.Count > 1)
+            //    {
+            //        DriverContext.driver.ScrollInView(firstRowHCPCSearch);
+            //        firstRowHCPCSearch.Click();
+            //    }
+            //}
+            //catch (NoSuchElementException ) 
+            //{
+            //    Assert.True(false, "Not CPT found for " + Settings.SerachServiceCode + "please Check data ");
+            //}
+
+        }
+
+        public void AddDiagnosisCode()
+        {
+            AddCode(delICDSelected, delRowsICDSelected, rowsICDSearch, firstRowICDSearch);
+        }
+
+        public List<String> GetServiceCPTcode()
+        {
+            return new CommonLib().GetColvalues(rowsHCPCSelected, colHCPCSelected, "HCPC");
+        }
+
+        public List<String> GetDiagonosisCode()
+        {
+            return new CommonLib().GetColvalues(rowsICDSelected, colICDSelected, "ICD");
+        }
+
+        public void AddCode(IList<IWebElement> delTblRowCnt, string xpathDelrow, IList<IWebElement> rowsSearchResultCnt, IWebElement firstRowSearchResult)
         {
             DriverContext.driver.ScrollInView(txtSearchService);
 
             try
             {
-                if (delHCPCSelected.Count > 0)
+                if (delTblRowCnt.Count > 0)
                 {
-                    int delBtnCnt = delHCPCSelected.Count;
+                    int delBtnCnt = delTblRowCnt.Count;
                     for (int i = 1; i <= delBtnCnt; i++)
                     {
-                        IWebElement delele = DriverContext.driver.FindElement(By.XPath(delRowsHCPCSelected));
+                        IWebElement delele = DriverContext.driver.FindElement(By.XPath(xpathDelrow));
                         delele.Click();
                         DriverContext.driver.ScrollInView(txtSearchService);
                     }
@@ -80,27 +161,17 @@ namespace R1.Hub.AutomationTest.Pages
 
             try
             {
-                if (rowsHCPCSearch.Count > 1)
+                if (rowsSearchResultCnt.Count > 1)
                 {
-                    DriverContext.driver.ScrollInView(firstRowHCPCSearch);
-                    firstRowHCPCSearch.Click();
+                    DriverContext.driver.ScrollInView(firstRowSearchResult);
+                    firstRowSearchResult.Click();
                 }
             }
-            catch (NoSuchElementException ) 
+            catch (NoSuchElementException)
             {
                 Assert.True(false, "Not CPT found for " + Settings.SerachServiceCode + "please Check data ");
             }
-
- 
-
-
         }
-
-        public List<String> GetServiceCPTcode()
-        {
-            return new CommonLib().GetColvalues(rowsHCPCSelected, colHCPCSelected, "HCPC");
-        }
-
 
     }
 }
