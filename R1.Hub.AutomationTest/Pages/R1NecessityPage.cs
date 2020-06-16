@@ -1,5 +1,4 @@
 ﻿using R1.Hub.AutomationBase.Base;
-using R1.Hub.AutomationTest.Utility;
 using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -25,7 +24,7 @@ namespace R1.Hub.AutomationTest.Pages
         /// <returns></returns>
         public List<String> GetR1NessityCPT()
         {
-            return new CommonLib().GetColvalues(rowsCPTgrid, colCPTgrid, "CPT");
+            return util.GetColvalues(rowsCPTgrid, colCPTgrid, "CPT");
         }
 
     }

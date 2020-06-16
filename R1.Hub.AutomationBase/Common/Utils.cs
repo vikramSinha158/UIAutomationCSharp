@@ -6,11 +6,10 @@ using System.Linq;
 using System.Text;
 using Xunit;
 
-namespace R1.Hub.AutomationTest.Utility
+namespace R1.Hub.AutomationBase.Common
 {
-    public class CommonLib
-	{
-
+    public class Utils
+    {
 		private static void isDisplayedMethod(IWebElement element)
 		{
 			Assert.True(element.Displayed);
@@ -88,5 +87,6 @@ namespace R1.Hub.AutomationTest.Utility
 				return false;
 			}
 		}
+
 	}
 }

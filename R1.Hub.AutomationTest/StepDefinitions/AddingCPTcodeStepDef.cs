@@ -6,7 +6,6 @@ using System.Text;
 using TechTalk.SpecFlow;
 using System.Threading;
 using Xunit;
-using R1.Hub.AutomationTest.Utility;
 
 namespace R1.Hub.AutomationTest.StepDefinitions
 {
@@ -15,16 +14,15 @@ namespace R1.Hub.AutomationTest.StepDefinitions
     {
         private new ScenarioContext _scenarioContext;
         private AccountPage _accPage;
-        private CommonLib _comLib;
         List<String> listCPTcode;
         List<String> ListR1NessityCPT;
         List<String> listDiagonsiscode;
 
-        public AddingCPTcodeStepDef(ScenarioContext scenarioContext, AccountPage accountPage, CommonLib commonlib) : base(scenarioContext)
+        public AddingCPTcodeStepDef(ScenarioContext scenarioContext, AccountPage accountPage) : base(scenarioContext)
         {
             _scenarioContext = scenarioContext;
             _accPage = accountPage;
-            _comLib = commonlib;
+            
 
         }
 
@@ -80,7 +78,7 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         {
             CurrentPage = _accPage.ClickOnR1Necessity();
             ListR1NessityCPT = CurrentPage.As<R1NecessityPage>().GetR1NessityCPT();
-            bool cptSatus = _comLib.CompareList(listCPTcode, ListR1NessityCPT);
+            bool cptSatus = util.CompareList(listCPTcode, ListR1NessityCPT);
             Assert.True(cptSatus, "CPT code from service doesn't match with R1Necessity ");
         }
 
@@ -111,7 +109,7 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         {
             CurrentPage = _accPage.ClickOnR1Necessity();
             ListR1NessityCPT = CurrentPage.As<R1NecessityPage>().GetR1NessityCPT();
-            bool containSatus = _comLib.CheckContainList(ListR1NessityCPT, listDiagonsiscode);
+            bool containSatus = util.CheckContainList(ListR1NessityCPT, listDiagonsiscode);
             Assert.False(containSatus, "Diagonosis code from service contain match with R1Necessity ");
         }
 

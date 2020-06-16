@@ -4,7 +4,7 @@ using R1.Automation.UI.core.Selenium.Base;
 using System;
 using TechTalk.SpecFlow;
 using Microsoft.Extensions.Configuration;
-
+using R1.Hub.AutomationBase.Common;
 
 namespace R1.Hub.AutomationBase.Base
 {
@@ -37,7 +37,7 @@ namespace R1.Hub.AutomationBase.Base
 
         public CommonUtility commonUtil = new CommonUtility();
 
-        //public static IConfigurationRoot config { get; set; }
+        public Utils util = new Utils();
 
     }
 }

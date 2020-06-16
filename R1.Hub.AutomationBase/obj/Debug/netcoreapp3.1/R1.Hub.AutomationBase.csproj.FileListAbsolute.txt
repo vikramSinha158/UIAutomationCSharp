@@ -18,3 +18,5 @@ C:\Development\UIAutomation\Sprint116\R1.Hub.AutomationBase\obj\Debug\netcoreapp
 C:\Development\UIAutomation\Sprint116\R1.Hub.AutomationBase\obj\Debug\netcoreapp3.1\R1.Hub.AutomationBase.csproj.CopyComplete
 C:\Development\UIAutomation\Sprint116\R1.Hub.AutomationBase\obj\Debug\netcoreapp3.1\R1.Hub.AutomationBase.dll
 C:\Development\UIAutomation\Sprint116\R1.Hub.AutomationBase\obj\Debug\netcoreapp3.1\R1.Hub.AutomationBase.pdb
+C:\Development\UIAutomation\Sprint116\R1.Hub.AutomationBase\bin\Debug\netcoreapp3.1\R1.Hub.AutomationBase.runtimeconfig.json
+C:\Development\UIAutomation\Sprint116\R1.Hub.AutomationBase\bin\Debug\netcoreapp3.1\R1.Hub.AutomationBase.runtimeconfig.dev.json
