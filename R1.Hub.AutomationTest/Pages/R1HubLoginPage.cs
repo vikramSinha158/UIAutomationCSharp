@@ -27,6 +27,11 @@ namespace R1.Hub.AutomationTest.Pages
         private IWebElement btnLogin;
 
 
+        /// <summary>
+        /// Method to user and password
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
         public void Login(string userName, string password)
         {
             txtUserName.Clear();
@@ -35,17 +40,15 @@ namespace R1.Hub.AutomationTest.Pages
             txtPassword.SendKeys(password);
         }
 
+        /// <summary>
+        /// Click on login button
+        /// </summary>
+        /// <returns></returns>
         public HomePage ClickLoginButton()
         {
             btnLogin.Click();
             return new HomePage(_scenarioContext);
-            //return GetInstance<HomePage(_scenarioContext)>;
-        }
-
-
-        internal void CheckIfLoginExist()
-        {
-            
+  
         }
 
 

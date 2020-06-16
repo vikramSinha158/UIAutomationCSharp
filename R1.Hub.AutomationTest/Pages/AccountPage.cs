@@ -16,6 +16,8 @@ namespace R1.Hub.AutomationTest.Pages
             PageFactory.InitElements(DriverContext.driver, this);
         }
 
+
+
         [FindsBy(How = How.XPath, Using = "//a[text()='Coverage']")]
         private IWebElement coverageTab;
 
@@ -40,6 +42,10 @@ namespace R1.Hub.AutomationTest.Pages
             return new CoveragePage(_scenarioContext);
         }
 
+        /// <summary>
+        /// Cheking R1Necessity tab is visible or not
+        /// </summary>
+        /// <returns></returns>
         public bool IsR1NecessityVisible()
         {
             bool isvisble = false;
@@ -52,23 +58,33 @@ namespace R1.Hub.AutomationTest.Pages
             catch (NoSuchElementException e)
             {
                 return isvisble;
-                //Assert.True(isvisble, " R1NecessityTab is not visble");
             }
             
         }
 
+        /// <summary>
+        /// click on Service tab
+        /// </summary>
+        /// <returns>Service page</returns>
         public ServicesPage ClickOnServicesTab()
         {
             serviceTab.Click();
             return new ServicesPage(_scenarioContext);
         }
 
+        /// <summary>
+        /// Click on R1Necessity tab
+        /// </summary>
+        /// <returns></returns>
         public R1NecessityPage ClickOnR1Necessity()
         {
             R1NecessityTab.Click();
             return new R1NecessityPage(_scenarioContext);
         }
 
+        /// <summary>
+        /// Click on Checkot and Redo button
+        /// </summary>
         public void ClickCheckOutAndRedo()
         {
             try
@@ -87,9 +103,11 @@ namespace R1.Hub.AutomationTest.Pages
             { }
 
 
-
         }
 
+        /// <summary>
+        /// Click on Complete button
+        /// </summary>
         public void ClickComplete()
         {
             btnComplete.Click();

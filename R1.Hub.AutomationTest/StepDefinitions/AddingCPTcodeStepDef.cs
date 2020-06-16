@@ -15,14 +15,16 @@ namespace R1.Hub.AutomationTest.StepDefinitions
     {
         private new ScenarioContext _scenarioContext;
         private AccountPage _accPage;
+        private CommonLib _comLib;
         List<String> listCPTcode;
         List<String> ListR1NessityCPT;
         List<String> listDiagonsiscode;
 
-        public AddingCPTcodeStepDef(ScenarioContext scenarioContext,AccountPage accountPage) : base(scenarioContext)
+        public AddingCPTcodeStepDef(ScenarioContext scenarioContext, AccountPage accountPage, CommonLib commonlib) : base(scenarioContext)
         {
             _scenarioContext = scenarioContext;
             _accPage = accountPage;
+            _comLib = commonlib;
 
         }
 
@@ -31,29 +33,15 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         {
             //Thread.Sleep(10000);
             CurrentPage = CurrentPage.As<HomePage>().ClickPatientAccessTab();
-            CurrentPage=CurrentPage.As<PatientAccessPage>().ClickOnPreRegistration();
+            CurrentPage = CurrentPage.As<PatientAccessPage>().ClickOnPreRegistration();
 
         }
-
-        //[When(@"user open any account with Medicare coverage with passed status")]
-        //public void WhenUserOpenAnyAccountWithMedicareCoverageWithPassedStatus()
-        //{
-        //    CurrentPage=CurrentPage.As<PreRegistrationPage>().ClickOnAccount();
-        //    CurrentPage=CurrentPage.As<AccountPage>().ClickOnCoverageTab();
-
-        //    //CurrentPage.As<CoveragePage>().ClickCheckOutAndRedo11();
-        //    _accPage.ClickCheckOutAndRedo();
-        //    CurrentPage.As<CoveragePage>().AddNewCoverage();
-
-        //}
 
         [When(@"user open any account with ""(.*)"" coverage with passed status")]
         public void WhenUserOpenAnyAccountWithCoverageWithPassedStatus(string CoverageType)
         {
             CurrentPage = CurrentPage.As<PreRegistrationPage>().ClickOnAccount();
             CurrentPage = CurrentPage.As<AccountPage>().ClickOnCoverageTab();
-
-            //CurrentPage.As<CoveragePage>().ClickCheckOutAndRedo11();
             _accPage.ClickCheckOutAndRedo();
             CurrentPage.As<CoveragePage>().AddNewCoverage(CoverageType);
         }
@@ -61,14 +49,12 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         [When(@"user clicks on complete button")]
         public void WhenUserClicksOnCompleteButton()
         {
-            //CurrentPage.As<CoveragePage>().ClickComplete();
             _accPage.ClickComplete();
         }
 
         [When(@"R(.*)Necesity tab is enabled on the account")]
         public void WhenRNecesityTabIsEnabledOnTheAccount(int p0)
         {
-           // _accPage.IsR1NecessityVisible();
             Assert.True(_accPage.IsR1NecessityVisible(), "R1 Necessity is not visible ");
         }
 
@@ -76,17 +62,16 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         public void WhenUserNavigatesToTheServicesTab()
         {
             CurrentPage = _accPage.ClickOnServicesTab();
-           
+
         }
 
         [When(@"user adds CPT code on the account")]
         public void WhenUserAddsCPTCodeOnTheAccount()
         {
             _accPage.ClickCheckOutAndRedo();
-            //CurrentPage.As<ServicesPage>().ClickAddmittingServices();
             CurrentPage.As<ServicesPage>().ClickAddmittingServices();
             CurrentPage.As<ServicesPage>().AddServiceCode();
-            listCPTcode= CurrentPage.As<ServicesPage>().GetServiceCPTcode();
+            listCPTcode = CurrentPage.As<ServicesPage>().GetServiceCPTcode();
 
         }
 
@@ -94,8 +79,8 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         public void ThenAnEntryShouldGetInsertedIntoTheRNecessityTabForEachCPTCodeBeingAdded(int p0)
         {
             CurrentPage = _accPage.ClickOnR1Necessity();
-            ListR1NessityCPT=CurrentPage.As<R1NecessityPage>().GetR1NessityCPT();
-            bool cptSatus = new CommonLib().CompareList(listCPTcode, ListR1NessityCPT);
+            ListR1NessityCPT = CurrentPage.As<R1NecessityPage>().GetR1NessityCPT();
+            bool cptSatus = _comLib.CompareList(listCPTcode, ListR1NessityCPT);
             Assert.True(cptSatus, "CPT code from service doesn't match with R1Necessity ");
         }
 
@@ -116,7 +101,6 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         public void WhenUserAddsDiagnosisCodeOnTheAccount()
         {
             _accPage.ClickCheckOutAndRedo();
-            //CurrentPage.As<ServicesPage>().ClickAddmittingServices();
             CurrentPage.As<ServicesPage>().ClickAddmittingServices();
             CurrentPage.As<ServicesPage>().AddDiagnosisCode();
             listDiagonsiscode = CurrentPage.As<ServicesPage>().GetDiagonosisCode();
@@ -127,7 +111,7 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         {
             CurrentPage = _accPage.ClickOnR1Necessity();
             ListR1NessityCPT = CurrentPage.As<R1NecessityPage>().GetR1NessityCPT();
-            bool containSatus = new CommonLib().CheckContainList(ListR1NessityCPT, listDiagonsiscode);
+            bool containSatus = _comLib.CheckContainList(ListR1NessityCPT, listDiagonsiscode);
             Assert.False(containSatus, "Diagonosis code from service contain match with R1Necessity ");
         }
 

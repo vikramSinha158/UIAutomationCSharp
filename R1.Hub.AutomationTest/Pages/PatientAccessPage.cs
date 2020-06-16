@@ -19,6 +19,10 @@ namespace R1.Hub.AutomationTest.Pages
         private IWebElement lnkPreRegistration;
 
  
+        /// <summary>
+        /// Click on pre registration link
+        /// </summary>
+        /// <returns></returns>
         public PreRegistrationPage ClickOnPreRegistration()
         {
             lnkPreRegistration.Click();

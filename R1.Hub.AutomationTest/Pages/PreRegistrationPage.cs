@@ -26,6 +26,10 @@ namespace R1.Hub.AutomationTest.Pages
 
  
 
+        /// <summary>
+        /// click on account
+        /// </summary>
+        /// <returns></returns>
         public AccountPage ClickOnAccount()
         {
 

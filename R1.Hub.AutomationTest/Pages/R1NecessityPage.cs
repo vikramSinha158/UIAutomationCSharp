@@ -18,6 +18,11 @@ namespace R1.Hub.AutomationTest.Pages
         private string rowsCPTgrid= "//table[contains(@id,'NecessityCPT1')]//tr[@class='PanelDetail']";
         private string colCPTgrid = "//table[contains(@id,'NecessityCPT1')]//tr[@class='PanelTitle tableHeader']//td";
 
+
+        /// <summary>
+        /// Method to get CPT code
+        /// </summary>
+        /// <returns></returns>
         public List<String> GetR1NessityCPT()
         {
             return new CommonLib().GetColvalues(rowsCPTgrid, colCPTgrid, "CPT");

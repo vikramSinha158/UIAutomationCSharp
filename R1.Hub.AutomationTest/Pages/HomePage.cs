@@ -10,11 +10,14 @@ using SeleniumExtras.PageObjects;
 
 namespace R1.Hub.AutomationTest.Pages
 {
-    public  class HomePage:BasePage
+    public class HomePage : BasePage
     {
+
         public HomePage(ScenarioContext scenarioContext) : base(scenarioContext)
         {
+
             PageFactory.InitElements(DriverContext.driver, this);
+
         }
 
         private readonly string lnkPatientAccess = "//span[contains(@class,'id52')]//a";
@@ -31,27 +34,37 @@ namespace R1.Hub.AutomationTest.Pages
         [FindsBy(How = How.XPath, Using = "//Select[contains(@name,'LocationChooser$ddlLocation')]")]
         private IWebElement dropDwnFacilityCode;
 
-        public void ClickLogOut()=> txtLogout.Click();
+        public void ClickLogOut() => txtLogout.Click();
 
         public void ClickFaciclityCode() => lnkFacilityCode.Click();
 
+        /// <summary>
+        /// Method to select facility code
+        /// </summary>
+        /// <param name="text"></param>
         public void SelectFacilityCode(string text)
         {
 
             dropDwnFacilityCode.ClickDropDownValuebyContainingText(text);
         }
 
+        /// <summary>
+        /// Click on Patient Access link
+        /// </summary>
+        /// <returns></returns>
         public PatientAccessPage ClickPatientAccessTab()
         {
             DriverContext.driver.FindElement(By.XPath(lnkPatientAccess)).Click();
-            //lnkPatientAccess.Click();
             return new PatientAccessPage(_scenarioContext);
         }
 
-        public void VerifyHomePageVisible() {
+        /// <summary>
+        /// Home Page Validation method
+        /// </summary>        
+        public void VerifyHomePageVisible()
+        {
 
             string ss = lblHome.Text;
-            Assert.True(lblHome.Displayed, "Home Page not Visible");
         }
     }
 }
