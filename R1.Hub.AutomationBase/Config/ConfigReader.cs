@@ -8,6 +8,9 @@ namespace R1.Hub.AutomationBase.Config
 {
     public class ConfigReader
     {
+        /// <summary>
+        /// Read the data from appsetting file
+        /// </summary>
         public static void SetConfigSetting() { 
 
             Settings.configurationRoot= CommonUtility.AppConfig;

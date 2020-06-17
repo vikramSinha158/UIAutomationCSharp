@@ -18,18 +18,30 @@ namespace R1.Hub.AutomationBase.Base
             _scenarioContext = scenarioContext;
         }
 
+        /// <summary>
+        /// Creating current page property
+        /// </summary>
         public BasePage CurrentPage
         {
             get => (BasePage)_scenarioContext["currentPage"];
             set => _scenarioContext["currentPage"] = value;
         }
 
+        /// <summary>
+        /// Genric method to create object of class
+        /// </summary>
+        /// <typeparam name="TPage"></typeparam>
+        /// <returns></returns>
         protected TPage GetInstance<TPage>() where TPage : BasePage, new()
         {
             return (TPage)Activator.CreateInstance(typeof(TPage));
             
     }
-
+        /// <summary>
+        /// Generic method to create instance of class
+        /// </summary>
+        /// <typeparam name="TPage"></typeparam>
+        /// <returns></returns>
         public TPage As<TPage>() where TPage : BasePage
         {
             return (TPage)this;
