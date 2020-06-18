@@ -22,14 +22,6 @@ namespace R1.Hub.AutomationTest.StepDefinitions
 
         }
         
-        //[Given(@"user is on R(.*)Access login page")]
-        //public void GivenUserIsOnRAccessLoginPage(int p0)
-        //{
-        //    CurrentPage = new R1HubLoginPage(_scenarioContext);
- 
-        //    CurrentPage.As<R1HubLoginPage>().Login("Rsingh45", "Summer01*");
-        //    CurrentPage=CurrentPage.As<R1HubLoginPage>().ClickLoginButton();
-        //}
 
         [When(@"user logins into the applicationoutcome]")]
         public void WhenUserLoginsIntoTheApplicationoutcome()

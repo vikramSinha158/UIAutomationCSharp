@@ -17,7 +17,8 @@ namespace R1.Hub.AutomationBase.Common
 		/// <param name="element"></param>
 		private static void isDisplayedMethod(IWebElement element)
 		{
-			Assert.True(element.Displayed);
+			Assert.True(element.Displayed,"Element not visible");
+		
 
 		}
 
