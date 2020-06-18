@@ -23,6 +23,9 @@ namespace R1.Hub.AutomationBase.Config
         private static AventStack.ExtentReports.ExtentReports extent;
         private static string path;
 
+        /// <summary>
+        /// Initialzing data,report and driver
+        /// </summary>
         public static void InitializeSettings()
         {
             ConfigReader.SetConfigSetting();
@@ -36,6 +39,10 @@ namespace R1.Hub.AutomationBase.Config
             }
         }
 
+        /// <summary>
+        /// Get feature info
+        /// </summary>
+        /// <param name="featureContext"></param>
         public static void GetFeatureInfo(FeatureContext featureContext)
         {
             if (Settings.ExtentReportReq)
@@ -45,6 +52,11 @@ namespace R1.Hub.AutomationBase.Config
             }
         }
 
+
+        /// <summary>
+        /// getscednario info
+        /// </summary>
+        /// <param name="scenarioContext"></param>
         public void GetScenarioInfo(ScenarioContext scenarioContext)
         {
             if (Settings.ExtentReportReq)
@@ -65,6 +77,10 @@ namespace R1.Hub.AutomationBase.Config
 
         }
 
+
+        /// <summary>
+        /// publish report
+        /// </summary>
         public static void PublishReport()
         {
             if (Settings.ExtentReportReq)
@@ -74,12 +90,20 @@ namespace R1.Hub.AutomationBase.Config
             }
         }
 
+        /// <summary>
+        /// Naviate url
+        /// </summary>
         public virtual void NaviateSite()
         {
             DriverContext.driver.Navigate().GoToUrl(Settings.AUT);
             DriverContext.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Settings.ImplicitWait);
         }
 
+
+        /// <summary>
+        /// Close browser
+        /// </summary>
+        /// <param name="browsercloseflag"></param>
         public void CloseBrowser(bool browsercloseflag)
         {
             if (browsercloseflag)

@@ -18,14 +18,40 @@ namespace R1.Hub.AutomationTest.StepDefinitions
 
         }
 
-        [Given(@"user is on R(.*)Access login page")]
-        public void GivenUserIsOnRAccessLoginPage(int p0)
+
+        [Given(@"user is on R(.*) Hub login page")]
+        public void GivenUserIsOnRHubLoginPage(int p0)
         {
             CurrentPage = new R1HubLoginPage(_scenarioContext);
 
             CurrentPage.As<R1HubLoginPage>().Login(Settings.UserName, Settings.Password);
             CurrentPage = CurrentPage.As<R1HubLoginPage>().ClickLoginButton();
         }
+
+        [Given(@"user is on home page of the application")]
+        public void GivenUserIsOnHomePageOfTheApplication()
+        {
+            CurrentPage.As<HomePage>().VerifyHomePageVisible();
+        }
+
+        [Given(@"Select Facilty Code")]
+        public void GivenSelectFaciltyCode()
+        {
+            CurrentPage.As<HomePage>().ClickFaciclityCode();
+            CurrentPage.As<HomePage>().SelectFacilityCode("SJPK");
+           
+        }
+
+        [AfterScenario]
+        public void AppLogOut()
+        {
+            new HomePage(_scenarioContext).ClickLogOut();
+        }
+
+
+
+
+
 
     }
 }

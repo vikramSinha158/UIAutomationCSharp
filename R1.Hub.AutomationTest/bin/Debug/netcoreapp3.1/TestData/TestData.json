@@ -1,6 +1,8 @@
 ﻿{
   "TestData": {
     "TestPlanSummary": "TestPlanSummary",
-    "Facility": "AAOR"
+    "MedicareCoverageType": "MEDICARE",
+    "AETNACoverageType": "AETNA",
+    "SearchSevice": "skin"
   }
 }

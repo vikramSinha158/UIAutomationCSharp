@@ -40,5 +40,11 @@ namespace R1.Hub.AutomationBase.Config
         public static string FacilatyCode { get; set; }
 
         public static bool BrowserFlag { get; set; }
+
+        public static string MedicareCoverageType { get; set; }
+
+        public static string SerachServiceCode { get; set; }
+
+        public static string AETNACovergaeType { get; set; }
     }
 }

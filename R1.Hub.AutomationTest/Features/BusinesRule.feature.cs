@@ -111,10 +111,7 @@ namespace R1.Hub.AutomationTest.Features
             {
                 this.ScenarioStart();
 #line 4
- testRunner.Given("user is on R1Access login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 5
- testRunner.When("user logins into the applicationoutcome]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("user is on R1 Hub login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -148,10 +145,7 @@ namespace R1.Hub.AutomationTest.Features
             {
                 this.ScenarioStart();
 #line 8
- testRunner.Given("user is on R1Access login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 9
- testRunner.When("user logins into the applicationoutcome]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("user is on R1 Hub login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();
