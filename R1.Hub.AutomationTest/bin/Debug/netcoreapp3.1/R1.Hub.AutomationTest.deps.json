@@ -18,10 +18,10 @@
           "Selenium.Chrome.WebDriver": "83.0.0",
           "Selenium.Support": "3.141.0",
           "Selenium.WebDriver": "3.141.0",
-          "SpecFlow": "3.1.97",
+          "SpecFlow": "3.3.30",
           "SpecFlow.Assist.Dynamic": "1.4.2",
-          "SpecFlow.Tools.MsBuild.Generation": "3.1.97",
-          "SpecFlow.xUnit": "3.1.97",
+          "SpecFlow.Tools.MsBuild.Generation": "3.3.30",
+          "SpecFlow.xUnit": "3.3.30",
           "Gherkin": "6.0.0",
           "xunit": "2.4.1",
           "xunit.core": "2.4.1",
@@ -806,7 +806,7 @@
           }
         }
       },
-      "SpecFlow/3.1.97": {
+      "SpecFlow/3.3.30": {
         "dependencies": {
           "BoDi": "1.4.1",
           "Cucumber.Messages": "6.0.1",
@@ -818,15 +818,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/TechTalk.SpecFlow.dll": {
-            "assemblyVersion": "3.1.0.0",
-            "fileVersion": "3.1.97.53089"
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.30.18275"
           }
         }
       },
       "SpecFlow.Assist.Dynamic/1.4.2": {
         "dependencies": {
           "Dynamitey": "2.0.9.136",
-          "SpecFlow": "3.1.97"
+          "SpecFlow": "3.3.30"
         },
         "runtime": {
           "lib/netstandard2.0/SpecFlow.Assist.Dynamic.dll": {
@@ -835,21 +835,21 @@
           }
         }
       },
-      "SpecFlow.Tools.MsBuild.Generation/3.1.97": {
+      "SpecFlow.Tools.MsBuild.Generation/3.3.30": {
         "dependencies": {
-          "SpecFlow": "3.1.97"
+          "SpecFlow": "3.3.30"
         }
       },
-      "SpecFlow.xUnit/3.1.97": {
+      "SpecFlow.xUnit/3.3.30": {
         "dependencies": {
-          "SpecFlow": "3.1.97",
+          "SpecFlow": "3.3.30",
           "Xunit.SkippableFact": "1.3.12",
           "xunit.core": "2.4.1"
         },
         "runtime": {
           "lib/netstandard2.0/TechTalk.SpecFlow.xUnit.SpecFlowPlugin.dll": {
-            "assemblyVersion": "3.1.0.0",
-            "fileVersion": "3.1.97.53089"
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.30.18275"
           }
         }
       },
@@ -1995,7 +1995,7 @@
           "Microsoft.Extensions.Configuration.Json": "3.1.4",
           "Selenium.Support": "3.141.0",
           "Selenium.WebDriver": "3.141.0",
-          "SpecFlow": "3.1.97",
+          "SpecFlow": "3.3.30",
           "xunit": "2.4.1"
         },
         "runtime": {
@@ -2424,12 +2424,12 @@
       "path": "selenium.webdriver/3.141.0",
       "hashPath": "selenium.webdriver.3.141.0.nupkg.sha512"
     },
-    "SpecFlow/3.1.97": {
+    "SpecFlow/3.3.30": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8nRsXBSjvtbSmZHw5tqnJcfwgNaygsRKFhbP+ipZXu+5suzUibTI16sG3wNLgGza6LKpZlxPef8fRxqtmZZJaA==",
-      "path": "specflow/3.1.97",
-      "hashPath": "specflow.3.1.97.nupkg.sha512"
+      "sha512": "sha512-JparyL5p4UKHBIFVxhuLG2pBBShGBILoYWREUXp+dOeChCbYWArHIB+NWEbeu3xdp6r6IJ65ps4CW/X7LgHm0Q==",
+      "path": "specflow/3.3.30",
+      "hashPath": "specflow.3.3.30.nupkg.sha512"
     },
     "SpecFlow.Assist.Dynamic/1.4.2": {
       "type": "package",
@@ -2438,19 +2438,19 @@
       "path": "specflow.assist.dynamic/1.4.2",
       "hashPath": "specflow.assist.dynamic.1.4.2.nupkg.sha512"
     },
-    "SpecFlow.Tools.MsBuild.Generation/3.1.97": {
+    "SpecFlow.Tools.MsBuild.Generation/3.3.30": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oKy/9sMidEBzqC/P1ORDNQbMKoLIqJb1pnVBIHPpjdbCXGRNuf07V7dXrny9OFno22BuNnwN2ETk2c3+FLMb/A==",
-      "path": "specflow.tools.msbuild.generation/3.1.97",
-      "hashPath": "specflow.tools.msbuild.generation.3.1.97.nupkg.sha512"
+      "sha512": "sha512-goNseYYHcaa28FBZRmBl9BkzPIqyL379vsuxCzp85WT6XS44L858h+oRicmAnGXBJ2SdZaqjXxATzorwFKmNlQ==",
+      "path": "specflow.tools.msbuild.generation/3.3.30",
+      "hashPath": "specflow.tools.msbuild.generation.3.3.30.nupkg.sha512"
     },
-    "SpecFlow.xUnit/3.1.97": {
+    "SpecFlow.xUnit/3.3.30": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mMsYhhRrLAqIm4T193/1Cqx3b6ONHf2LWmKbCxwkOY3Zbn/HjUJ3TiWzo4YqyL7dsmxfo5+Y1cftPZvVAqOO1g==",
-      "path": "specflow.xunit/3.1.97",
-      "hashPath": "specflow.xunit.3.1.97.nupkg.sha512"
+      "sha512": "sha512-ozfQbx+EE1o04AYuoTONEfKqxZp73kZQgkEWpmowCPDsG4EBkZw8Xk6FBTZij7jyjyV2FURDlf/p9+4/IlfX4Q==",
+      "path": "specflow.xunit/3.3.30",
+      "hashPath": "specflow.xunit.3.3.30.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",

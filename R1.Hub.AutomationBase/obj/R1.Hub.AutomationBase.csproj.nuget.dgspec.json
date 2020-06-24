@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {}
+    "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {}
   },
   "projects": {
-    "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {
+    "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
+        "projectUniqueName": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
         "projectName": "R1.Hub.AutomationBase",
-        "projectPath": "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
+        "projectPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
         "packagesPath": "C:\\Users\\in303350\\.nuget\\packages\\",
-        "outputPath": "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\obj\\",
+        "outputPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\in303350\\AppData\\Roaming\\NuGet\\NuGet.Config",

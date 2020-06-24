@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj": {}
+    "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj": {}
   },
   "projects": {
-    "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {
+    "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
+        "projectUniqueName": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
         "projectName": "R1.Hub.AutomationBase",
-        "projectPath": "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
+        "projectPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
         "packagesPath": "C:\\Users\\in303350\\.nuget\\packages\\",
-        "outputPath": "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\obj\\",
+        "outputPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\in303350\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -94,14 +94,14 @@
         }
       }
     },
-    "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj": {
+    "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj",
+        "projectUniqueName": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj",
         "projectName": "R1.Hub.AutomationTest",
-        "projectPath": "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj",
+        "projectPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj",
         "packagesPath": "C:\\Users\\in303350\\.nuget\\packages\\",
-        "outputPath": "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationTest\\obj\\",
+        "outputPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\in303350\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -117,8 +117,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {
-                "projectPath": "C:\\Development\\UIAutomation\\Sprint116\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj"
+              "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {
+                "projectPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj"
               }
             }
           }
@@ -170,7 +170,7 @@
             },
             "SpecFlow": {
               "target": "Package",
-              "version": "[3.1.97, )"
+              "version": "[3.3.30, )"
             },
             "SpecFlow.Assist.Dynamic": {
               "target": "Package",
@@ -178,11 +178,11 @@
             },
             "SpecFlow.Tools.MsBuild.Generation": {
               "target": "Package",
-              "version": "[3.1.97, )"
+              "version": "[3.3.30, )"
             },
             "SpecFlow.xUnit": {
               "target": "Package",
-              "version": "[3.1.97, )"
+              "version": "[3.3.30, )"
             },
             "gherkin": {
               "target": "Package",
