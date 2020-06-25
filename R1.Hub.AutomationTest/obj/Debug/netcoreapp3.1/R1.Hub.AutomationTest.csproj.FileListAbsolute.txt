@@ -405,3 +405,4 @@ C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\ne
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\UIAutomation_Build.bat
