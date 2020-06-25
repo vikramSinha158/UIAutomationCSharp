@@ -16,6 +16,7 @@ namespace R1.Hub.AutomationBase.Base
         public Base(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
+
         }
 
         /// <summary>
