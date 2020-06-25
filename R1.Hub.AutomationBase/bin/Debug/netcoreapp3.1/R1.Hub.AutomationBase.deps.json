@@ -9,7 +9,6 @@
       "R1.Hub.AutomationBase/1.0.0": {
         "dependencies": {
           "ExtentReports.Core": "1.0.3",
-          "Microsoft.CodeAnalysis.Analyzers": "3.0.0",
           "Microsoft.Extensions.Configuration": "3.1.5",
           "Microsoft.Extensions.Configuration.Binder": "3.1.5",
           "Microsoft.Extensions.Configuration.FileExtensions": "3.1.5",
@@ -134,10 +133,10 @@
           }
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/3.0.0": {},
+      "Microsoft.CodeAnalysis.Analyzers/1.1.0": {},
       "Microsoft.CodeAnalysis.Common/2.8.0": {
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "3.0.0",
+          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
           "System.AppContext": "4.3.0",
           "System.Collections": "4.3.0",
           "System.Collections.Concurrent": "4.3.0",
@@ -1624,12 +1623,12 @@
       "path": "microsoft.aspnetcore.razor.runtime/2.2.0",
       "hashPath": "microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512"
     },
-    "Microsoft.CodeAnalysis.Analyzers/3.0.0": {
+    "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ojG5pGAhTPmjxRGTNvuszO3H8XPZqksDwr9xLd4Ae/JBjZZdl6GuoLk7uLMf+o7yl5wO0TAqoWcEKkEWqrZE5g==",
-      "path": "microsoft.codeanalysis.analyzers/3.0.0",
-      "hashPath": "microsoft.codeanalysis.analyzers.3.0.0.nupkg.sha512"
+      "sha512": "sha512-HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
+      "path": "microsoft.codeanalysis.analyzers/1.1.0",
+      "hashPath": "microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.Common/2.8.0": {
       "type": "package",
