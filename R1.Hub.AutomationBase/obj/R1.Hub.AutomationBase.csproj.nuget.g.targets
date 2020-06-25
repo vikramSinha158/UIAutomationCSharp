@@ -6,5 +6,6 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)xunit.core\2.4.1\build\xunit.core.targets" Condition="Exists('$(NuGetPackageRoot)xunit.core\2.4.1\build\xunit.core.targets')" />
     <Import Project="$(NuGetPackageRoot)specflow\3.3.30\build\SpecFlow.targets" Condition="Exists('$(NuGetPackageRoot)specflow\3.3.30\build\SpecFlow.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\3.0.0\build\Microsoft.CodeAnalysis.Analyzers.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\3.0.0\build\Microsoft.CodeAnalysis.Analyzers.targets')" />
   </ImportGroup>
 </Project>
