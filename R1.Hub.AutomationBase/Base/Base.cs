@@ -16,11 +16,10 @@ namespace R1.Hub.AutomationBase.Base
         public Base(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
-
         }
 
         /// <summary>
-        /// Creating current page property
+        /// Creating current page  property
         /// </summary>
         public BasePage CurrentPage
         {
