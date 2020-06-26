@@ -31,3 +31,4 @@ C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationBase\obj\Debug\ne
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationBase\obj\Debug\netcoreapp3.1\R1.Hub.AutomationBase.csproj.CopyComplete
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationBase\obj\Debug\netcoreapp3.1\R1.Hub.AutomationBase.dll
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationBase\obj\Debug\netcoreapp3.1\R1.Hub.AutomationBase.pdb
+C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationBase\obj\Debug\netcoreapp3.1\R1.Hub.AutomationBase.csprojAssemblyReference.cache
