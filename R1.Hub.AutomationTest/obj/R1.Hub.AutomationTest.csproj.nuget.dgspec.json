@@ -42,6 +42,12 @@
               "target": "Package",
               "version": "[1.0.3, )"
             },
+            "Microsoft.CodeAnalysis.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[3.1.5, )"
@@ -139,12 +145,6 @@
             "ExtentReports.Core": {
               "target": "Package",
               "version": "[1.0.3, )"
-            },
-            "Microsoft.CodeAnalysis.Analyzers": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.0.0, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
