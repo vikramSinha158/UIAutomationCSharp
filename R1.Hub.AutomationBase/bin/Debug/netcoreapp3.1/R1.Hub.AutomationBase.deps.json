@@ -13,6 +13,7 @@
           "Microsoft.Extensions.Configuration.Binder": "3.1.5",
           "Microsoft.Extensions.Configuration.FileExtensions": "3.1.5",
           "Microsoft.Extensions.Configuration.Json": "3.1.5",
+          "Newtonsoft.Json": "12.0.3",
           "Selenium.Support": "3.141.0",
           "Selenium.WebDriver": "3.141.0",
           "SpecFlow": "3.3.30",
@@ -58,7 +59,7 @@
           "MongoDB.Bson": "2.8.0",
           "MongoDB.Driver": "2.8.0",
           "MongoDB.Driver.Core": "2.8.0",
-          "Newtonsoft.Json": "12.0.1",
+          "Newtonsoft.Json": "12.0.3",
           "RazorEngine.NetCore": "2.2.6",
           "System.Configuration.ConfigurationManager": "4.5.0"
         },
@@ -409,11 +410,11 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.1": {
+      "Newtonsoft.Json/12.0.3": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "12.0.0.0",
-            "fileVersion": "12.0.1.22727"
+            "fileVersion": "12.0.3.23909"
           }
         }
       },
@@ -501,7 +502,7 @@
       },
       "Selenium.WebDriver/3.141.0": {
         "dependencies": {
-          "Newtonsoft.Json": "12.0.1"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/WebDriver.dll": {
@@ -1770,12 +1771,12 @@
       "path": "netstandard.library/1.6.1",
       "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
     },
-    "Newtonsoft.Json/12.0.1": {
+    "Newtonsoft.Json/12.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
-      "path": "newtonsoft.json/12.0.1",
-      "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
     "RazorEngine.NetCore/2.2.6": {
       "type": "package",
