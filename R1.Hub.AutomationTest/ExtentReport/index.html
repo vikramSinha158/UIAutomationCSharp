@@ -52,7 +52,7 @@
           </li>
             <li class="m-r-10">
                 <a href="#">
-                    <span class="badge badge-primary">6/26/2020 8:29:28 PM</span>
+                    <span class="badge badge-primary">6/26/2020 10:24:15 PM</span>
                 </a>
             </li>
         </ul>
@@ -122,8 +122,8 @@
 											<div class="open-test">
 												<div class="test-detail"> 
 													<p class="name">Additional MSP call on adding CPT codes</p> 
-													<p class="duration text-sm">0h:5m:14s+733ms</p> 
-													<span class="datetime">20:29:28 PM</span>
+													<p class="duration text-sm">0h:11m:1s+521ms</p> 
+													<span class="datetime">22:24:15 PM</span>
 												</div>
 											</div>
 											<div class="test-contents d-none">
@@ -131,9 +131,9 @@
 													<div class="p-v-10 d-inline-block">	
 														<div class="info">
 															<h5 class="test-status text-fail">Additional MSP call on adding CPT codes</h5>
-															<span class='badge badge-success'>6/26/2020 8:29:28 PM</span>
-															<span class='badge badge-danger'>6/26/2020 8:34:43 PM</span>
-															<span class='badge badge-default'>0h:5m:14s+733ms</span>
+															<span class='badge badge-success'>6/26/2020 10:24:15 PM</span>
+															<span class='badge badge-danger'>6/26/2020 10:35:16 PM</span>
+															<span class='badge badge-default'>0h:11m:1s+521ms</span>
 														</div>
 																											</div>
 												</div>
@@ -143,6 +143,48 @@
 		<div class="card-header" role="tab">
 			<h5 class="card-title pl-3">
 				<div class="node">Validate entries in R1Necessity tab when CPT codes are added on the account</div>
+				<div class="status-avatar float-left fail-bg">
+					<i class="fa fa-times text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>user is on R1 Hub login page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>Select Facilty Code</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>user navigates to the Patient Access > Preregistrations worklist</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon fail-bg">
+									<i class="fa fa-times text-white"></i>
+								</span>
+								<span>user open any account with "Medicare" coverage with passed status</span>
+							</div>
+			<div class="details">No row found for account
+Expected: True
+Actual:   False</div>
+			<div class="details">Find Screen Shot:- C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\ScreenShots\ScreenShotsFor_26_06_2020_10_24_15_PM</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Validate entries in R1Necessity tab when Diagnosis codes are added on the account with medicare coverage</div>
 				<div class="status-avatar float-left fail-bg">
 					<i class="fa fa-times text-white"></i>
 				</div>
@@ -196,6 +238,70 @@
 								<span class="alert-icon pass-bg">
 									<i class="fa fa-check text-white"></i>
 								</span>
+								<span>user adds diagnosis code on the account</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon fail-bg">
+									<i class="fa fa-times text-white"></i>
+								</span>
+								<span>user clicks on complete button</span>
+							</div>
+			<div class="details">Could not find element by: By.XPath: //a[text()='Complete']</div>
+			<div class="details">Find Screen Shot:- C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\ScreenShots\ScreenShotsFor_26_06_2020_10_24_15_PM</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Validate entries in R1Necessity tab when CPT codes are added on the account with non-medicare coverage</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>user is on R1 Hub login page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>Select Facilty Code</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>user navigates to the Patient Access > Preregistrations worklist</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>user open any account with "NonMedicare" coverage with passed status</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>user clicks on complete button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>user navigates to the services tab</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
 								<span>user adds CPT code on the account</span>
 							</div>
 							<div class="d-flex align-items-center justify-content-start when" title="">
@@ -204,16 +310,85 @@
 								</span>
 								<span>user clicks on complete button</span>
 							</div>
-							<div class="d-flex align-items-center justify-content-start then" title="">
-								<span class="alert-icon fail-bg">
-									<i class="fa fa-times text-white"></i>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
 								</span>
-								<span>An entry should get inserted into the R1Necessity tab for each CPT code being added</span>
+								<span>User Clic on Continue button</span>
 							</div>
-			<div class="details">CPT code from service doesn't match with R1Necessity 
-Expected: True
-Actual:   False</div>
-			<div class="details">Find Screen Shot:- C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\ScreenShots\ScreenShotsFor_26_06_2020_08_29_28_PM</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>R1Necesity tab should not get displayed on the account</span>
+							</div>
+					</div>
+				</div>
+	</div>
+</div>
+											</div>
+										</li>
+										<li class="test-item" status="pass" author="" device="" tag=""> 
+											<div class="status-avatar pass-bg">
+												<i class="fa fa-check text-white"></i>
+											</div>
+											<div class="open-test">
+												<div class="test-detail"> 
+													<p class="name">BusinesRule</p> 
+													<p class="duration text-sm">0h:0m:29s+722ms</p> 
+													<span class="datetime">22:35:18 PM</span>
+												</div>
+											</div>
+											<div class="test-contents d-none">
+												<div class="detail-head">
+													<div class="p-v-10 d-inline-block">	
+														<div class="info">
+															<h5 class="test-status text-pass">BusinesRule</h5>
+															<span class='badge badge-success'>6/26/2020 10:35:18 PM</span>
+															<span class='badge badge-danger'>6/26/2020 10:35:48 PM</span>
+															<span class='badge badge-default'>0h:0m:29s+722ms</span>
+														</div>
+																											</div>
+												</div>
+
+<div class="accordion mt-4">
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Verify validation message when user enters any value other than 1 or 2 in exception level</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>user is on R1 Hub login page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Verify validation message</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>user is on R1 Hub login page</span>
+							</div>
 					</div>
 				</div>
 	</div>
