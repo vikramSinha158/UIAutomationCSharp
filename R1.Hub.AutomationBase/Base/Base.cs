@@ -19,7 +19,7 @@ namespace R1.Hub.AutomationBase.Base
         }
 
         /// <summary>
-        /// Creating current page  property
+        /// Creating current page property
         /// </summary>
         public BasePage CurrentPage
         {
