@@ -9198,6 +9198,7 @@
       "outputPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+        "C:\\Development\\Automation\\r1-hub-uiautomation\\.nuget\\NuGet.Config",
         "C:\\Users\\in303350\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9206,7 +9207,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.accretivehealth.local/NuGet/api/v2": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
