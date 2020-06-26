@@ -67,9 +67,10 @@ namespace R1.Hub.AutomationTest.Pages
         /// </summary>
         public void ClickAddmittingServices()
         {
-            DriverContext.driver.ScrollInView(lnkAdmiitingServices);
+            
             try
             {
+                DriverContext.driver.ScrollInView(lnkAdmiitingServices);
                 lnkAdmiitingServices.Click();
             }
             catch (NoSuchElementException) { }
