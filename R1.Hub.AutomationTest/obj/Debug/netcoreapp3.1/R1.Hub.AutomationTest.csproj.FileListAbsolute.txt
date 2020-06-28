@@ -321,7 +321,6 @@ C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\ne
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
-C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\Utf8Json.dll
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\Validation.dll
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
@@ -541,3 +540,8 @@ C:\Development\AutomationTest\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debu
 C:\Development\AutomationTest\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\netcoreapp3.1\R1.Hub.AutomationTest.csproj.CopyComplete
 C:\Development\AutomationTest\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\netcoreapp3.1\R1.Hub.AutomationTest.dll
 C:\Development\AutomationTest\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\netcoreapp3.1\R1.Hub.AutomationTest.pdb
+C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\testhost.exe
+C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.PlatformAbstractions.dll
+C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.Utilities.dll
+C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
