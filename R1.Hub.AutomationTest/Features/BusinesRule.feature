@@ -5,5 +5,5 @@
 
 
  Scenario: Verify validation message 
- Given user is on R1 Hub login page
+  Given user is on R1 Hub login page
 

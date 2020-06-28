@@ -147,7 +147,7 @@ namespace R1.Hub.AutomationTest.Features
             {
                 this.ScenarioStart();
 #line 8
- testRunner.Given("user is on R1 Hub login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  testRunner.Given("user is on R1 Hub login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();
