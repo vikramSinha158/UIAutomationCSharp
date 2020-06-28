@@ -76,7 +76,7 @@
               "target": "Package",
               "version": "[3.3.30, )"
             },
-            "xunit": {
+            "xunit.assert": {
               "target": "Package",
               "version": "[2.4.1, )"
             }

@@ -2702,14 +2702,6 @@
           "lib/netstandard1.3/Validation.dll": {}
         }
       },
-      "xunit/2.4.1": {
-        "type": "package",
-        "dependencies": {
-          "xunit.analyzers": "0.10.0",
-          "xunit.assert": "[2.4.1]",
-          "xunit.core": "[2.4.1]"
-        }
-      },
       "xunit.abstractions/2.0.3": {
         "type": "package",
         "compile": {
@@ -2718,9 +2710,6 @@
         "runtime": {
           "lib/netstandard2.0/xunit.abstractions.dll": {}
         }
-      },
-      "xunit.analyzers/0.10.0": {
-        "type": "package"
       },
       "xunit.assert/2.4.1": {
         "type": "package",
@@ -2810,7 +2799,7 @@
           "Selenium.Support": "3.141.0",
           "Selenium.WebDriver": "3.141.0",
           "SpecFlow": "3.3.30",
-          "xunit": "2.4.1"
+          "xunit.assert": "2.4.1"
         },
         "compile": {
           "bin/placeholder/R1.Hub.AutomationBase.dll": {}
@@ -8681,17 +8670,6 @@
         "validation.nuspec"
       ]
     },
-    "xunit/2.4.1": {
-      "sha512": "XNR3Yz9QTtec16O0aKcO6+baVNpXmOnPUxDkCY97J+8krUYxPvXT1szYYEUdKk4sB8GOI2YbAjRIOm8ZnXRfzQ==",
-      "type": "package",
-      "path": "xunit/2.4.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "xunit.2.4.1.nupkg.sha512",
-        "xunit.nuspec"
-      ]
-    },
     "xunit.abstractions/2.0.3": {
       "sha512": "pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg==",
       "type": "package",
@@ -8707,21 +8685,6 @@
         "lib/netstandard2.0/xunit.abstractions.xml",
         "xunit.abstractions.2.0.3.nupkg.sha512",
         "xunit.abstractions.nuspec"
-      ]
-    },
-    "xunit.analyzers/0.10.0": {
-      "sha512": "4/IDFCJfIeg6bix9apmUtIMwvOsiwqdEexeO/R2D4GReIGPLIRODTpId/l4LRSrAJk9lEO3Zx1H0Zx6uohJDNg==",
-      "type": "package",
-      "path": "xunit.analyzers/0.10.0",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "analyzers/dotnet/cs/xunit.analyzers.dll",
-        "tools/install.ps1",
-        "tools/uninstall.ps1",
-        "xunit.analyzers.0.10.0.nupkg.sha512",
-        "xunit.analyzers.nuspec"
       ]
     },
     "xunit.assert/2.4.1": {
@@ -8857,7 +8820,7 @@
       "SpecFlow.Tools.MsBuild.Generation >= 3.3.30",
       "SpecFlow.xUnit >= 3.3.30",
       "gherkin >= 6.0.0",
-      "xunit >= 2.4.1",
+      "xunit.assert >= 2.4.1",
       "xunit.core >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.1"
     ]
@@ -8969,7 +8932,7 @@
             "target": "Package",
             "version": "[6.0.0, )"
           },
-          "xunit": {
+          "xunit.assert": {
             "target": "Package",
             "version": "[2.4.1, )"
           },
