@@ -20,6 +20,7 @@ namespace R1.Hub.AutomationBase.Common
 			Assert.True(element.Displayed,"Element not visible");
 		
 
+
 		}
 
 		/// <summary>
