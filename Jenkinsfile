@@ -64,6 +64,15 @@ pipeline {
 				 }
 				 }
             }
+			
+			stage("Publish Report")
+            {
+				steps{
+					script{
+					publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, includes: '/*.html,**/', keepAll: false, reportDir: '', reportFiles: 'R1.Hub.AutomationTest\\ExtentReport\\index.html', reportName: 'AUTOMATION REPORT', reportTitles: ''])
+					}
+				}
+			}
             stage ("Set build result") {
 				steps{
 				script{
