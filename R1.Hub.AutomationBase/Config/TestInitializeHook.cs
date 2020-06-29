@@ -9,6 +9,7 @@ using R1.Automation.UI.core.Reporting;
 using R1.Automation.UI.core.Commons;
 using TechTalk.SpecFlow;
 using R1.Automation.UI.core.Selenium.Extensions;
+using System.IO;
 
 namespace R1.Hub.AutomationBase.Config
 {
@@ -34,6 +35,15 @@ namespace R1.Hub.AutomationBase.Config
             if (Settings.ExtentReportReq)
             {
                 extent = ExtentReport.InitReport(Settings.ReportPath);
+
+                var folderName = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                string screenShotpath = Path.Combine(folderName.Substring(0, folderName.LastIndexOf("\\bin")), Settings.ScreenShotsPath);
+
+                if (!Directory.Exists(screenShotpath))
+                {
+                    Directory.CreateDirectory(screenShotpath);
+                }
+
                 path = CommonUtility.DeleteOldFolders(Settings.ScreenShotsPath, Settings.LastScreenShotDays);
                 path = CommonUtility.CreateFolder(path);
             }
