@@ -76,7 +76,7 @@
               "target": "Package",
               "version": "[3.3.30, )"
             },
-            "xunit.assert": {
+            "xunit": {
               "target": "Package",
               "version": "[2.4.1, )"
             }
@@ -203,6 +203,10 @@
             "gherkin": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             },
             "xunit.assert": {
               "target": "Package",

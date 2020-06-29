@@ -25,6 +25,7 @@
           "SpecFlow.Tools.MsBuild.Generation": "3.3.30",
           "SpecFlow.xUnit": "3.3.30",
           "Gherkin": "6.0.0",
+          "xunit": "2.4.1",
           "xunit.assert": "2.4.1",
           "xunit.core": "2.4.1",
           "xunit.runner.visualstudio": "2.4.1",
@@ -1824,6 +1825,13 @@
           }
         }
       },
+      "xunit/2.4.1": {
+        "dependencies": {
+          "xunit.analyzers": "0.10.0",
+          "xunit.assert": "2.4.1",
+          "xunit.core": "2.4.1"
+        }
+      },
       "xunit.abstractions/2.0.3": {
         "runtime": {
           "lib/netstandard2.0/xunit.abstractions.dll": {
@@ -1832,6 +1840,7 @@
           }
         }
       },
+      "xunit.analyzers/0.10.0": {},
       "xunit.assert/2.4.1": {
         "dependencies": {
           "NETStandard.Library": "1.6.1"
@@ -1901,7 +1910,7 @@
           "Selenium.Support": "3.141.0",
           "Selenium.WebDriver": "3.141.0",
           "SpecFlow": "3.3.30",
-          "xunit.assert": "2.4.1"
+          "xunit": "2.4.1"
         },
         "runtime": {
           "R1.Hub.AutomationBase.dll": {}
@@ -2994,12 +3003,26 @@
       "path": "validation/2.4.18",
       "hashPath": "validation.2.4.18.nupkg.sha512"
     },
+    "xunit/2.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XNR3Yz9QTtec16O0aKcO6+baVNpXmOnPUxDkCY97J+8krUYxPvXT1szYYEUdKk4sB8GOI2YbAjRIOm8ZnXRfzQ==",
+      "path": "xunit/2.4.1",
+      "hashPath": "xunit.2.4.1.nupkg.sha512"
+    },
     "xunit.abstractions/2.0.3": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg==",
       "path": "xunit.abstractions/2.0.3",
       "hashPath": "xunit.abstractions.2.0.3.nupkg.sha512"
+    },
+    "xunit.analyzers/0.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4/IDFCJfIeg6bix9apmUtIMwvOsiwqdEexeO/R2D4GReIGPLIRODTpId/l4LRSrAJk9lEO3Zx1H0Zx6uohJDNg==",
+      "path": "xunit.analyzers/0.10.0",
+      "hashPath": "xunit.analyzers.0.10.0.nupkg.sha512"
     },
     "xunit.assert/2.4.1": {
       "type": "package",

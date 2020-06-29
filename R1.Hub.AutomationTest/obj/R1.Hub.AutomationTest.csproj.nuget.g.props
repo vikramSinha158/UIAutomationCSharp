@@ -23,6 +23,7 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgValidation Condition=" '$(PkgValidation)' == '' ">C:\Users\in303350\.nuget\packages\validation\2.4.18</PkgValidation>
+    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\in303350\.nuget\packages\xunit.analyzers\0.10.0</Pkgxunit_analyzers>
     <PkgBoDi Condition=" '$(PkgBoDi)' == '' ">C:\Users\in303350\.nuget\packages\bodi\1.4.1</PkgBoDi>
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\in303350\.nuget\packages\microsoft.codeanalysis.analyzers\1.1.0</PkgMicrosoft_CodeAnalysis_Analyzers>
   </PropertyGroup>
