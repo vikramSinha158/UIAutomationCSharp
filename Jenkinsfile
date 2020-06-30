@@ -37,16 +37,16 @@ pipeline {
 					}
 				}
 			}
-            stage("Publish")
-            {
-			steps{
-					script{
-					echo "${env:WORKSPACE}"
-					bat "dotnet publish -o Published"   
-					echo "publish sucess   ${env:WORKSPACE}\\Published"
-					}
-				}
-			}
+           // stage("Publish")
+            //{
+			//steps{
+					//script{
+					//echo "${env:WORKSPACE}"
+					//bat "dotnet publish -o Published"   
+					//echo "publish sucess   ${env:WORKSPACE}\\Published"
+					//}
+				//}
+			//}
             stage("Create Artifact")
             {
 				steps{
