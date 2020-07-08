@@ -15,10 +15,18 @@ namespace R1.Hub.AutomationBase.Common
 		/// Check display of element
 		/// </summary>
 		/// <param name="element"></param>
-		private static void isDisplayedMethod(IWebElement element)
+		public void IsDisplayed(IWebElement element)
 		{
-			Assert.True(element.Displayed,"Element not visible");
-		
+			bool display = false;
+			try
+			{
+				if (element.Displayed)
+					display = true;
+			}
+			catch (NoSuchElementException)
+			{
+				Assert.True(display, "Element not visible");
+			}
 
 
 		}

@@ -42,3 +42,4 @@ C:\Development\AutomationTest\r1-hub-uiautomation\R1.Hub.AutomationBase\obj\Debu
 C:\Development\AutomationTest\r1-hub-uiautomation\R1.Hub.AutomationBase\obj\Debug\netcoreapp3.1\R1.Hub.AutomationBase.pdb
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationBase\bin\Debug\netcoreapp3.1\R1.Hub.AutomationBase.runtimeconfig.json
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationBase\bin\Debug\netcoreapp3.1\R1.Hub.AutomationBase.runtimeconfig.dev.json
+C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationBase\obj\Debug\netcoreapp3.1\R1.Hub.AutomationBase.csprojAssemblyReference.cache
