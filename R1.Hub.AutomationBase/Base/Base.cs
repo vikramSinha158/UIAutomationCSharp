@@ -37,7 +37,7 @@ namespace R1.Hub.AutomationBase.Base
 
             return (TPage)Activator.CreateInstance(typeof(TPage));
             
-    }
+        }
         /// <summary>
         /// Generic method to create instance of class
         /// </summary>
