@@ -5,11 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Xunit;
+using Newtonsoft.Json.Linq;
+using System.IO;
+using System.Data;
+using R1.Automation.Database.core.Base;
+using R1.Automation.UI.core.Commons;
 
 namespace R1.Hub.AutomationBase.Common
 {
     public class Utils
     {
+
+		private DataAccess DAccess  = new DataAccess();
+		private CommonUtility comUtil = new CommonUtility();
 
 		/// <summary>
 		/// Check display of element
@@ -27,15 +35,15 @@ namespace R1.Hub.AutomationBase.Common
 			{
 				Assert.True(display, "Element not visible");
 			}
-
-
+			
+		
 		}
 
 		/// <summary>
 		/// check the display of list of element
 		/// </summary>
 		/// <param name="elements"></param>
-		private static void isDisplayListItem(IList<IWebElement> elements)
+		private  void isDisplayListItem(IList<IWebElement> elements)
 		{
 			bool itemDispay = false;
 
@@ -127,6 +135,80 @@ namespace R1.Hub.AutomationBase.Common
 			{
 				return false;
 			}
+		}
+
+		/// <summary>
+		/// seperate the string on the basis of pipe
+		/// </summary>
+		/// <param name="input"></param>
+		/// <returns></returns>
+		public List<String> GetTestData(String input)
+
+		{
+			List<String> dataList = new List<String>();
+
+			String[] dataText = input.Split("|");
+			foreach (String txt in dataText)
+			{
+				dataList.Add(txt);
+			}
+
+			return dataList;
+		}
+
+		/// <summary>
+		/// Compare two integer number
+		/// </summary>
+		/// <param name="int1"></param>
+		/// <param name="int2"></param>
+		/// <returns></returns>
+		public bool CompareInteger(int int1, int int2)
+		{
+			if (int1 == int2)
+				return true;
+			else
+				return false;
+		}
+
+		/// <summary>
+		/// Move Horizontal
+		/// </summary>
+		public void ScrollHorizontal()
+		{
+			((IJavaScriptExecutor)DriverContext.driver).ExecuteScript("window.scrollBy(3000,0)", "");
+		}
+
+
+		/// <summary>
+		/// Get total row in DB
+		/// </summary>
+		/// <param name="dbConnection"></param>
+		/// <param name="queryKey"></param>
+		/// <returns></returns>
+		public int GetTotalRowCountTable(IDbConnection dbConnection, string queryKey)
+		{
+			//int totalRow;
+			string query = comUtil.GetQueryData(queryKey).Trim();
+			DataTable dataTable = DAccess.SelectExecuteQuery(dbConnection, query);
+			return dataTable.Rows.Count;
+		}
+
+		/// <summary>
+		/// Get webelemnet in list
+		/// </summary>
+		/// <param name="elements"></param>
+		/// <returns></returns>
+		public List<string> GetElementList(IList<IWebElement>  elements)
+		{
+			List<String> elementList = new List<String>();
+
+			for (int i = 0; i < elements.Count; i++)
+			{
+				if (!(string.IsNullOrEmpty(elements[i].Text)))
+					elementList.Add(elements[i].Text);
+			}
+
+			return elementList;
 		}
 
 	}

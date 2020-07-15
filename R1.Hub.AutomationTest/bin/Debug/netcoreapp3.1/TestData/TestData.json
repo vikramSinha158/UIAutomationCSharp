@@ -3,6 +3,7 @@
     "TestPlanSummary": "TestPlanSummary",
     "MedicareCoverageType": "MEDICARE",
     "AETNACoverageType": "AETNA",
-    "SearchSevice": "skin"
+    "SearchSevice": "skin",
+    "ConversionFollowup": "Pending|On-Deck|I/S at Risk|E/O at Risk|Future Follow Up|Zero Balance|Supervisor Worklist|Care Coverage|BSO"
   }
 }

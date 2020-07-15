@@ -1,6 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
+using R1.Automation.Database.core.Base;
+using R1.Hub.AutomationBase.Common;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace R1.Hub.AutomationBase.Config
@@ -37,6 +40,8 @@ namespace R1.Hub.AutomationBase.Config
 
         public static string TestDataFile { get; set; }
 
+        public static string TestQueryFile { get; set; }
+
         public static string FacilatyCode { get; set; }
 
         public static bool BrowserFlag { get; set; }
@@ -46,5 +51,19 @@ namespace R1.Hub.AutomationBase.Config
         public static string SerachServiceCode { get; set; }
 
         public static string AETNACovergaeType { get; set; }
+
+        public DataAccess DataAccess { get; set; } = new DataAccess();
+
+       public Accretive TranDBcon { get; set; } = new Accretive();
+
+        public static string AccretiveCon { get; set; }
+
+        public static String ConversionFollowup { get; set; }
+
+        public static String ISatRiskQuery { get; set; }
+
+        public IDbConnection DbConnection { get; set; }
+
+       
     }
 }

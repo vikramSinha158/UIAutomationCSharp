@@ -53,6 +53,14 @@ namespace R1.Hub.AutomationBase.Config
         [JsonProperty("BrowserFlag")]
         public string BrowserFlag { get; set; }
 
+        [JsonProperty("AccretiveConnection")]
+        public string AccretiveConnection { get; set; }
+
+        [JsonProperty("TestQueryFileName")]
+        public string TestQueryFileName { get; set; }
+
+        [JsonProperty("Facility")]
+        public string Facility { get; set; }
 
     }
 }

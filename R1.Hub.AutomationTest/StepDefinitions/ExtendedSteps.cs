@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using TechTalk.SpecFlow;
+using R1.Automation.Database.core.Base;
+using R1.Hub.AutomationBase.Common;
 
 namespace R1.Hub.AutomationTest.StepDefinitions
 {
@@ -12,10 +14,11 @@ namespace R1.Hub.AutomationTest.StepDefinitions
     public class ExtendedSteps: BaseStep
     {
         private new ScenarioContext _scenarioContext;
+
         public ExtendedSteps(ScenarioContext scenarioContext) : base(scenarioContext)
         {
             _scenarioContext = scenarioContext;
-
+ 
         }
 
 
@@ -28,6 +31,7 @@ namespace R1.Hub.AutomationTest.StepDefinitions
             CurrentPage = CurrentPage.As<R1HubLoginPage>().ClickLoginButton();
         }
 
+     
         [Given(@"user is on home page of the application")]
         public void GivenUserIsOnHomePageOfTheApplication()
         {
@@ -42,10 +46,12 @@ namespace R1.Hub.AutomationTest.StepDefinitions
            
         }
 
+       
         [AfterScenario]
         public void AppLogOut()
         {
             new HomePage(_scenarioContext).ClickLogOut();
+         
         }
 
 

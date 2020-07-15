@@ -42,6 +42,12 @@ namespace R1.Hub.AutomationBase.Config
             Settings.TestDataFile = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().TestDataFileName;
 
             Settings.BrowserFlag = bool.Parse(Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().BrowserFlag);
+
+            Settings.AccretiveCon = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().AccretiveConnection;
+
+            Settings.TestQueryFile = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().TestQueryFileName;
+
+            Settings.FacilatyCode = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().Facility;
         }
     }
 }

@@ -18,5 +18,10 @@ namespace R1.Hub.AutomationTest.TestData
         [JsonProperty("AETNACoverageType")]
         public string AETNACoverageType { get; set; }
 
+        [JsonProperty("ConversionFollowup")]
+        public string ConversionFollowup { get; set; }
+
+        //[JsonProperty("CWL_433959_SQL1")]
+        //public string CWL_433959_SQL1 { get; set; }
     }
 }

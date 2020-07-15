@@ -46,6 +46,9 @@
   
 
   <ItemGroup>
+    <Reference Include="R1.Automation.Database.core">
+      <HintPath>..\R1.Automation.Database.core.dll</HintPath>
+    </Reference>
     <Reference Include="R1.Automation.UI.core">
       <HintPath>..\R1.Automation.UI.core.dll</HintPath>
     </Reference>
@@ -57,6 +60,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="TestData\TestData.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\TestQuery.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="xunit.runner.json">

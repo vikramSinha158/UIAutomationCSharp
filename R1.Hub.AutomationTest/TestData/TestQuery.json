@@ -1,0 +1,12 @@
+﻿{
+  "CWL_433959_SQL1": "select * from vwconversion where patienttype in ('I','S') and  (patientbalance <> 0 Or insurancebalance <> 0) and (NextFollowupDate Is NULL OR NextFollowupDate<=getdate()) and (ReferredToMEH is null or ReferredToMEH = 7183) and (Supervisor is null or Supervisor = 7185)",
+  "CWL_433960_SQL1": "select * from vwconversion where patienttype in ('E','O') and  (patientbalance <> 0 Or insurancebalance <> 0) and (NextFollowupDate Is NULL OR NextFollowupDate<=getdate()) and (ReferredToMEH is null or ReferredToMEH = 7183) and (Supervisor is null or Supervisor = 7185)",
+  "CWL_433961_SQL1": "select * from vwconversion where (patientbalance <> 0 Or insurancebalance <> 0) and ( NextFollowupDate>getdate()) and (ReferredToMEH is null or ReferredToMEH = 7183) and (Supervisor is null or Supervisor = 7185)",
+  "CWL_433962_SQL1": "select * from vwconversion where (patientbalance =0 and insurancebalance=0)  and (ReferredToMEH is null or ReferredToMEH = 7183) and (Supervisor is null or Supervisor = 7185)",
+  "CWL_433963_SQL1": "select * from vwconversion where Supervisor = 7184",
+  "CWL_433964_SQL1": "select * from vwconversion where NextFollowupDate>getdate()",
+  "CWL_433965_SQL1": "select * from vwconversion where (ReferredToMEH = 9790)",
+  "CWL_433966_SQL1": "select * from vwconversion where (ReferredToMEH = 7182)",
+  "CWL_433966_SQL2": "select * from vwconversion where ReferredToMEH = 7182 and (NextFollowupDate>getdate())",
+  "CWL_433966_SQL3": "select * from vwconversion where ReferredToMEH = 7182 and (NextFollowupDate is null or NextFollowupDate<=getdate())"
+}

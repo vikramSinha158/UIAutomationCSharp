@@ -40,6 +40,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.35, )"
+            },
+            "DotNetSeleniumExtras.WaitHelpers": {
+              "target": "Package",
+              "version": "[3.11.0, )"
+            },
             "ExtentReports.Core": {
               "target": "Package",
               "version": "[1.0.3, )"
@@ -75,6 +83,10 @@
             "SpecFlow": {
               "target": "Package",
               "version": "[3.3.30, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.1, )"
             },
             "xunit": {
               "target": "Package",

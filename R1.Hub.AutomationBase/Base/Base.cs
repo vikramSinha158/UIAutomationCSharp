@@ -34,6 +34,7 @@ namespace R1.Hub.AutomationBase.Base
         /// <returns></returns>
         protected TPage GetInstance<TPage>() where TPage : BasePage, new()
         {
+
             return (TPage)Activator.CreateInstance(typeof(TPage));
             
     }
