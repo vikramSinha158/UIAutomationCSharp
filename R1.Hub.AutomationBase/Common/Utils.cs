@@ -10,14 +10,16 @@ using System.IO;
 using System.Data;
 using R1.Automation.Database.core.Base;
 using R1.Automation.UI.core.Commons;
+using OpenQA.Selenium.Remote;
 
 namespace R1.Hub.AutomationBase.Common
 {
     public class Utils
     {
 
-		private DataAccess DAccess  = new DataAccess();
+		private DataAccess dataAccess  = new DataAccess();
 		private CommonUtility comUtil = new CommonUtility();
+	
 
 		/// <summary>
 		/// Check display of element
@@ -69,17 +71,17 @@ namespace R1.Hub.AutomationBase.Common
 		/// <param name="colLocator"></param>
 		/// <param name="colName"></param>
 		/// <returns></returns>
-		public List<String> GetColvalues(String rowLocator, String colLocator, String colName)
+		public List<String> GetColvalues(RemoteWebDriver driver, String rowLocator, String colLocator, String colName)
 		{
 			List<String> colValues = new List<String>();
-			int rowSize = DriverContext.driver.FindElements(By.XPath(rowLocator)).Count;
-			int colSize = DriverContext.driver.FindElements(By.XPath(colLocator)).Count;
+			int rowSize = driver.FindElements(By.XPath(rowLocator)).Count;
+			int colSize = driver.FindElements(By.XPath(colLocator)).Count;
 			for (int col = 1; col <= colSize; col++)
 			{
 				String colLocator1 = colLocator + "[" + col + "]";
 				try
 				{
-					String colname = DriverContext.driver.FindElement(By.XPath(colLocator1)).Text;
+					String colname = driver.FindElement(By.XPath(colLocator1)).Text;
 					if (colname.Equals(colName, StringComparison.OrdinalIgnoreCase))
 					{
 						for (int row = 1; row <= rowSize; row++)
@@ -87,7 +89,7 @@ namespace R1.Hub.AutomationBase.Common
 							//WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(15));
 							//wait.Until(_driver => rowLocator + "[" + row + "]/td[" + col + "]");
 							//new R1ContactCommons(_driver, _settings).highLightSteps(_driver.FindElement(By.XPath(rowLocator + "[" + row + "]/td[" + col + "]")));
-							colValues.Add(DriverContext.driver.FindElement(By.XPath(rowLocator + "[" + row + "]/td[" + col + "]")).Text);
+							colValues.Add(driver.FindElement(By.XPath(rowLocator + "[" + row + "]/td[" + col + "]")).Text);
 						}
 						break;
 					}
@@ -173,9 +175,9 @@ namespace R1.Hub.AutomationBase.Common
 		/// <summary>
 		/// Move Horizontal
 		/// </summary>
-		public void ScrollHorizontal()
+		public void ScrollHorizontal(RemoteWebDriver driver)
 		{
-			((IJavaScriptExecutor)DriverContext.driver).ExecuteScript("window.scrollBy(3000,0)", "");
+			((IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(3000,0)", "");
 		}
 
 
@@ -189,7 +191,7 @@ namespace R1.Hub.AutomationBase.Common
 		{
 			//int totalRow;
 			string query = comUtil.GetQueryData(queryKey).Trim();
-			DataTable dataTable = DAccess.SelectExecuteQuery(dbConnection, query);
+			DataTable dataTable = dataAccess.SelectExecuteQuery(dbConnection, query);
 			return dataTable.Rows.Count;
 		}
 

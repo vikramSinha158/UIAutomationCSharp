@@ -29,9 +29,9 @@ namespace R1.Hub.AutomationTest.Pages
 
 
 
-        public ConversionFollowupPage(ScenarioContext scenarioContext) : base(scenarioContext)
+        public ConversionFollowupPage(DriverContext driverContext) : base(driverContext)
         {
-            PageFactory.InitElements(DriverContext.driver, this);
+            PageFactory.InitElements(driverContext.Driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//div/span[text()='Conversion Followup']")]
@@ -89,8 +89,8 @@ namespace R1.Hub.AutomationTest.Pages
         /// <param name="filterfolderName"></param>
         public void ClickOnFilterfolder(string filterfolderName)
         {
-            
-            DriverContext.driver.FindElement(By.XPath(firstXPathFilterFolder + filterfolderName.Trim() + lastXPathFilterFolder)).Click();
+
+            _driverContext.Driver.FindElement(By.XPath(firstXPathFilterFolder + filterfolderName.Trim() + lastXPathFilterFolder)).Click();
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace R1.Hub.AutomationTest.Pages
         /// <param name="subFilterFolder"></param>
         public void ClickOnCoveraegCareFilterFolder(string subFilterFolder)
         {
-            DriverContext.driver.FindElement(By.XPath(firstXaothCoverageCareFilterFolder+ subFilterFolder.Trim()+ lastXpathCoveareCareFilterFolder)).Click();
+            _driverContext.Driver.FindElement(By.XPath(firstXaothCoverageCareFilterFolder+ subFilterFolder.Trim()+ lastXpathCoveareCareFilterFolder)).Click();
         }
 
 
@@ -112,10 +112,10 @@ namespace R1.Hub.AutomationTest.Pages
             bool filterfolderDisplayStatus = false;
             try
             {
-                IWebElement filterName = DriverContext.driver.FindElement(By.XPath(firstXpathfilterFolderName + filterfolderName.Trim() + lastXpathfilterFolderName));
+                IWebElement filterName = _driverContext.Driver.FindElement(By.XPath(firstXpathfilterFolderName + filterfolderName.Trim() + lastXpathfilterFolderName));
                 if (filterName.Displayed)
                     filterfolderDisplayStatus = true;
-                util.ScrollHorizontal();
+                util.ScrollHorizontal(_driverContext.Driver);
             }
             catch (NoSuchElementException e)
             {
@@ -131,8 +131,8 @@ namespace R1.Hub.AutomationTest.Pages
         /// </summary>
         /// <returns></returns>
         public int GetTotalWorkListRows()
-        {         
-            DriverContext.driver.WaitForVisibility(5, By.XPath(txtLatPage));
+        {
+            _driverContext.Driver.WaitForVisibility(5, By.XPath(txtLatPage));
             totalPageCnt = int.Parse(lblTotalPages.Text);
             if (totalPageCnt > 1)
             {

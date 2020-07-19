@@ -11,9 +11,9 @@ namespace R1.Hub.AutomationTest.Pages
 {
     public class AccountPage : BasePage
     {
-        public AccountPage(ScenarioContext scenarioContext) : base(scenarioContext)
+        public AccountPage(DriverContext driverContext) : base(driverContext)
         {
-            PageFactory.InitElements(DriverContext.driver, this);
+            PageFactory.InitElements(driverContext.Driver, this);
         }
 
 
@@ -39,7 +39,7 @@ namespace R1.Hub.AutomationTest.Pages
         public CoveragePage ClickOnCoverageTab()
         {
             coverageTab.Click();
-            return new CoveragePage(_scenarioContext);
+            return new CoveragePage(_driverContext);
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace R1.Hub.AutomationTest.Pages
         public ServicesPage ClickOnServicesTab()
         {
             serviceTab.Click();
-            return new ServicesPage(_scenarioContext);
+            return new ServicesPage(_driverContext);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace R1.Hub.AutomationTest.Pages
         public R1NecessityPage ClickOnR1Necessity()
         {
             R1NecessityTab.Click();
-            return new R1NecessityPage(_scenarioContext);
+            return new R1NecessityPage(_driverContext);
         }
 
         /// <summary>

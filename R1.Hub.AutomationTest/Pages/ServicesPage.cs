@@ -17,10 +17,10 @@ namespace R1.Hub.AutomationTest.Pages
     {
 
 
-        public ServicesPage(ScenarioContext scenarioContext) : base(scenarioContext)
+        public ServicesPage(DriverContext driverContext) : base(driverContext)
         {
 
-            PageFactory.InitElements(DriverContext.driver, this);
+            PageFactory.InitElements(driverContext.Driver, this);
 
         }
 
@@ -70,7 +70,7 @@ namespace R1.Hub.AutomationTest.Pages
             
             try
             {
-                DriverContext.driver.ScrollInView(lnkAdmiitingServices);
+                _driverContext.Driver.ScrollInView(lnkAdmiitingServices);
                 lnkAdmiitingServices.Click();
             }
             catch (NoSuchElementException) { }
@@ -113,7 +113,7 @@ namespace R1.Hub.AutomationTest.Pages
         /// <returns></returns>
         public List<String> GetServiceCPTcode()
         {
-            return util.GetColvalues(rowsHCPCSelected, colHCPCSelected, "HCPC");
+            return util.GetColvalues(_driverContext.Driver,rowsHCPCSelected, colHCPCSelected, "HCPC");
         }
 
 
@@ -123,7 +123,7 @@ namespace R1.Hub.AutomationTest.Pages
         /// <returns></returns>
         public List<String> GetDiagonosisCode()
         {
-            return util.GetColvalues(rowsICDSelected, colICDSelected, "ICD");
+            return util.GetColvalues(_driverContext.Driver,rowsICDSelected, colICDSelected, "ICD");
         }
 
 
@@ -136,7 +136,7 @@ namespace R1.Hub.AutomationTest.Pages
         /// <param name="firstRowSearchResult"></param>
         public void AddCode(IList<IWebElement> delTblRowCnt, string xpathDelrow, IList<IWebElement> rowsSearchResultCnt, IWebElement firstRowSearchResult)
         {
-            DriverContext.driver.ScrollInView(txtSearchService);
+            _driverContext.Driver.ScrollInView(txtSearchService);
 
             try
             {
@@ -145,9 +145,9 @@ namespace R1.Hub.AutomationTest.Pages
                     int delBtnCnt = delTblRowCnt.Count;
                     for (int i = 1; i <= delBtnCnt; i++)
                     {
-                        IWebElement delele = DriverContext.driver.FindElement(By.XPath(xpathDelrow));
+                        IWebElement delele = _driverContext.Driver.FindElement(By.XPath(xpathDelrow));
                         delele.Click();
-                        DriverContext.driver.ScrollInView(txtSearchService);
+                        _driverContext.Driver.ScrollInView(txtSearchService);
                     }
 
                 }
@@ -161,7 +161,7 @@ namespace R1.Hub.AutomationTest.Pages
             {
                 if (rowsSearchResultCnt.Count > 1)
                 {
-                    DriverContext.driver.ScrollInView(firstRowSearchResult);
+                    _driverContext.Driver.ScrollInView(firstRowSearchResult);
                     firstRowSearchResult.Click();
                 }
             }

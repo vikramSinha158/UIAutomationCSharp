@@ -16,10 +16,10 @@ namespace R1.Hub.AutomationTest.StepDefinitions
     {
 
         //R1HubLoginPage login;
-        private new ScenarioContext _scenarioContext;
-        public BusinessRulesStepDef(ScenarioContext scenarioContext) : base(scenarioContext)
+        private new DriverContext _driverContext;
+        public BusinessRulesStepDef(DriverContext driverContext) : base(driverContext)
         {
-            _scenarioContext = scenarioContext;
+            _driverContext = driverContext;
 
         }
         
@@ -27,7 +27,7 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         [When(@"user logins into the applicationoutcome]")]
         public void WhenUserLoginsIntoTheApplicationoutcome()
         {
-            CurrentPage.As<HomePage>().ClickLogOut();
+            _driverContext.CurrentPage.As<HomePage>().ClickLogOut();
         }
 
     }

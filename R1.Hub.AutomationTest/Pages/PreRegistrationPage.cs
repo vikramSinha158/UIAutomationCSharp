@@ -13,9 +13,9 @@ namespace R1.Hub.AutomationTest.Pages
     public class PreRegistrationPage:BasePage
     {
         private static int minRowsInWorkList = 2;
-        public PreRegistrationPage(ScenarioContext scenarioContext) : base(scenarioContext)
+        public PreRegistrationPage(DriverContext driverContext) : base(driverContext)
         {
-            PageFactory.InitElements(DriverContext.driver, this);
+            PageFactory.InitElements(driverContext.Driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//table[@class='worklistTable']//tbody/tr[@valign='middle']")]
@@ -40,7 +40,7 @@ namespace R1.Hub.AutomationTest.Pages
                 {
                     firstAccount.Click();
 
-                    return new AccountPage(_scenarioContext);
+                    return new AccountPage(_driverContext);
                 }
                 else {
                     Assert.True(false, "No row found for account");
@@ -53,6 +53,7 @@ namespace R1.Hub.AutomationTest.Pages
             }
             return null;
 
-        }        }
+        }        
+    }
              
 }

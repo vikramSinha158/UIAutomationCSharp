@@ -5,7 +5,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using R1.Automation.Database.core.Base;
 using R1.Automation.UI.core.Commons;
-using R1.Automation.UI.core.Reporting;
 using R1.Automation.UI.core.Selenium.Base;
 using R1.Hub.AutomationBase.Base;
 using R1.Hub.AutomationBase.Common;
@@ -26,9 +25,12 @@ namespace R1.Hub.AutomationTest.Hooks
     {    
         private readonly ScenarioContext _scenariocontext;
         private Settings _settings;
+        private DriverContext _driverContext;
+      
 
-        public HookInitialize(ScenarioContext scenarioContext, Settings settings)
+        public HookInitialize(DriverContext driverContext,ScenarioContext scenarioContext, Settings settings) : base(driverContext)
         {
+            _driverContext = driverContext;
             _scenariocontext = scenarioContext;
             _settings = settings;
 
@@ -37,19 +39,22 @@ namespace R1.Hub.AutomationTest.Hooks
         [BeforeTestRun]
         public static void TestRun()
         {
-            InitializeSettings();
+            InitializeReport();
         }
 
         [BeforeFeature]
         public static void BeforeFeature(FeatureContext featureContext)
         {
             GetFeatureInfo(featureContext);
-            DataReader.SetTestData();
+           
         }
 
         [BeforeScenario]
         public void TestInitalize()
         {
+   
+        InitializeSettings();
+            DataReader.SetTestData();
             NaviateSite();
             GetScenarioInfo(_scenariocontext);
 
@@ -66,8 +71,10 @@ namespace R1.Hub.AutomationTest.Hooks
         public void AfterScenario()
         {
            _settings.DataAccess.CloseDBConnection();
-            CloseBrowser(Settings.BrowserFlag);
-            
+            //CloseBrowser(Settings.BrowserFlag);
+            _driverContext.Driver.Quit();
+
+
         }
 
         [AfterStep]
@@ -80,7 +87,7 @@ namespace R1.Hub.AutomationTest.Hooks
         public static void TearDownReport()
         {
             PublishReport();
-            DriverFactory.CloseAllDrivers();
+            //DriverFactory.CloseAllDrivers();
         }
     }
 }

@@ -13,9 +13,9 @@ namespace R1.Hub.AutomationTest.Pages
 {
     public class CoveragePage : BasePage
     {
-        public CoveragePage(ScenarioContext scenarioContext) : base(scenarioContext)
+        public CoveragePage(DriverContext driverContext) : base(driverContext)
         {
-            PageFactory.InitElements(DriverContext.driver, this);
+            PageFactory.InitElements(driverContext.Driver, this);
         }
 
         private string HeaderTypeCol = "Plan Name";
@@ -77,17 +77,15 @@ namespace R1.Hub.AutomationTest.Pages
                     int delBtnCnt = covergeTblRows.Count;
                     for (int i = 1; i <= delBtnCnt; i++)
                     {
-                        IWebElement delele = DriverContext.driver.FindElement(By.XPath(delCoverageRows));
-                        DriverContext.driver.ScrollInView(delele);
+                        IWebElement delele = _driverContext.Driver.FindElement(By.XPath(delCoverageRows));
+                        _driverContext.Driver.ScrollInView(delele);
                         delele.Click();
-
                     }
-
                 }
    
             }
             catch (NoSuchElementException e) { }
-            DriverContext.driver.ScrollInView(txtSearchCoverage);
+            _driverContext.Driver.ScrollInView(txtSearchCoverage);
             if (CoverageType.Equals("Medicare", StringComparison.OrdinalIgnoreCase))
                 txtSearchCoverage.SendKeys(Settings.MedicareCoverageType);
             if (CoverageType.Equals("NonMedicare",StringComparison.OrdinalIgnoreCase))
@@ -117,12 +115,12 @@ namespace R1.Hub.AutomationTest.Pages
 
             if (serachResultRows.Count > 1)
             {
-                searchResult = DriverContext.driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + searchEleCount + "]")).Text;
+                searchResult = _driverContext.Driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + searchEleCount + "]")).Text;
 
                 if (searchResult.Contains(Settings.MedicareCoverageType))
-                    DriverContext.driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
+                    _driverContext.Driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
                 if (searchResult.Contains(Settings.AETNACovergaeType))
-                   DriverContext.driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
+                    _driverContext.Driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
             }
             btnNewCoverage.Click();
 
@@ -137,7 +135,7 @@ namespace R1.Hub.AutomationTest.Pages
             if (tblCoverageHeader.Displayed)
             {
                 lnkTBD.Click();
-                DriverContext.driver.ScrollInView(verificationStatus);
+                _driverContext.Driver.ScrollInView(verificationStatus);
                 verificationStatus.ClickDropDownValuebyContainingText(passCoveragetatus);
                 btnUpdateVerifiedStatus.Click();
             }

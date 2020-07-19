@@ -3,15 +3,20 @@ using R1.Automation.UI.core.Selenium.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using OpenQA.Selenium.Remote;
 
 
 namespace R1.Hub.AutomationBase.Base
 {
-    public static class DriverContext
+    public class DriverContext
     {
         //public static IWebDriver Driver;
 
-        public static IWebDriver driver = DriverFactory.Driver;
+        //public static IWebDriver driver = DriverFactory.Driver;
+
+        public RemoteWebDriver Driver { get; set; }
+
+        public BasePage CurrentPage { get; set; }
 
 
     }

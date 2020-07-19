@@ -9,9 +9,9 @@ namespace R1.Hub.AutomationTest.Pages
 {
     public class R1NecessityPage:BasePage
     {
-        public R1NecessityPage(ScenarioContext scenarioContext) : base(scenarioContext)
+        public R1NecessityPage(DriverContext driverContext) : base(driverContext)
         {
-            PageFactory.InitElements(DriverContext.driver, this);
+            PageFactory.InitElements(driverContext.Driver, this);
         }
 
         private string rowsCPTgrid= "//table[contains(@id,'NecessityCPT1')]//tr[@class='PanelDetail']";
@@ -24,7 +24,7 @@ namespace R1.Hub.AutomationTest.Pages
         /// <returns></returns>
         public List<String> GetR1NessityCPT()
         {
-            return util.GetColvalues(rowsCPTgrid, colCPTgrid, "CPT");
+            return util.GetColvalues(_driverContext.Driver,rowsCPTgrid, colCPTgrid, "CPT");
         }
 
     }

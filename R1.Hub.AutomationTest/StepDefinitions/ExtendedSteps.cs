@@ -13,11 +13,11 @@ namespace R1.Hub.AutomationTest.StepDefinitions
     [Binding]
     public class ExtendedSteps: BaseStep
     {
-        private new ScenarioContext _scenarioContext;
+        private new DriverContext _driverContext;
 
-        public ExtendedSteps(ScenarioContext scenarioContext) : base(scenarioContext)
+        public ExtendedSteps(DriverContext driverContex) : base(driverContex)
         {
-            _scenarioContext = scenarioContext;
+            _driverContext = driverContex;
  
         }
 
@@ -25,24 +25,24 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         [Given(@"user is on R(.*) Hub login page")]
         public void GivenUserIsOnRHubLoginPage(int p0)
         {
-            CurrentPage = new R1HubLoginPage(_scenarioContext);
+            _driverContext.CurrentPage = new R1HubLoginPage(_driverContext);
 
-            CurrentPage.As<R1HubLoginPage>().Login(Settings.UserName, Settings.Password);
-            CurrentPage = CurrentPage.As<R1HubLoginPage>().ClickLoginButton();
+            _driverContext.CurrentPage.As<R1HubLoginPage>().Login(Settings.UserName, Settings.Password);
+            _driverContext.CurrentPage = _driverContext.CurrentPage.As<R1HubLoginPage>().ClickLoginButton();
         }
 
      
         [Given(@"user is on home page of the application")]
         public void GivenUserIsOnHomePageOfTheApplication()
         {
-            CurrentPage.As<HomePage>().VerifyHomePageVisible();
+            _driverContext.CurrentPage.As<HomePage>().VerifyHomePageVisible();
         }
 
         [Given(@"Select Facilty Code")]
         public void GivenSelectFaciltyCode()
         {
-            CurrentPage.As<HomePage>().ClickFaciclityCode();
-            CurrentPage.As<HomePage>().SelectFacilityCode("SJPK");
+            _driverContext.CurrentPage.As<HomePage>().ClickFaciclityCode();
+            _driverContext.CurrentPage.As<HomePage>().SelectFacilityCode("SJPK");
            
         }
 
@@ -50,7 +50,7 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         [AfterScenario]
         public void AppLogOut()
         {
-            new HomePage(_scenarioContext).ClickLogOut();
+            new HomePage(_driverContext).ClickLogOut();
          
         }
 

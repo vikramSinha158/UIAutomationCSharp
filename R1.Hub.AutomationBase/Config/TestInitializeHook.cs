@@ -5,11 +5,11 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
 using System.Collections.Generic;
 using System.Text;
-using R1.Automation.UI.core.Reporting;
 using R1.Automation.UI.core.Commons;
 using TechTalk.SpecFlow;
 using R1.Automation.UI.core.Selenium.Extensions;
 using System.IO;
+using R1.Automation.Reporting.Core;
 
 namespace R1.Hub.AutomationBase.Config
 {
@@ -23,15 +23,40 @@ namespace R1.Hub.AutomationBase.Config
         private static ExtentTest scenario;
         private static AventStack.ExtentReports.ExtentReports extent;
         private static string path;
+        private DriverContext _driverContext;
+        private DriverFactory _driverFactory = new DriverFactory();
 
+        public TestInitializeHook(DriverContext driverContext)
+        {
+            _driverContext = driverContext;
+        }
         /// <summary>
         /// Initialzing data,report and driver
         /// </summary>
-        public static void InitializeSettings()
+        public void InitializeSettings()
         {
             ConfigReader.SetConfigSetting();
-            DriverContext.driver = DriverFactory.InitDriver(Settings.BrowserName);
+            _driverContext.Driver = _driverFactory.InitDriver(Settings.BrowserName);
 
+            //if (Settings.ExtentReportReq)
+            //{
+            //    extent = ExtentReport.InitReport(Settings.ReportPath);
+
+            //    var folderName = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            //    string screenShotpath = Path.Combine(folderName.Substring(0, folderName.LastIndexOf("\\bin")), Settings.ScreenShotsPath);
+
+            //    if (!Directory.Exists(screenShotpath))
+            //    {
+            //        Directory.CreateDirectory(screenShotpath);
+            //    }
+
+            //    path = CommonUtility.DeleteOldFolders(Settings.ScreenShotsPath, Settings.LastScreenShotDays);
+            //    path = CommonUtility.CreateFolder(path);
+            //}
+        }
+
+        public static void InitializeReport()
+        {
             if (Settings.ExtentReportReq)
             {
                 extent = ExtentReport.InitReport(Settings.ReportPath);
@@ -105,8 +130,9 @@ namespace R1.Hub.AutomationBase.Config
         /// </summary>
         public virtual void NaviateSite()
         {
-            DriverContext.driver.Navigate().GoToUrl(Settings.AUT);
-            DriverContext.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Settings.ImplicitWait);
+            _driverContext.Driver.Navigate().GoToUrl(Settings.AUT);
+            _driverContext.Driver.Manage().Window.Maximize();
+            _driverContext.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Settings.ImplicitWait);
         }
 
 
@@ -118,7 +144,7 @@ namespace R1.Hub.AutomationBase.Config
         {
             if (browsercloseflag)
             {
-                DriverFactory.CloseAllDrivers();
+                _driverFactory.CloseAllDrivers();
             }
         }
 

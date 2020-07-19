@@ -490,6 +490,35 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "R1.Automation.Reporting.Core/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "ExtentReports.Core": "1.0.3",
+          "SpecFlow": "3.1.97"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/R1.Automation.Reporting.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/R1.Automation.Reporting.Core.dll": {}
+        }
+      },
+      "R1.Automation.UI.core/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "DotNetSeleniumExtras.WaitHelpers": "3.11.0",
+          "Microsoft.Extensions.Configuration": "3.1.3",
+          "Microsoft.Extensions.Configuration.Json": "3.1.3",
+          "Selenium.Support": "3.141.0",
+          "Selenium.WebDriver": "3.141.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/R1.Automation.UI.core.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/R1.Automation.UI.core.dll": {}
+        }
+      },
       "RazorEngine.NetCore/2.2.6": {
         "type": "package",
         "dependencies": {
@@ -3120,6 +3149,28 @@
         "newtonsoft.json.12.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "R1.Automation.Reporting.Core/1.1.0": {
+      "sha512": "IgqYuCmGMqVlDh8DZr+oELzWKjKur57ihuDympoapP08x3ABLVVJ1E3QzGUAgmQDGD2qADNHRDoktFL+3w72kQ==",
+      "type": "package",
+      "path": "r1.automation.reporting.core/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        "lib/netcoreapp3.1/R1.Automation.Reporting.Core.dll",
+        "r1.automation.reporting.core.1.1.0.nupkg.sha512",
+        "r1.automation.reporting.core.nuspec"
+      ]
+    },
+    "R1.Automation.UI.core/2.0.0": {
+      "sha512": "f6J/8R2i2uVZ9v7IcIrvslVBnyRUZ39lEujDbzqnjzCkBqQFKUHUgxemT+7IaaLfRrGDmSjDNlEMJCUTScPgFw==",
+      "type": "package",
+      "path": "r1.automation.ui.core/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "lib/netcoreapp3.1/R1.Automation.UI.core.dll",
+        "r1.automation.ui.core.2.0.0.nupkg.sha512",
+        "r1.automation.ui.core.nuspec"
       ]
     },
     "RazorEngine.NetCore/2.2.6": {
@@ -8037,6 +8088,8 @@
       "Microsoft.Extensions.Configuration.FileExtensions >= 3.1.5",
       "Microsoft.Extensions.Configuration.Json >= 3.1.5",
       "Newtonsoft.Json >= 12.0.3",
+      "R1.Automation.Reporting.Core >= 1.1.0",
+      "R1.Automation.UI.core >= 2.0.0",
       "Selenium.Support >= 3.141.0",
       "Selenium.WebDriver >= 3.141.0",
       "SpecFlow >= 3.3.30",
@@ -8066,6 +8119,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://packagesource": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://nuget.accretivehealth.local/NuGet/api/v2": {}
       },
@@ -8114,6 +8168,14 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[12.0.3, )"
+          },
+          "R1.Automation.Reporting.Core": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          },
+          "R1.Automation.UI.core": {
+            "target": "Package",
+            "version": "[2.0.0, )"
           },
           "Selenium.Support": {
             "target": "Package",

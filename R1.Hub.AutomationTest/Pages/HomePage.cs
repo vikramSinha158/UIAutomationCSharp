@@ -12,11 +12,11 @@ namespace R1.Hub.AutomationTest.Pages
 {
     public class HomePage : BasePage
     {
-
-        public HomePage(ScenarioContext scenarioContext) : base(scenarioContext)
+        
+        public HomePage(DriverContext driverContext) : base(driverContext)
         {
 
-            PageFactory.InitElements(DriverContext.driver, this);
+            PageFactory.InitElements(driverContext.Driver, this);
 
         }
 
@@ -54,8 +54,8 @@ namespace R1.Hub.AutomationTest.Pages
         /// <returns></returns>
         public PatientAccessPage ClickPatientAccessTab()
         {
-            DriverContext.driver.FindElement(By.XPath(lnkPatientAccess)).Click();
-            return new PatientAccessPage(_scenarioContext);
+            _driverContext.Driver.FindElement(By.XPath(lnkPatientAccess)).Click();
+            return new PatientAccessPage(_driverContext);
         }
 
         /// <summary>

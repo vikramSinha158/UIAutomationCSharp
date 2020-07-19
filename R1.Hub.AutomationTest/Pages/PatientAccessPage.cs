@@ -15,9 +15,9 @@ namespace R1.Hub.AutomationTest.Pages
 
         string conversionFollow = "//a/span[text()='Conversion Followup']";
 
-        public PatientAccessPage(ScenarioContext scenarioContext) : base(scenarioContext)
+        public PatientAccessPage(DriverContext driverContext) : base(driverContext)
         {
-            PageFactory.InitElements(DriverContext.driver, this);
+            PageFactory.InitElements(driverContext.Driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//a[contains(@href,'Pre-Registration')]")]
@@ -34,15 +34,14 @@ namespace R1.Hub.AutomationTest.Pages
         public PreRegistrationPage ClickOnPreRegistration()
         {
             lnkPreRegistration.Click();
-
-            return new PreRegistrationPage(_scenarioContext);
+            return new PreRegistrationPage(_driverContext);
         }
 
         public ConversionFollowupPage ClickOnConversionFollowUp()
         {
-            DriverContext.driver.ScrollInView(lnkConversionFollowup);
-            DriverContext.driver.ClickOnElement(lnkConversionFollowup);
-            return new ConversionFollowupPage(_scenarioContext);
+            _driverContext.Driver.ScrollInView(lnkConversionFollowup);
+            _driverContext.Driver.ClickOnElement(lnkConversionFollowup);
+            return new ConversionFollowupPage(_driverContext);
 
         }
 
