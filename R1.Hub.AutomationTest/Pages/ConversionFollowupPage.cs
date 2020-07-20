@@ -12,6 +12,7 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using R1.Automation.UI.core.Selenium.Extensions;
 using TechTalk.SpecFlow.Assist;
+using System.Threading;
 
 namespace R1.Hub.AutomationTest.Pages
 {
@@ -26,6 +27,7 @@ namespace R1.Hub.AutomationTest.Pages
         private string txtLatPage = "//span[contains(@id,'lblTotalPages')]";
         private string firstXaothCoverageCareFilterFolder = "//div/span[text()='Care Coverage']//preceding::div[1]/following-sibling::div/div[contains(@id,'WorklistPaneltreeProcessUltraWebTree')]//span[text()='";
         private string lastXpathCoveareCareFilterFolder = "']";
+        private string xPathBSO = "//div/span[text()='BSO']";
 
 
 
@@ -69,6 +71,8 @@ namespace R1.Hub.AutomationTest.Pages
         public void verifyFilterFolder()
         {
             List<String> subfilterFolderList = new List<String>();
+            //Thread.Sleep(3000);
+            _driverContext.Driver.WaitForVisibility(3, By.XPath(xPathBSO));
 
             for (int i = 0; i < followupWorklist.Count; i++)
             {
@@ -79,7 +83,7 @@ namespace R1.Hub.AutomationTest.Pages
 
             bool result = util.CompareList(subfilterFolderList, expfollowupIList);
 
-            Assert.True(result,"Comversion followup subfilter folder not match with expected list ");
+            Assert.True(result,"Comversion followup subfilter folder not match with expected list,Actual filter folder count  " + subfilterFolderList.Count  + " Expected filter count " + expfollowupIList.Count);
         }
 
 

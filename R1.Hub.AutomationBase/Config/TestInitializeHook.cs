@@ -17,9 +17,9 @@ namespace R1.Hub.AutomationBase.Config
     {
         ExtentReport ER = new ExtentReport();
 
-        [ThreadStatic]
+        //[ThreadStatic]
         private static ExtentTest featureName;
-        [ThreadStatic]
+        //[ThreadStatic]
         private static ExtentTest scenario;
         private static AventStack.ExtentReports.ExtentReports extent;
         private static string path;
@@ -35,7 +35,7 @@ namespace R1.Hub.AutomationBase.Config
         /// </summary>
         public void InitializeSettings()
         {
-            ConfigReader.SetConfigSetting();
+           // ConfigReader.SetConfigSetting();
             _driverContext.Driver = _driverFactory.InitDriver(Settings.BrowserName);
 
             //if (Settings.ExtentReportReq)

@@ -26,7 +26,7 @@ namespace R1.Hub.AutomationTest.Hooks
         private readonly ScenarioContext _scenariocontext;
         private Settings _settings;
         private DriverContext _driverContext;
-      
+
 
         public HookInitialize(DriverContext driverContext,ScenarioContext scenarioContext, Settings settings) : base(driverContext)
         {
@@ -34,29 +34,34 @@ namespace R1.Hub.AutomationTest.Hooks
             _scenariocontext = scenarioContext;
             _settings = settings;
 
+
         }
 
         [BeforeTestRun]
         public static void TestRun()
         {
+            ConfigReader.SetConfigSetting();
             InitializeReport();
         }
 
         [BeforeFeature]
         public static void BeforeFeature(FeatureContext featureContext)
         {
+            
             GetFeatureInfo(featureContext);
-           
+
         }
 
         [BeforeScenario]
         public void TestInitalize()
         {
-   
-        InitializeSettings();
+
+            InitializeSettings();
             DataReader.SetTestData();
             NaviateSite();
+           //GetFeatureInfo(_featureContext);
             GetScenarioInfo(_scenariocontext);
+           // scenario = featureName.CreateNode<Scenario>(_scenariocontext.ScenarioInfo.Title);
 
         }
 
