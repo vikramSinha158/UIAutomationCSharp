@@ -47,11 +47,5 @@ namespace R1.Hub.AutomationTest.Pages
 
 
 
-        //public void ClickOnPatientAccessWorklist(string linkTxt)
-        //{
-        //    DriverContext.driver.FindElement(By.XPath("//a/span[text()='" + linkTxt + "']")).Click();
-        //}
-
-
     }
 }

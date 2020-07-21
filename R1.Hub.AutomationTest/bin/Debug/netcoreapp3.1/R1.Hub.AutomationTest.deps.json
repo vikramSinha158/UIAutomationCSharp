@@ -16,6 +16,7 @@
           "Microsoft.Extensions.Configuration.Json": "3.1.5",
           "Microsoft.NET.Test.Sdk": "16.6.1",
           "Newtonsoft.Json": "12.0.3",
+          "R1.Automation.Database.core": "1.0.1",
           "R1.Automation.Reporting.Core": "1.1.0",
           "R1.Automation.UI.core": "2.0.0",
           "R1.Hub.AutomationBase": "1.0.0",
@@ -30,8 +31,7 @@
           "xunit": "2.4.1",
           "xunit.assert": "2.4.1",
           "xunit.core": "2.4.1",
-          "xunit.runner.visualstudio": "2.4.1",
-          "R1.Automation.Database.core": "1.0.0.0"
+          "xunit.runner.visualstudio": "2.4.1"
         },
         "runtime": {
           "R1.Hub.AutomationTest.dll": {}
@@ -737,6 +737,19 @@
           "lib/netstandard2.0/NuGet.Frameworks.dll": {
             "assemblyVersion": "5.0.0.6",
             "fileVersion": "5.0.0.5923"
+          }
+        }
+      },
+      "R1.Automation.Database.core/1.0.1": {
+        "dependencies": {
+          "Dapper": "2.0.35",
+          "Microsoft.Extensions.Configuration.Json": "3.1.5",
+          "System.Data.SqlClient": "4.8.1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/R1.Automation.Database.core.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
           }
         }
       },
@@ -2004,6 +2017,7 @@
           "Microsoft.Extensions.Configuration.FileExtensions": "3.1.5",
           "Microsoft.Extensions.Configuration.Json": "3.1.5",
           "Newtonsoft.Json": "12.0.3",
+          "R1.Automation.Database.core": "1.0.1",
           "R1.Automation.Reporting.Core": "1.1.0",
           "R1.Automation.UI.core": "2.0.0",
           "Selenium.Support": "3.141.0",
@@ -2014,14 +2028,6 @@
         },
         "runtime": {
           "R1.Hub.AutomationBase.dll": {}
-        }
-      },
-      "R1.Automation.Database.core/1.0.0.0": {
-        "runtime": {
-          "R1.Automation.Database.core.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
         }
       }
     }
@@ -2318,6 +2324,13 @@
       "sha512": "sha512-c5JVjuVAm4f7E9Vj+v09Z9s2ZsqFDjBpcsyS3M9xRo0bEdm/LVZSzLxxNvfvAwRiiE8nwe1h2G4OwiwlzFKXlA==",
       "path": "nuget.frameworks/5.0.0",
       "hashPath": "nuget.frameworks.5.0.0.nupkg.sha512"
+    },
+    "R1.Automation.Database.core/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M+IwRfqdaRMJFzCWn8WWd2nxf9tuOaheIg5lZSDP9fV75QhcaZC+vo8t/J8JPIhUQpiMF4npExF7dcfUnTVhmw==",
+      "path": "r1.automation.database.core/1.0.1",
+      "hashPath": "r1.automation.database.core.1.0.1.nupkg.sha512"
     },
     "R1.Automation.Reporting.Core/1.1.0": {
       "type": "package",
@@ -3231,11 +3244,6 @@
     },
     "R1.Hub.AutomationBase/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "R1.Automation.Database.core/1.0.0.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

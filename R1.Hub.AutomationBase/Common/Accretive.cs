@@ -62,7 +62,6 @@ namespace R1.Hub.AutomationBase.Common
                 auth = GetAppsetting["Connection:Auth"].Trim();
                 userId = GetAppsetting["Connection:UserID"].Trim();
                 passWord = GetAppsetting["Connection:PWD"].Trim();
-                //facilityCode = GetAppsetting["Connection:Facility"].Trim();
             }
         }
         /// <summary>
@@ -79,8 +78,6 @@ namespace R1.Hub.AutomationBase.Common
                 {
                     ServerName = listValue[0].ServerName;
                     DatabaseName = listValue[0].DatabaseName;
-                   // connectionString = auth.Equals("Window") ? "Data Source = " + ServerName + "; Initial Catalog = " + base.DatabaseName + "; Integrated Security = True" : "Data Source = " + ServerName + "; Initial Catalog = " + base.DatabaseName + "; User ID = " + userId + " ; Password =" + passWord + "";
-                    //connectionString = "Data Source = " + ServerName + "; Initial Catalog = " + DatabaseName + "; User ID = " + userId + " ; Password =" + passWord + "";
                     if (auth == "Window")
                     {
                         connectionString = "Data Source = " + ServerName + "; Initial Catalog = " + DatabaseName + "; Integrated Security = True";

@@ -28,6 +28,7 @@ namespace R1.Hub.AutomationTest.Pages
         private string firstXaothCoverageCareFilterFolder = "//div/span[text()='Care Coverage']//preceding::div[1]/following-sibling::div/div[contains(@id,'WorklistPaneltreeProcessUltraWebTree')]//span[text()='";
         private string lastXpathCoveareCareFilterFolder = "']";
         private string xPathBSO = "//div/span[text()='BSO']";
+        private string xPathPending = "//div/span[text()='Care Coverage']//preceding::div[1]/following-sibling::div/div[contains(@id,'WorklistPaneltreeProcessUltraWebTree')]//span[text()='Pending']";
 
 
 
@@ -59,6 +60,8 @@ namespace R1.Hub.AutomationTest.Pages
 
         [FindsBy(How = How.XPath, Using = "//div/span[text()='Care Coverage']//preceding::div[1]/following-sibling::div/div[contains(@id,'WorklistPaneltreeProcessUltraWebTree')]//span[@igtxt='1']")]
         private IList<IWebElement> subFilterFolderCovCareList;
+
+        
 
         public void VerifyConversionFollowDisplay()
         {
@@ -175,19 +178,20 @@ namespace R1.Hub.AutomationTest.Pages
         {
             var subFilterfolderCoverageCare = table.CreateDynamicSet();
 
-            List<String> subfilterFolderCoverageList = new List<String>();
+            List<String> subfilterFolderCoverages = new List<String>();
 
             foreach (var subfilterfolder in subFilterfolderCoverageCare)
             {
-                subfilterFolderCoverageList.Add(subfilterfolder.SubFilterFolderDeck);
-                subfilterFolderCoverageList.Add(subfilterfolder.SubFilterFolderPending);
+                subfilterFolderCoverages.Add(subfilterfolder.SubFilterFolderDeck);
+                subfilterFolderCoverages.Add(subfilterfolder.SubFilterFolderPending);
             }
 
-            List<String> actCoverageList = util.GetElementList(subFilterFolderCovCareList);
+            _driverContext.Driver.WaitForVisibility(3, By.XPath(xPathPending));
+            List<String> actCoverages = util.GetElementList(subFilterFolderCovCareList); 
 
-            bool result = util.CompareList(subfilterFolderCoverageList, actCoverageList);
+            bool result = util.CompareList(subfilterFolderCoverages, actCoverages);
 
-            Assert.True(result, "Comversion followup subfilter folder not match with expected list ");
+            Assert.True(result, "Comversion followup subfilter folder not match with expected list,Expected list count  " +  subfilterFolderCoverages.Count + "But Actusl list count " + actCoverages.Count);
 
         }
 

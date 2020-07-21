@@ -1,19 +1,7 @@
-﻿using AventStack.ExtentReports;
-using AventStack.ExtentReports.Gherkin.Model;
-using Microsoft.Extensions.Configuration;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using R1.Automation.Database.core.Base;
-using R1.Automation.UI.core.Commons;
-using R1.Automation.UI.core.Selenium.Base;
+﻿
 using R1.Hub.AutomationBase.Base;
-using R1.Hub.AutomationBase.Common;
 using R1.Hub.AutomationBase.Config;
 using R1.Hub.AutomationTest.TestData;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
 using TechTalk.SpecFlow;
 
 
@@ -40,8 +28,7 @@ namespace R1.Hub.AutomationTest.Hooks
         [BeforeTestRun]
         public static void TestRun()
         {
-            ConfigReader.SetConfigSetting();
-            InitializeReport();
+            InitializeSettings();
         }
 
         [BeforeFeature]
@@ -55,14 +42,10 @@ namespace R1.Hub.AutomationTest.Hooks
         [BeforeScenario]
         public void TestInitalize()
         {
-
-            InitializeSettings();
             DataReader.SetTestData();
+            InitializeDriver();
             NaviateSite();
-           //GetFeatureInfo(_featureContext);
             GetScenarioInfo(_scenariocontext);
-           // scenario = featureName.CreateNode<Scenario>(_scenariocontext.ScenarioInfo.Title);
-
         }
 
         [BeforeScenario("DBConnection")]
@@ -76,9 +59,7 @@ namespace R1.Hub.AutomationTest.Hooks
         public void AfterScenario()
         {
            _settings.DataAccess.CloseDBConnection();
-            //CloseBrowser(Settings.BrowserFlag);
             _driverContext.Driver.Quit();
-
 
         }
 
@@ -92,7 +73,9 @@ namespace R1.Hub.AutomationTest.Hooks
         public static void TearDownReport()
         {
             PublishReport();
-            //DriverFactory.CloseAllDrivers();
+            CloseBrowser();
+
+
         }
     }
 }

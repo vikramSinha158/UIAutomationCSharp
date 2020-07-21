@@ -17,14 +17,15 @@ namespace R1.Hub.AutomationBase.Config
     {
         ExtentReport ER = new ExtentReport();
 
-        //[ThreadStatic]
+        [ThreadStatic]
         private static ExtentTest featureName;
-        //[ThreadStatic]
+        [ThreadStatic]
         private static ExtentTest scenario;
         private static AventStack.ExtentReports.ExtentReports extent;
         private static string path;
         private DriverContext _driverContext;
-        private DriverFactory _driverFactory = new DriverFactory();
+        public DriverFactory _driverFactory = new DriverFactory();
+        private CommonUtility comUtil = new CommonUtility();
 
         public TestInitializeHook(DriverContext driverContext)
         {
@@ -33,36 +34,23 @@ namespace R1.Hub.AutomationBase.Config
         /// <summary>
         /// Initialzing data,report and driver
         /// </summary>
-        public void InitializeSettings()
+        public void InitializeDriver()
         {
-           // ConfigReader.SetConfigSetting();
+           
             _driverContext.Driver = _driverFactory.InitDriver(Settings.BrowserName);
+            _driverContext.Driver.Manage().Window.Maximize();
 
-            //if (Settings.ExtentReportReq)
-            //{
-            //    extent = ExtentReport.InitReport(Settings.ReportPath);
-
-            //    var folderName = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            //    string screenShotpath = Path.Combine(folderName.Substring(0, folderName.LastIndexOf("\\bin")), Settings.ScreenShotsPath);
-
-            //    if (!Directory.Exists(screenShotpath))
-            //    {
-            //        Directory.CreateDirectory(screenShotpath);
-            //    }
-
-            //    path = CommonUtility.DeleteOldFolders(Settings.ScreenShotsPath, Settings.LastScreenShotDays);
-            //    path = CommonUtility.CreateFolder(path);
-            //}
         }
 
-        public static void InitializeReport()
+        public static void InitializeSettings()
         {
+
+            ConfigReader.SetConfigSetting();
             if (Settings.ExtentReportReq)
-            {
+            {               
                 extent = ExtentReport.InitReport(Settings.ReportPath);
 
-                var folderName = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                string screenShotpath = Path.Combine(folderName.Substring(0, folderName.LastIndexOf("\\bin")), Settings.ScreenShotsPath);
+                string screenShotpath =new CommonUtility().GetFolderPath(Settings.ScreenShotsPath);
 
                 if (!Directory.Exists(screenShotpath))
                 {
@@ -107,6 +95,7 @@ namespace R1.Hub.AutomationBase.Config
                 object TestResult = ER.ConfigSteps(scenarioContext);
                 bool pass = Settings.PassScreenShotReq;
                 bool fail = Settings.FailScreenShotReq;
+                //string spath = comUtil.TakeScreenshot(_driverContext.Driver, path);
                 ER.InsertStepsInReport(scenarioContext, TestResult, path, scenario, pass, fail);
             }
 
@@ -131,7 +120,6 @@ namespace R1.Hub.AutomationBase.Config
         public virtual void NaviateSite()
         {
             _driverContext.Driver.Navigate().GoToUrl(Settings.AUT);
-            _driverContext.Driver.Manage().Window.Maximize();
             _driverContext.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Settings.ImplicitWait);
         }
 
@@ -140,15 +128,10 @@ namespace R1.Hub.AutomationBase.Config
         /// Close browser
         /// </summary>
         /// <param name="browsercloseflag"></param>
-        public void CloseBrowser(bool browsercloseflag)
+        public static  void CloseBrowser()
         {
-            if (browsercloseflag)
-            {
-                _driverFactory.CloseAllDrivers();
-            }
+            new DriverFactory().CloseAllDrivers();
         }
-
-
 
 
     }
