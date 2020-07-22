@@ -2,8 +2,6 @@
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using TechTalk.SpecFlow;
 using R1.Automation.UI.core.Selenium.Extensions;
 using SeleniumExtras.PageObjects;
 using R1.Hub.AutomationBase.Config;

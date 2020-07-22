@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
 using R1.Hub.AutomationBase.Base;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TechTalk.SpecFlow;
-using Xunit;
 using R1.Automation.UI.core.Selenium.Extensions;
 using SeleniumExtras.PageObjects;
 
@@ -44,7 +39,6 @@ namespace R1.Hub.AutomationTest.Pages
         /// <param name="text"></param>
         public void SelectFacilityCode(string text)
         {
-
             dropDwnFacilityCode.ClickDropDownValuebyContainingText(text);
         }
 

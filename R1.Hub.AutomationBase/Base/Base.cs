@@ -20,14 +20,6 @@ namespace R1.Hub.AutomationBase.Base
             
     }
 
-        /// <summary>
-        /// Creating current page property
-        /// </summary>
-        //public BasePage CurrentPage
-        //{
-        //    get => (BasePage)_scenarioContext["currentPage"];
-        //    set => _scenarioContext["currentPage"] = value;
-        //}
 
         /// <summary>
         /// Genric method to create object of class

@@ -3,11 +3,8 @@ using R1.Hub.AutomationBase.Base;
 using System;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
-using System.Collections.Generic;
-using System.Text;
 using R1.Automation.UI.core.Commons;
 using TechTalk.SpecFlow;
-using R1.Automation.UI.core.Selenium.Extensions;
 using System.IO;
 using R1.Automation.Reporting.Core;
 
@@ -15,7 +12,7 @@ namespace R1.Hub.AutomationBase.Config
 {
     public class TestInitializeHook
     {
-        ExtentReport ER = new ExtentReport();
+        ExtentReport extentReport = new ExtentReport();
 
         [ThreadStatic]
         private static ExtentTest featureName;
@@ -92,11 +89,11 @@ namespace R1.Hub.AutomationBase.Config
         {
             if (Settings.ExtentReportReq)
             {
-                object TestResult = ER.ConfigSteps(scenarioContext);
+                object TestResult = extentReport.ConfigSteps(scenarioContext);
                 bool pass = Settings.PassScreenShotReq;
                 bool fail = Settings.FailScreenShotReq;
-                //string spath = comUtil.TakeScreenshot(_driverContext.Driver, path);
-                ER.InsertStepsInReport(scenarioContext, TestResult, path, scenario, pass, fail);
+                string spath = comUtil.TakeScreenshot(_driverContext.Driver, path);
+                extentReport.InsertStepsInReport(scenarioContext, TestResult, spath, scenario, pass, fail);
             }
 
         }

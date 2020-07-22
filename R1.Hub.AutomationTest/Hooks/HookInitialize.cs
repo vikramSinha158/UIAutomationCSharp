@@ -21,8 +21,6 @@ namespace R1.Hub.AutomationTest.Hooks
             _driverContext = driverContext;
             _scenariocontext = scenarioContext;
             _settings = settings;
-
-
         }
 
         [BeforeTestRun]

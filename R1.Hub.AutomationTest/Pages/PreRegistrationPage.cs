@@ -1,10 +1,6 @@
 ﻿using OpenQA.Selenium;
 using R1.Hub.AutomationBase.Base;
-using TechTalk.SpecFlow;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Collections.ObjectModel;
 using Xunit;
 using SeleniumExtras.PageObjects;
 

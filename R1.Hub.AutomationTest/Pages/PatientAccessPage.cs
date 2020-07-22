@@ -2,11 +2,6 @@
 using R1.Automation.UI.core.Selenium.Extensions;
 using R1.Hub.AutomationBase.Base;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TechTalk.SpecFlow;
-using OpenQA.Selenium.Interactions;
 
 namespace R1.Hub.AutomationTest.Pages
 {
