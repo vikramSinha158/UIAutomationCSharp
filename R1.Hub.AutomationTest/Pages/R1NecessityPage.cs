@@ -18,11 +18,11 @@ namespace R1.Hub.AutomationTest.Pages
             PageFactory.InitElements(driverContext.Driver, this);
         }
 
-       
+
         /// <summary>
         /// Method to get CPT code
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Get R1Nessity CPT code in listr</returns>
         public List<String> GetR1NessityCPT()
         {
             return util.GetColvalues(_driverContext.Driver,rowsCPTgrid, colCPTgrid, "CPT");

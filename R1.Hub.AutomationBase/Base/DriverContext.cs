@@ -10,14 +10,8 @@ namespace R1.Hub.AutomationBase.Base
 {
     public class DriverContext
     {
-        //public static IWebDriver Driver;
-
-        //public static IWebDriver driver = DriverFactory.Driver;
-
         public RemoteWebDriver Driver { get; set; }
 
         public BasePage CurrentPage { get; set; }
-
-
     }
 }

@@ -1,12 +1,8 @@
 ﻿using OpenQA.Selenium;
-using R1.Hub.AutomationBase.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
-using Newtonsoft.Json.Linq;
-using System.IO;
 using System.Data;
 using R1.Automation.Database.core.Base;
 using R1.Automation.UI.core.Commons;
@@ -70,7 +66,7 @@ namespace R1.Hub.AutomationBase.Common
 		/// <param name="rowLocator"></param>
 		/// <param name="colLocator"></param>
 		/// <param name="colName"></param>
-		/// <returns></returns>
+		/// <returns>Return the values of coulmn in list</returns>
 		public List<String> GetColvalues(RemoteWebDriver driver, String rowLocator, String colLocator, String colName)
 		{
 			List<String> colValues = new List<String>();
@@ -109,7 +105,7 @@ namespace R1.Hub.AutomationBase.Common
 		/// <typeparam name="T"></typeparam>
 		/// <param name="list"></param>
 		/// <param name="otherlist"></param>
-		/// <returns></returns>
+		/// <returns>Return the bool value whether two list are equal or not</returns>
 		public bool CompareList<T>(List<T> list, List<T> otherlist) where T : IEquatable<T>
 		{
 			if (list.Except(otherlist).Any())
@@ -126,7 +122,7 @@ namespace R1.Hub.AutomationBase.Common
 		/// <typeparam name="T"></typeparam>
 		/// <param name="list1"></param>
 		/// <param name="otherlist"></param>
-		/// <returns></returns>
+		/// <returns>return the bool to check contain of second list in first list</returns>
 		public bool CheckContainList<T>(List<T> list1, List<T> otherlist) where T : IEquatable<T>
 		{
 			if (list1.Intersect(otherlist).Any())
@@ -143,7 +139,7 @@ namespace R1.Hub.AutomationBase.Common
 		/// seperate the string on the basis of pipe
 		/// </summary>
 		/// <param name="input"></param>
-		/// <returns></returns>
+		/// <returns>Retur the lsit of string  from pipeine string</returns>
 		public List<String> GetTestData(String input)
 
 		{
@@ -163,7 +159,7 @@ namespace R1.Hub.AutomationBase.Common
 		/// </summary>
 		/// <param name="int1"></param>
 		/// <param name="int2"></param>
-		/// <returns></returns>
+		/// <returns>Return bool after comperison two integer</returns>
 		public bool CompareInteger(int int1, int int2)
 		{
 			if (int1 == int2)
@@ -186,7 +182,7 @@ namespace R1.Hub.AutomationBase.Common
 		/// </summary>
 		/// <param name="dbConnection"></param>
 		/// <param name="queryKey"></param>
-		/// <returns></returns>
+		/// <returns>Return total number of row in table </returns>
 		public int GetTotalRowCountTable(IDbConnection dbConnection, string queryKey)
 		{
 			//int totalRow;
@@ -199,7 +195,7 @@ namespace R1.Hub.AutomationBase.Common
 		/// Get webelemnet in list
 		/// </summary>
 		/// <param name="elements"></param>
-		/// <returns></returns>
+		/// <returns>Retur the lsit of string  from webElemnet list</returns>
 		public List<string> GetElementList(IList<IWebElement>  elements)
 		{
 			List<String> elementList = new List<String>();

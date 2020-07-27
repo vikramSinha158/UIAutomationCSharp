@@ -1,11 +1,6 @@
 ﻿using OpenQA.Selenium;
 using R1.Hub.AutomationBase.Base;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TechTalk.SpecFlow;
-using Xunit;
 
 namespace R1.Hub.AutomationTest.Pages
 {
@@ -75,7 +70,7 @@ namespace R1.Hub.AutomationTest.Pages
         /// <summary>
         /// Click on R1Necessity tab
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Return R1Necessity Page</returns>
         public R1NecessityPage ClickOnR1Necessity()
         {
             R1NecessityTab.Click();

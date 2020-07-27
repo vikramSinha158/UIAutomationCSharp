@@ -3,16 +3,11 @@ using R1.Hub.AutomationBase.Base;
 using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using TechTalk.SpecFlow;
 using R1.Hub.AutomationBase.Config;
 using Xunit;
-using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.UI;
 using R1.Automation.UI.core.Selenium.Extensions;
 using TechTalk.SpecFlow.Assist;
-using System.Threading;
 
 namespace R1.Hub.AutomationTest.Pages
 {
@@ -20,6 +15,8 @@ namespace R1.Hub.AutomationTest.Pages
     {
         private int totalPageCnt;
         private int rowsPerPage = 15;
+        private List<String> subfilterFolderCoverages = new List<String>();
+        List<String> actCoverages;
         private string firstXPathFilterFolder = "//div/span[text()='";
         private string lastXPathFilterFolder = "']";
         private string firstXpathfilterFolderName = "//span[contains(text(),'> ";
@@ -61,8 +58,10 @@ namespace R1.Hub.AutomationTest.Pages
         [FindsBy(How = How.XPath, Using = "//div/span[text()='Care Coverage']//preceding::div[1]/following-sibling::div/div[contains(@id,'WorklistPaneltreeProcessUltraWebTree')]//span[@igtxt='1']")]
         private IList<IWebElement> subFilterFolderCovCareList;
 
-        
 
+        /// <summary>
+        /// Verify Conversion Follow Display
+        /// </summary>
         public void VerifyConversionFollowDisplay()
         {
             util.IsDisplayed(conversionFollowup);
@@ -177,9 +176,6 @@ namespace R1.Hub.AutomationTest.Pages
         public void VeryfySubFilterFolderCoverageCare(Table table)
         {
             var subFilterfolderCoverageCare = table.CreateDynamicSet();
-
-            List<String> subfilterFolderCoverages = new List<String>();
-
             foreach (var subfilterfolder in subFilterfolderCoverageCare)
             {
                 subfilterFolderCoverages.Add(subfilterfolder.SubFilterFolderDeck);
@@ -187,10 +183,9 @@ namespace R1.Hub.AutomationTest.Pages
             }
 
             _driverContext.Driver.WaitForVisibility(3, By.XPath(xPathPending));
-            List<String> actCoverages = util.GetElementList(subFilterFolderCovCareList); 
+             actCoverages = util.GetElementList(subFilterFolderCovCareList); 
 
             bool result = util.CompareList(subfilterFolderCoverages, actCoverages);
-
             Assert.True(result, "Comversion followup subfilter folder not match with expected list,Expected list count  " +  subfilterFolderCoverages.Count + "But Actusl list count " + actCoverages.Count);
 
         }

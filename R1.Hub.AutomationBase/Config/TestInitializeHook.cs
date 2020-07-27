@@ -13,6 +13,7 @@ namespace R1.Hub.AutomationBase.Config
     public class TestInitializeHook
     {
         ExtentReport extentReport = new ExtentReport();
+        private string screenShotPathpath = String.Empty;
 
         [ThreadStatic]
         private static ExtentTest featureName;
@@ -88,12 +89,15 @@ namespace R1.Hub.AutomationBase.Config
         public void GetStepInfo(ScenarioContext scenarioContext)
         {
             if (Settings.ExtentReportReq)
-            {
+            {             
                 object TestResult = extentReport.ConfigSteps(scenarioContext);
                 bool pass = Settings.PassScreenShotReq;
                 bool fail = Settings.FailScreenShotReq;
-                string spath = comUtil.TakeScreenshot(_driverContext.Driver, path);
-                extentReport.InsertStepsInReport(scenarioContext, TestResult, spath, scenario, pass, fail);
+                if (pass || fail)
+                {
+                    screenShotPathpath = comUtil.TakeScreenshot(_driverContext.Driver, path);
+                }
+                extentReport.InsertStepsInReport(scenarioContext, TestResult, screenShotPathpath, scenario, pass, fail);
             }
 
         }

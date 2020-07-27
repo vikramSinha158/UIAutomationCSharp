@@ -32,6 +32,10 @@ namespace R1.Hub.AutomationTest.Pages
             return new PreRegistrationPage(_driverContext);
         }
 
+        /// <summary>
+        /// Click On Conversion FollowUp
+        /// </summary>
+        /// <returns>Conversion Followup Page</returns>
         public ConversionFollowupPage ClickOnConversionFollowUp()
         {
             _driverContext.Driver.ScrollInView(lnkConversionFollowup);

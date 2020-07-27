@@ -60,8 +60,6 @@ namespace R1.Hub.AutomationBase.Config
 
         public static String ConversionFollowup { get; set; }
 
-        public static String ISatRiskQuery { get; set; }
-
         public IDbConnection DbConnection { get; set; }
 
        

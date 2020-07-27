@@ -11,8 +11,6 @@ namespace R1.Hub.AutomationBase.Base
     public class Base
     {
 
-
-        //public readonly ScenarioContext _scenarioContext;
         public DriverContext _driverContext;
         public Base(DriverContext driverContext)
         {
@@ -36,7 +34,7 @@ namespace R1.Hub.AutomationBase.Base
         /// Generic method to create instance of class
         /// </summary>
         /// <typeparam name="TPage"></typeparam>
-        /// <returns></returns>
+        /// <returns>Return the instence for current class</returns>
         public TPage As<TPage>() where TPage : BasePage
         {
             return (TPage)this;

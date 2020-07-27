@@ -90,8 +90,7 @@ namespace R1.Hub.AutomationTest.Pages
                 txtSearchCoverage.SendKeys(Settings.AETNACovergaeType);
 
             btnFindCoverage.Click();
-            SearchCoverage();
-           
+            SearchCoverage();         
             ChangeCoverageStatus();
 
         }

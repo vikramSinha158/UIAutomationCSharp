@@ -12,15 +12,12 @@ namespace R1.Hub.AutomationTest.Pages
 {
     public class ServicesPage : BasePage
     {
-
-
         public ServicesPage(DriverContext driverContext) : base(driverContext)
         {
 
             PageFactory.InitElements(driverContext.Driver, this);
 
         }
-
 
         private string delRowsHCPCSelected = "//table[contains(@id,'grdHCPCSelected')]//tr[@class='PanelDetail']//td//a/img[@src='/images/delete.gif']";
         private string rowsHCPCSelected = "//table[contains(@id,'grdHCPCSelected')]//tr[@class='PanelDetail']";
@@ -63,15 +60,13 @@ namespace R1.Hub.AutomationTest.Pages
         /// Click on Addminting link in service
         /// </summary>
         public void ClickAddmittingServices()
-        {
-            
+        {          
             try
             {
                 _driverContext.Driver.ScrollInView(lnkAdmiitingServices);
                 lnkAdmiitingServices.Click();
             }
             catch (NoSuchElementException) { }
-
         }
 
         /// <summary>
