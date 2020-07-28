@@ -62,5 +62,7 @@ namespace R1.Hub.AutomationBase.Config
         [JsonProperty("Facility")]
         public string Facility { get; set; }
 
+        [JsonProperty("NumberOfDaysToKeepExtentReport")]
+        public string NumberOfDaysToKeepExtentReport { get; set; }
     }
 }

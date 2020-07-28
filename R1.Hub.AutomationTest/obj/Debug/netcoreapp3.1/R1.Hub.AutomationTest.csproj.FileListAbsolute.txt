@@ -555,4 +555,3 @@ C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\ne
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\netcoreapp3.1\R1.Hub.AutomationTest.csproj.CopyComplete
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\netcoreapp3.1\R1.Hub.AutomationTest.dll
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\netcoreapp3.1\R1.Hub.AutomationTest.pdb
-C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\R1.Automation.Reporting.Core.dll

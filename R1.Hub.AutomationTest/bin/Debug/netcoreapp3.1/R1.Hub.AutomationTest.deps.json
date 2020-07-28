@@ -17,7 +17,6 @@
           "Microsoft.NET.Test.Sdk": "16.6.1",
           "Newtonsoft.Json": "12.0.3",
           "R1.Automation.Database.core": "1.0.1",
-          "R1.Automation.Reporting.Core": "1.1.0",
           "R1.Automation.UI.core": "2.0.0",
           "R1.Hub.AutomationBase": "1.0.0",
           "Selenium.Chrome.WebDriver": "83.0.0",
@@ -750,18 +749,6 @@
           "lib/netcoreapp3.1/R1.Automation.Database.core.dll": {
             "assemblyVersion": "1.0.1.0",
             "fileVersion": "1.0.1.0"
-          }
-        }
-      },
-      "R1.Automation.Reporting.Core/1.1.0": {
-        "dependencies": {
-          "ExtentReports.Core": "1.0.3",
-          "SpecFlow": "3.3.30"
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/R1.Automation.Reporting.Core.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
           }
         }
       },
@@ -2018,7 +2005,6 @@
           "Microsoft.Extensions.Configuration.Json": "3.1.5",
           "Newtonsoft.Json": "12.0.3",
           "R1.Automation.Database.core": "1.0.1",
-          "R1.Automation.Reporting.Core": "1.1.0",
           "R1.Automation.UI.core": "2.0.0",
           "Selenium.Support": "3.141.0",
           "Selenium.WebDriver": "3.141.0",
@@ -2331,13 +2317,6 @@
       "sha512": "sha512-M+IwRfqdaRMJFzCWn8WWd2nxf9tuOaheIg5lZSDP9fV75QhcaZC+vo8t/J8JPIhUQpiMF4npExF7dcfUnTVhmw==",
       "path": "r1.automation.database.core/1.0.1",
       "hashPath": "r1.automation.database.core.1.0.1.nupkg.sha512"
-    },
-    "R1.Automation.Reporting.Core/1.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-IgqYuCmGMqVlDh8DZr+oELzWKjKur57ihuDympoapP08x3ABLVVJ1E3QzGUAgmQDGD2qADNHRDoktFL+3w72kQ==",
-      "path": "r1.automation.reporting.core/1.1.0",
-      "hashPath": "r1.automation.reporting.core.1.1.0.nupkg.sha512"
     },
     "R1.Automation.UI.core/2.0.0": {
       "type": "package",

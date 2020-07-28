@@ -806,19 +806,6 @@
           "lib/netcoreapp3.1/R1.Automation.Database.core.dll": {}
         }
       },
-      "R1.Automation.Reporting.Core/1.1.0": {
-        "type": "package",
-        "dependencies": {
-          "ExtentReports.Core": "1.0.3",
-          "SpecFlow": "3.1.97"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/R1.Automation.Reporting.Core.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/R1.Automation.Reporting.Core.dll": {}
-        }
-      },
       "R1.Automation.UI.core/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -2924,7 +2911,6 @@
           "Microsoft.Extensions.Configuration.Json": "3.1.5",
           "Newtonsoft.Json": "12.0.3",
           "R1.Automation.Database.core": "1.0.1",
-          "R1.Automation.Reporting.Core": "1.1.0",
           "R1.Automation.UI.core": "2.0.0",
           "Selenium.Support": "3.141.0",
           "Selenium.WebDriver": "3.141.0",
@@ -3917,17 +3903,6 @@
         "lib/netcoreapp3.1/R1.Automation.Database.core.dll",
         "r1.automation.database.core.1.0.1.nupkg.sha512",
         "r1.automation.database.core.nuspec"
-      ]
-    },
-    "R1.Automation.Reporting.Core/1.1.0": {
-      "sha512": "IgqYuCmGMqVlDh8DZr+oELzWKjKur57ihuDympoapP08x3ABLVVJ1E3QzGUAgmQDGD2qADNHRDoktFL+3w72kQ==",
-      "type": "package",
-      "path": "r1.automation.reporting.core/1.1.0",
-      "files": [
-        ".nupkg.metadata",
-        "lib/netcoreapp3.1/R1.Automation.Reporting.Core.dll",
-        "r1.automation.reporting.core.1.1.0.nupkg.sha512",
-        "r1.automation.reporting.core.nuspec"
       ]
     },
     "R1.Automation.UI.core/2.0.0": {
@@ -9226,7 +9201,6 @@
       "Microsoft.NET.Test.Sdk >= 16.6.1",
       "Newtonsoft.Json >= 12.0.3",
       "R1.Automation.Database.core >= 1.0.1",
-      "R1.Automation.Reporting.Core >= 1.1.0",
       "R1.Automation.UI.core >= 2.0.0",
       "R1.Hub.AutomationBase >= 1.0.0",
       "Selenium.Chrome.WebDriver >= 83.0.0",
@@ -9322,10 +9296,6 @@
           "R1.Automation.Database.core": {
             "target": "Package",
             "version": "[1.0.1, )"
-          },
-          "R1.Automation.Reporting.Core": {
-            "target": "Package",
-            "version": "[1.1.0, )"
           },
           "R1.Automation.UI.core": {
             "target": "Package",

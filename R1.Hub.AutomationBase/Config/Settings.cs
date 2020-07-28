@@ -62,6 +62,11 @@ namespace R1.Hub.AutomationBase.Config
 
         public IDbConnection DbConnection { get; set; }
 
-       
+        public static string ReportSourcePath { get; set; }
+        public static string ReportDestinationPath { get; set; }
+
+        public static string KeepExtentReportDays { get; set; }
+
+
     }
 }

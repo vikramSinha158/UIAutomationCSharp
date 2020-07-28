@@ -7,6 +7,8 @@ using System.Data;
 using R1.Automation.Database.core.Base;
 using R1.Automation.UI.core.Commons;
 using OpenQA.Selenium.Remote;
+using AventStack.ExtentReports;
+using System.IO;
 
 namespace R1.Hub.AutomationBase.Common
 {
@@ -14,7 +16,7 @@ namespace R1.Hub.AutomationBase.Common
     {
 
 		private DataAccess dataAccess  = new DataAccess();
-		private CommonUtility comUtil = new CommonUtility();
+		private CommonUtility commonUtility = new CommonUtility();
 	
 
 		/// <summary>
@@ -186,7 +188,7 @@ namespace R1.Hub.AutomationBase.Common
 		public int GetTotalRowCountTable(IDbConnection dbConnection, string queryKey)
 		{
 			//int totalRow;
-			string query = comUtil.GetQueryData(queryKey).Trim();
+			string query = commonUtility.GetQueryData(queryKey).Trim();
 			DataTable dataTable = dataAccess.SelectExecuteQuery(dbConnection, query);
 			return dataTable.Rows.Count;
 		}
@@ -209,5 +211,27 @@ namespace R1.Hub.AutomationBase.Common
 			return elementList;
 		}
 
+		public MediaEntityModelProvider CaptureScreenshotAndReturnModel(RemoteWebDriver driver, string Name)
+		{
+			var screenshot = ((ITakesScreenshot)driver).GetScreenshot().AsBase64EncodedString;
+
+			return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot, Name).Build();
+		}
+
+		public void DeleteFilesFromFolder(string appFolderName, string noOfDays)
+		{
+			int num = Int32.Parse(noOfDays);
+
+			string path = commonUtility.GetFolderPath(appFolderName);
+
+			string[] subFileEntries = Directory.GetFiles(path);
+			foreach (string subFile in subFileEntries)
+			{
+				FileInfo d = new FileInfo(subFile);
+				if (d.CreationTime < DateTime.Now.AddDays(-num))
+					d.Delete();
+			}
+
+		}
 	}
 }
