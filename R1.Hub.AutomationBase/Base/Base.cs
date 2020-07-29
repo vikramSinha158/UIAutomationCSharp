@@ -1,9 +1,5 @@
-﻿using OpenQA.Selenium;
-using R1.Automation.UI.core.Commons;
-using R1.Automation.UI.core.Selenium.Base;
+﻿using R1.Automation.UI.core.Commons;
 using System;
-using TechTalk.SpecFlow;
-using Microsoft.Extensions.Configuration;
 using R1.Hub.AutomationBase.Common;
 
 namespace R1.Hub.AutomationBase.Base
@@ -14,22 +10,9 @@ namespace R1.Hub.AutomationBase.Base
         public DriverContext _driverContext;
         public Base(DriverContext driverContext)
         {
-            _driverContext = driverContext;
-            
-    }
-
-
-        /// <summary>
-        /// Genric method to create object of class
-        /// </summary>
-        /// <typeparam name="TPage"></typeparam>
-        /// <returns></returns>
-        protected TPage GetInstance<TPage>() where TPage : BasePage, new()
-        {
-
-            return (TPage)Activator.CreateInstance(typeof(TPage));
-            
+            _driverContext = driverContext;           
         }
+
         /// <summary>
         /// Generic method to create instance of class
         /// </summary>
@@ -41,8 +24,6 @@ namespace R1.Hub.AutomationBase.Base
         }
 
         public CommonUtility commonUtil = new CommonUtility();
-
         public Utils util = new Utils();
-
     }
 }

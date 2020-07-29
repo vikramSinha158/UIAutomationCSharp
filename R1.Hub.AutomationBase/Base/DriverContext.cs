@@ -11,7 +11,6 @@ namespace R1.Hub.AutomationBase.Base
     public class DriverContext
     {
         public RemoteWebDriver Driver { get; set; }
-
         public BasePage CurrentPage { get; set; }
     }
 }

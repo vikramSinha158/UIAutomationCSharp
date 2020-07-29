@@ -66,7 +66,5 @@ namespace R1.Hub.AutomationBase.Config
         public static string ReportDestinationPath { get; set; }
 
         public static string KeepExtentReportDays { get; set; }
-
-
     }
 }

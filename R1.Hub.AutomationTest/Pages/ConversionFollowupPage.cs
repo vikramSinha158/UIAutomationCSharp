@@ -8,6 +8,7 @@ using R1.Hub.AutomationBase.Config;
 using Xunit;
 using R1.Automation.UI.core.Selenium.Extensions;
 using TechTalk.SpecFlow.Assist;
+using System.Threading;
 
 namespace R1.Hub.AutomationTest.Pages
 {
@@ -26,8 +27,7 @@ namespace R1.Hub.AutomationTest.Pages
         private string lastXpathCoveareCareFilterFolder = "']";
         private string xPathBSO = "//div/span[text()='BSO']";
         private string xPathPending = "//div/span[text()='Care Coverage']//preceding::div[1]/following-sibling::div/div[contains(@id,'WorklistPaneltreeProcessUltraWebTree')]//span[text()='Pending']";
-
-
+        private string xPathShowAll = "//a[text()='Show All']";
 
         public ConversionFollowupPage(DriverContext driverContext) : base(driverContext)
         {
@@ -58,6 +58,8 @@ namespace R1.Hub.AutomationTest.Pages
         [FindsBy(How = How.XPath, Using = "//div/span[text()='Care Coverage']//preceding::div[1]/following-sibling::div/div[contains(@id,'WorklistPaneltreeProcessUltraWebTree')]//span[@igtxt='1']")]
         private IList<IWebElement> subFilterFolderCovCareList;
 
+        [FindsBy(How = How.XPath, Using = "//a[text()='Show All']")]
+        private IWebElement showAllbtn;
 
         /// <summary>
         /// Verify Conversion Follow Display
@@ -75,19 +77,15 @@ namespace R1.Hub.AutomationTest.Pages
             List<String> subfilterFolderList = new List<String>();
             //Thread.Sleep(3000);
             _driverContext.Driver.WaitForVisibility(3, By.XPath(xPathBSO));
-
             for (int i = 0; i < followupWorklist.Count; i++)
             {
                 if(!(string.IsNullOrEmpty(followupWorklist[i].Text)))
                 subfilterFolderList.Add(followupWorklist[i].Text);
             }
             List<String> expfollowupIList = util.GetTestData(Settings.ConversionFollowup);
-
             bool result = util.CompareList(subfilterFolderList, expfollowupIList);
-
             Assert.True(result,"Comversion followup subfilter folder not match with expected list,Actual filter folder count  " + subfilterFolderList.Count  + " Expected filter count " + expfollowupIList.Count);
         }
-
 
         /// <summary>
         /// Click on filter folder
@@ -95,8 +93,24 @@ namespace R1.Hub.AutomationTest.Pages
         /// <param name="filterfolderName"></param>
         public void ClickOnFilterfolder(string filterfolderName)
         {
-
             _driverContext.Driver.FindElement(By.XPath(firstXPathFilterFolder + filterfolderName.Trim() + lastXPathFilterFolder)).Click();
+             ClickOnShowAll();
+        }
+
+        public void ClickOnShowAll()
+        {
+            try
+             {
+                if (_driverContext.Driver.FindElement(By.XPath(xPathShowAll)).Displayed)
+                 {         
+                   do
+                     {
+                      _driverContext.Driver.FindElement(By.XPath(xPathShowAll)).Click();
+                       Thread.Sleep(2000);
+                     } while (util.VerifyDisplayElement(_driverContext.Driver,xPathShowAll));
+                 }
+             }
+             catch (NoSuchElementException e) { }
         }
 
         /// <summary>
@@ -107,7 +121,6 @@ namespace R1.Hub.AutomationTest.Pages
         {
             _driverContext.Driver.FindElement(By.XPath(firstXaothCoverageCareFilterFolder+ subFilterFolder.Trim()+ lastXpathCoveareCareFilterFolder)).Click();
         }
-
 
         /// <summary>
         /// Verify t=the name of filder folder
@@ -126,11 +139,8 @@ namespace R1.Hub.AutomationTest.Pages
             catch (NoSuchElementException e)
             {
                 Assert.True(filterfolderDisplayStatus,"Filter folder is not Visble : " + filterfolderName);
-            }
-           
-                         
+            }                        
         }
-
 
         /// <summary>
         /// Get total count of table from Ui for filter folder table
@@ -155,9 +165,7 @@ namespace R1.Hub.AutomationTest.Pages
             {
                 return totalPageCnt;
             }
-
             return 0;
-
         }
 
         /// <summary>
@@ -167,7 +175,6 @@ namespace R1.Hub.AutomationTest.Pages
         {
             expandCoverageCare.Click();
         }
-
 
         /// <summary>
         /// Veryfy SubFilter Folder Coverage Care
@@ -181,18 +188,10 @@ namespace R1.Hub.AutomationTest.Pages
                 subfilterFolderCoverages.Add(subfilterfolder.SubFilterFolderDeck);
                 subfilterFolderCoverages.Add(subfilterfolder.SubFilterFolderPending);
             }
-
             _driverContext.Driver.WaitForVisibility(3, By.XPath(xPathPending));
              actCoverages = util.GetElementList(subFilterFolderCovCareList); 
-
             bool result = util.CompareList(subfilterFolderCoverages, actCoverages);
             Assert.True(result, "Comversion followup subfilter folder not match with expected list,Expected list count  " +  subfilterFolderCoverages.Count + "But Actusl list count " + actCoverages.Count);
-
         }
-
-   
-
-
-
     }
 }

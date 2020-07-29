@@ -7,15 +7,12 @@ namespace R1.Hub.AutomationTest.Pages
 {
     public class HomePage : BasePage
     {
-        
+        private readonly string lnkPatientAccess = "//span[contains(@class,'id52')]//a";
+
         public HomePage(DriverContext driverContext) : base(driverContext)
         {
-
             PageFactory.InitElements(driverContext.Driver, this);
-
         }
-
-        private readonly string lnkPatientAccess = "//span[contains(@class,'id52')]//a";
 
         [FindsBy(How = How.XPath, Using = "//a[@title='Logout']")]
         private IWebElement txtLogout;
@@ -45,7 +42,7 @@ namespace R1.Hub.AutomationTest.Pages
         /// <summary>
         /// Click on Patient Access link
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Return PatientAccessPage</returns>
         public PatientAccessPage ClickPatientAccessTab()
         {
             _driverContext.Driver.FindElement(By.XPath(lnkPatientAccess)).Click();
@@ -57,7 +54,6 @@ namespace R1.Hub.AutomationTest.Pages
         /// </summary>        
         public void VerifyHomePageVisible()
         {
-
             string ss = lblHome.Text;
         }
     }

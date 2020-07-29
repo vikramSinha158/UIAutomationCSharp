@@ -20,22 +20,17 @@ namespace R1.Hub.AutomationTest.Pages
         [FindsBy(How = How.XPath, Using = "//table[@class='worklistTable']//tbody/tr[@valign='middle'][7]//td[@class='rowNumber']")]
         private IWebElement firstAccount;
 
- 
-
         /// <summary>
         /// click on account
         /// </summary>
         /// <returns></returns>
         public AccountPage ClickOnAccount()
         {
-
             try
-            {
-               
+            {              
                 if(totalAccontRows.Count > minRowsInWorkList)
                 {
                     firstAccount.Click();
-
                     return new AccountPage(_driverContext);
                 }
                 else {
@@ -48,8 +43,6 @@ namespace R1.Hub.AutomationTest.Pages
                 return null;
             }
             return null;
-
         }        
-    }
-             
+    }             
 }

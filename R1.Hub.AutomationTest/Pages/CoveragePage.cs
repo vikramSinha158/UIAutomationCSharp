@@ -11,17 +11,17 @@ namespace R1.Hub.AutomationTest.Pages
 {
     public class CoveragePage : BasePage
     {
-        public CoveragePage(DriverContext driverContext) : base(driverContext)
-        {
-            PageFactory.InitElements(driverContext.Driver, this);
-        }
-
         private string HeaderTypeCol = "Plan Name";
         private readonly int toprow = 1;
         private string delCoverageRows = "//table[contains(@id,'grdCoverageSelected')]//tr[@class='PanelDetail']//td//a//img[@title='Delete']";
         private string searchResult = String.Empty;
         private string searchRowLocator = "//table[contains(@id,'grdCoverageSearchResults')]//tr[@class='PanelDetail']";
         private string passCoveragetatus = "Passed";
+
+        public CoveragePage(DriverContext driverContext) : base(driverContext)
+        {
+            PageFactory.InitElements(driverContext.Driver, this);
+        }
 
         [FindsBy(How = How.XPath, Using = "//a[text()='Check Out']")]
         private IWebElement btnCheckOut;
@@ -79,8 +79,7 @@ namespace R1.Hub.AutomationTest.Pages
                         _driverContext.Driver.ScrollInView(delele);
                         delele.Click();
                     }
-                }
-   
+                }  
             }
             catch (NoSuchElementException e) { }
             _driverContext.Driver.ScrollInView(txtSearchCoverage);
@@ -92,13 +91,12 @@ namespace R1.Hub.AutomationTest.Pages
             btnFindCoverage.Click();
             SearchCoverage();         
             ChangeCoverageStatus();
-
         }
 
         /// <summary>
         /// Method to search coverage
         /// </summary>
-        public void SearchCoverage()
+        private void SearchCoverage()
         {
             int searchEleCount = 0;
             foreach (IWebElement colHeader in serachResultCol)
@@ -109,7 +107,6 @@ namespace R1.Hub.AutomationTest.Pages
                     break;
                 }
             }
-
             if (serachResultRows.Count > 1)
             {
                 searchResult = _driverContext.Driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + searchEleCount + "]")).Text;
@@ -120,14 +117,12 @@ namespace R1.Hub.AutomationTest.Pages
                     _driverContext.Driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
             }
             btnNewCoverage.Click();
-
         }
-
 
         /// <summary>
         /// Method to change status of coverage 
         /// </summary>
-        public void ChangeCoverageStatus()
+        private void ChangeCoverageStatus()
         {
             if (tblCoverageHeader.Displayed)
             {

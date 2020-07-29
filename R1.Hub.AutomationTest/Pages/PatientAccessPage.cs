@@ -7,8 +7,7 @@ namespace R1.Hub.AutomationTest.Pages
 {
     public class PatientAccessPage:BasePage
     {
-
-        string conversionFollow = "//a/span[text()='Conversion Followup']";
+        private string conversionFollow = "//a/span[text()='Conversion Followup']";
 
         public PatientAccessPage(DriverContext driverContext) : base(driverContext)
         {
@@ -20,7 +19,6 @@ namespace R1.Hub.AutomationTest.Pages
 
         [FindsBy(How = How.XPath, Using = "//a/span[text()='Conversion Followup']")]
         private IWebElement lnkConversionFollowup;
-
 
         /// <summary>
         /// Click on pre registration link
@@ -41,10 +39,6 @@ namespace R1.Hub.AutomationTest.Pages
             _driverContext.Driver.ScrollInView(lnkConversionFollowup);
             _driverContext.Driver.ClickOnElement(lnkConversionFollowup);
             return new ConversionFollowupPage(_driverContext);
-
         }
-
-
-
     }
 }

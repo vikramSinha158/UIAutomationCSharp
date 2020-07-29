@@ -19,8 +19,7 @@ namespace R1.Hub.AutomationBase.Reporting
         /// <param name="appFolderName">Name of the application folder.</param>
         /// <returns>Returns ExtentReport Object</returns>
         public static AventStack.ExtentReports.ExtentReports InitReport(string appFolderName)
-        {
-           
+        {          
             var folderName = GetDirName();
             string path;
             if (folderName != null || folderName != "")
@@ -70,50 +69,6 @@ namespace R1.Hub.AutomationBase.Reporting
             }
         }
 
-        /// <summary>This method is used for Archive Old Folders</summary>
-        /// <param name="appFolderName"></param>
-        /// <param name="archiveFolder"></param>
-        /// <param name="noOfDays"></param>
-        /// <param name="SizeInMB"></param>
-        public static void ArchiveOldFolders(string appFolderName, string archiveFolder, string noOfDays, string deleteBeforeArchive, string SizeInMB = "5")
-        {
-            int num = Int32.Parse(noOfDays);
-            int FileSize = Int32.Parse(SizeInMB);
-
-            var folderName = GetDirName();
-            string path = Path.Combine(folderName.Substring(0, folderName.LastIndexOf("\\bin")), appFolderName + "\\");
-            string ArchivePath = Path.Combine(folderName.Substring(0, folderName.LastIndexOf("\\bin")), archiveFolder + "\\");
-
-            string[] subdirectoryEntries = Directory.GetDirectories(path);
-            foreach (string subdirectory in subdirectoryEntries)
-            {
-                DirectoryInfo d = new DirectoryInfo(subdirectory);
-                long sizeOfDir = DirectorySize(d, true);
-                if (d.CreationTime < DateTime.Now.AddDays(-num) || ((double)sizeOfDir) / (1024 * 1024) > FileSize)
-                {
-                    if (File.Exists(ArchivePath + d.Name + ".zip") && deleteBeforeArchive.Equals("Yes"))
-                    {
-                        File.Delete(ArchivePath + d.Name + ".zip");
-                    }
-
-                    try
-                    {
-                        ZipFile.CreateFromDirectory(path + d.Name, ArchivePath + d.Name + ".zip");
-                        d.Delete(true);
-                    }
-                    catch (Exception e)
-                    {
-
-                    }
-                }
-
-            }
-
-
-        }
-
-
-
         /// <summary>This method is used to find size of a folder</summary>
         /// <param name="dInfo"></param>
         /// <param name="includeSubDir"></param>
@@ -127,7 +82,6 @@ namespace R1.Hub.AutomationBase.Reporting
                 totalSize += dInfo.EnumerateDirectories()
                          .Sum(dir => DirectorySize(dir, true));
             }
-
             return totalSize;
         }
 
@@ -148,9 +102,7 @@ namespace R1.Hub.AutomationBase.Reporting
                 if (d.CreationTime < DateTime.Now.AddDays(-num))
                     d.Delete();
             }
-
         }
-
 
         /// <summary>Configurations the steps.</summary>
         /// <param name="scenarioContext">The scenario context.</param>
@@ -162,7 +114,6 @@ namespace R1.Hub.AutomationBase.Reporting
             object TestResult = getter.Invoke(scenarioContext, null);
             return TestResult;
         }
-
 
         /// <summary>Inserts the steps in report without screenshot support.</summary>
         /// <param name="scenarioContext">The scenario context.</param>
@@ -186,8 +137,6 @@ namespace R1.Hub.AutomationBase.Reporting
             }
             else if (scenarioContext.TestError != null)
             {
-                //screenshot in the Base64 format
-                //var mediaEntity = CaptureScreenshotAndReturnModel(scenarioContext.ScenarioInfo.Title.Trim());
                 if (stepType == "Given")
                     scenario.CreateNode<Given>(scenarioContext.StepContext.StepInfo.Text).Fail(scenarioContext.TestError.Message, mediaEntity);
                 else if (stepType == "When")
@@ -198,7 +147,6 @@ namespace R1.Hub.AutomationBase.Reporting
                     scenario.CreateNode<And>(scenarioContext.StepContext.StepInfo.Text).Fail(scenarioContext.TestError.Message, mediaEntity);
             }
 
-
             //Pending Status
             if (scenarioContext.ScenarioExecutionStatus.ToString() == "StepDefinitionPending")
             {
@@ -208,10 +156,7 @@ namespace R1.Hub.AutomationBase.Reporting
                     scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending");
                 else if (stepType == "Then")
                     scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending");
-
             }
         }
-
-
     }
 }

@@ -7,7 +7,6 @@ namespace R1.Hub.AutomationTest.Pages
 {
     class R1HubLoginPage:BasePage
     {
-
         public R1HubLoginPage(DriverContext driverContext) :base(driverContext)
         {
             PageFactory.InitElements(driverContext.Driver, this);
@@ -21,7 +20,6 @@ namespace R1.Hub.AutomationTest.Pages
 
         [FindsBy(How = How.XPath, Using = "//a[contains(@id,'Login') and @title = 'Login']")]
         private IWebElement btnLogin;
-
 
         /// <summary>
         /// Method to user and password
@@ -43,10 +41,7 @@ namespace R1.Hub.AutomationTest.Pages
         public HomePage ClickLoginButton()
         {
             btnLogin.Click();
-            return new HomePage(_driverContext);
-  
+            return new HomePage(_driverContext);  
         }
-
-
     }
 }

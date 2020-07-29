@@ -7,9 +7,6 @@ namespace R1.Hub.AutomationBase.Base
 {
     public class BaseStep:Base
     {
-        public BaseStep(DriverContext driverContext) : base(driverContext)
-        {
-
-        }
+        public BaseStep(DriverContext driverContext) : base(driverContext) { }
     }
 }

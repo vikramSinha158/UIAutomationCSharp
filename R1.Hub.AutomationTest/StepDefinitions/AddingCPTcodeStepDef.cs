@@ -21,12 +21,8 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         public AddingCPTcodeStepDef(DriverContext driverContex, AccountPage accountPage) : base(driverContex)
         {
             _driverContext = driverContex;
-            _accPage = accountPage;
-            
-
+            _accPage = accountPage;      
         }
-
-       
 
         [When(@"user navigates to the Patient Access > Preregistrations worklist")]
         public void WhenUserNavigatesToThePatientAccessPreregistrationsWorklist()
@@ -34,7 +30,6 @@ namespace R1.Hub.AutomationTest.StepDefinitions
             //Thread.Sleep(10000);
             _driverContext.CurrentPage = _driverContext.CurrentPage.As<HomePage>().ClickPatientAccessTab();
             _driverContext.CurrentPage = _driverContext.CurrentPage.As<PatientAccessPage>().ClickOnPreRegistration();
-
         }
 
         [When(@"user open any account with ""(.*)"" coverage with passed status")]
@@ -62,7 +57,6 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         public void WhenUserNavigatesToTheServicesTab()
         {
             _driverContext.CurrentPage = _accPage.ClickOnServicesTab();
-
         }
 
         [When(@"user adds CPT code on the account")]
@@ -72,7 +66,6 @@ namespace R1.Hub.AutomationTest.StepDefinitions
             _driverContext.CurrentPage.As<ServicesPage>().ClickAddmittingServices();
             _driverContext.CurrentPage.As<ServicesPage>().AddServiceCode();
             listCPTcode = _driverContext.CurrentPage.As<ServicesPage>().GetServiceCPTcode();
-
         }
 
         [Then(@"An entry should get inserted into the R(.*)Necessity tab for each CPT code being added")]
@@ -83,7 +76,6 @@ namespace R1.Hub.AutomationTest.StepDefinitions
             bool cptSatus = util.CompareList(listCPTcode, ListR1NessityCPT);
             Assert.True(cptSatus, "CPT code from service doesn't match with R1Necessity ");
         }
-
 
         [When(@"User Clic on Continue button")]
         public void WhenUserClicOnContinueButton()

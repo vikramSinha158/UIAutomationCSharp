@@ -15,7 +15,6 @@ namespace R1.Hub.AutomationTest.Hooks
         private Settings _settings;
         private DriverContext _driverContext;
 
-
         public HookInitialize(DriverContext driverContext,ScenarioContext scenarioContext, Settings settings) : base(driverContext)
         {
             _driverContext = driverContext;
@@ -31,10 +30,8 @@ namespace R1.Hub.AutomationTest.Hooks
 
         [BeforeFeature]
         public static void BeforeFeature(FeatureContext featureContext)
-        {
-            
+        {            
             GetFeatureInfo(featureContext);
-
         }
 
         [BeforeScenario]
@@ -58,7 +55,6 @@ namespace R1.Hub.AutomationTest.Hooks
         {
            _settings.DataAccess.CloseDBConnection();
             _driverContext.Driver.Quit();
-
         }
 
         [AfterStep]
@@ -72,8 +68,6 @@ namespace R1.Hub.AutomationTest.Hooks
         {
             PublishReport();
             CloseBrowser();
-
-
         }
     }
 }

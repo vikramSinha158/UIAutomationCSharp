@@ -14,16 +14,13 @@ namespace R1.Hub.AutomationTest.StepDefinitions
     [Binding]
     class BusinessRulesStepDef: BaseStep
     {
-
         //R1HubLoginPage login;
         private new DriverContext _driverContext;
         public BusinessRulesStepDef(DriverContext driverContext) : base(driverContext)
         {
             _driverContext = driverContext;
-
         }
         
-
         [When(@"user logins into the applicationoutcome]")]
         public void WhenUserLoginsIntoTheApplicationoutcome()
         {

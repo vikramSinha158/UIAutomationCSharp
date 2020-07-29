@@ -12,10 +12,7 @@ using R1.Hub.AutomationBase.Common;
 namespace R1.Hub.AutomationBase.Config
 {
     public class TestInitializeHook
-    {
-        ExtentReport extentReport = new ExtentReport();
-
-
+    {       
         [ThreadStatic]
         private static ExtentTest featureName;
         [ThreadStatic]
@@ -26,6 +23,7 @@ namespace R1.Hub.AutomationBase.Config
         private Utils util = new Utils();
         private CommonUtility commonUtility=new CommonUtility();
         private static string numberOfDaysToKeepExtent="0";
+        private ExtentReport extentReport = new ExtentReport();
 
         public TestInitializeHook(DriverContext driverContext)
         {
@@ -35,16 +33,13 @@ namespace R1.Hub.AutomationBase.Config
         /// Initialzing data,report and driver
         /// </summary>
         public void InitializeDriver()
-        {
-           
+        {         
             _driverContext.Driver = driverFactory.InitDriver(Settings.BrowserName);
             _driverContext.Driver.Manage().Window.Maximize();
-
         }
 
         public static void InitializeSettings()
         {
-
             ConfigReader.SetConfigSetting();
             if (Settings.ExtentReportReq)
             {               
@@ -68,7 +63,6 @@ namespace R1.Hub.AutomationBase.Config
             }
         }
 
-
         /// <summary>
         /// getscednario info
         /// </summary>
@@ -84,14 +78,11 @@ namespace R1.Hub.AutomationBase.Config
         public void GetStepInfo(ScenarioContext scenarioContext)
         {
             if (Settings.ExtentReportReq)
-            {
-                
+            {               
                 var mediaEntity = util.CaptureScreenshotAndReturnModel(_driverContext.Driver,scenarioContext.ScenarioInfo.Title.Trim());
                 extentReport.InsertStepsInReport(scenarioContext,scenario, mediaEntity);
             }
-
         }
-
 
         /// <summary>
         /// publish report
@@ -125,6 +116,9 @@ namespace R1.Hub.AutomationBase.Config
             new DriverFactory().CloseAllDrivers();
         }
 
+        /// <summary>
+        /// Copy the report from Date folder to extent folder
+        /// </summary>
         private static void CopyReport()
         {         
                string[] sourcefiles = Directory.GetFiles(Settings.ReportSourcePath);
@@ -134,10 +128,7 @@ namespace R1.Hub.AutomationBase.Config
                  string fileName = Path.GetFileName(sourcefile);
                  string destFile = Path.Combine(Settings.ReportDestinationPath, fileName);
                  File.Copy(sourcefile, destFile);
-                }
-           
+                }          
         }
-
-
     }
 }

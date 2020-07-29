@@ -9,7 +9,6 @@ namespace R1.Hub.AutomationTest.Pages
 {
     public class R1NecessityPage:BasePage
     {
-
         private string rowsCPTgrid = "//table[contains(@id,'NecessityCPT1')]//tr[@class='PanelDetail']";
         private string colCPTgrid = "//table[contains(@id,'NecessityCPT1')]//tr[@class='PanelTitle tableHeader']//td";
 
@@ -17,7 +16,6 @@ namespace R1.Hub.AutomationTest.Pages
         {
             PageFactory.InitElements(driverContext.Driver, this);
         }
-
 
         /// <summary>
         /// Method to get CPT code
@@ -27,6 +25,5 @@ namespace R1.Hub.AutomationTest.Pages
         {
             return util.GetColvalues(_driverContext.Driver,rowsCPTgrid, colCPTgrid, "CPT");
         }
-
     }
 }

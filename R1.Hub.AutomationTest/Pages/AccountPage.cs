@@ -11,8 +11,6 @@ namespace R1.Hub.AutomationTest.Pages
             PageFactory.InitElements(driverContext.Driver, this);
         }
 
-
-
         [FindsBy(How = How.XPath, Using = "//a[text()='Coverage']")]
         private IWebElement coverageTab;
 
@@ -53,8 +51,7 @@ namespace R1.Hub.AutomationTest.Pages
             catch (NoSuchElementException e)
             {
                 return isvisble;
-            }
-            
+            }          
         }
 
         /// <summary>
@@ -85,19 +82,14 @@ namespace R1.Hub.AutomationTest.Pages
             try
             {
                 if (btnCheckOut.Displayed == true)
-                    btnCheckOut.Click();
-              
+                    btnCheckOut.Click();             
             }
-            catch (NoSuchElementException e)
-            { }
+            catch (NoSuchElementException e) { }
             try {
                 if (btnRedo.Displayed == true)
                     btnRedo.Click();
             }
-            catch (NoSuchElementException e)
-            { }
-
-
+            catch (NoSuchElementException e) { }
         }
 
         /// <summary>
@@ -107,6 +99,5 @@ namespace R1.Hub.AutomationTest.Pages
         {
             btnComplete.Click();
         }
-
     }
 }

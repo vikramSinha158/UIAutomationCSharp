@@ -8,12 +8,6 @@ namespace R1.Hub.AutomationBase.Base
 {
     public class BasePage:Base
     {
-        public BasePage(DriverContext driverContext) :base(driverContext)
-        {
-
-        }
-
-        
-
+        public BasePage(DriverContext driverContext) : base(driverContext) { }
     }
 }

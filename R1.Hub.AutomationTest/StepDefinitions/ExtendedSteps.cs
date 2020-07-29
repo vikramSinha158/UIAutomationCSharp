@@ -17,21 +17,17 @@ namespace R1.Hub.AutomationTest.StepDefinitions
 
         public ExtendedSteps(DriverContext driverContex) : base(driverContex)
         {
-            _driverContext = driverContex;
- 
+            _driverContext = driverContex; 
         }
-
 
         [Given(@"user is on R(.*) Hub login page")]
         public void GivenUserIsOnRHubLoginPage(int p0)
         {
             _driverContext.CurrentPage = new R1HubLoginPage(_driverContext);
-
             _driverContext.CurrentPage.As<R1HubLoginPage>().Login(Settings.UserName, Settings.Password);
             _driverContext.CurrentPage = _driverContext.CurrentPage.As<R1HubLoginPage>().ClickLoginButton();
         }
-
-     
+    
         [Given(@"user is on home page of the application")]
         public void GivenUserIsOnHomePageOfTheApplication()
         {
@@ -42,16 +38,13 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         public void GivenSelectFaciltyCode()
         {
             _driverContext.CurrentPage.As<HomePage>().ClickFaciclityCode();
-            _driverContext.CurrentPage.As<HomePage>().SelectFacilityCode("SJPK");
-           
+            _driverContext.CurrentPage.As<HomePage>().SelectFacilityCode(Settings.FacilatyCode);          
         }
-
-       
+     
         [AfterScenario]
         public void AppLogOut()
         {
-            new HomePage(_driverContext).ClickLogOut();
-         
+            new HomePage(_driverContext).ClickLogOut();        
         }
 
 

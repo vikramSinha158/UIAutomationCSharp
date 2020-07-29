@@ -14,11 +14,8 @@ namespace R1.Hub.AutomationBase.Common
 {
     public class Utils
     {
-
 		private DataAccess dataAccess  = new DataAccess();
 		private CommonUtility commonUtility = new CommonUtility();
-	
-
 		/// <summary>
 		/// Check display of element
 		/// </summary>
@@ -34,9 +31,28 @@ namespace R1.Hub.AutomationBase.Common
 			catch (NoSuchElementException)
 			{
 				Assert.True(display, "Element not visible");
+			}		
+		}
+
+		/// <summary>
+		/// Verify the display of element
+		/// </summary>
+		/// <param name="driver"></param>
+		/// <param name="element"></param>
+		/// <returns>Return the bolol value after validation</returns>
+		public bool VerifyDisplayElement(RemoteWebDriver driver,string element)
+		{
+			bool display = false;
+			try
+			{
+				if (driver.FindElement(By.XPath(element)).Displayed)
+					display = true;
+				    return display;
 			}
-			
-		
+			catch (NoSuchElementException)
+			{
+				return display;
+			}
 		}
 
 		/// <summary>
@@ -46,10 +62,8 @@ namespace R1.Hub.AutomationBase.Common
 		private  void isDisplayListItem(IList<IWebElement> elements)
 		{
 			bool itemDispay = false;
-
 			for (int i = 0; i < elements.Count; i++)
 			{
-
 				if (elements[i].Displayed)
 				{
 					itemDispay = true;
@@ -83,10 +97,7 @@ namespace R1.Hub.AutomationBase.Common
 					if (colname.Equals(colName, StringComparison.OrdinalIgnoreCase))
 					{
 						for (int row = 1; row <= rowSize; row++)
-						{
-							//WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(15));
-							//wait.Until(_driver => rowLocator + "[" + row + "]/td[" + col + "]");
-							//new R1ContactCommons(_driver, _settings).highLightSteps(_driver.FindElement(By.XPath(rowLocator + "[" + row + "]/td[" + col + "]")));
+						{							
 							colValues.Add(driver.FindElement(By.XPath(rowLocator + "[" + row + "]/td[" + col + "]")).Text);
 						}
 						break;
@@ -117,7 +128,6 @@ namespace R1.Hub.AutomationBase.Common
 			return true;
 		}
 
-
 		/// <summary>
 		/// check contain of second list in first list
 		/// </summary>
@@ -143,16 +153,13 @@ namespace R1.Hub.AutomationBase.Common
 		/// <param name="input"></param>
 		/// <returns>Retur the lsit of string  from pipeine string</returns>
 		public List<String> GetTestData(String input)
-
 		{
 			List<String> dataList = new List<String>();
-
 			String[] dataText = input.Split("|");
 			foreach (String txt in dataText)
 			{
 				dataList.Add(txt);
 			}
-
 			return dataList;
 		}
 
@@ -177,7 +184,6 @@ namespace R1.Hub.AutomationBase.Common
 		{
 			((IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(3000,0)", "");
 		}
-
 
 		/// <summary>
 		/// Get total row in DB
@@ -211,6 +217,12 @@ namespace R1.Hub.AutomationBase.Common
 			return elementList;
 		}
 
+		/// <summary>
+		/// take screen shot
+		/// </summary>
+		/// <param name="driver"></param>
+		/// <param name="Name"></param>
+		/// <returns>Return MediaEntityModelProvider</returns>
 		public MediaEntityModelProvider CaptureScreenshotAndReturnModel(RemoteWebDriver driver, string Name)
 		{
 			var screenshot = ((ITakesScreenshot)driver).GetScreenshot().AsBase64EncodedString;
@@ -218,6 +230,11 @@ namespace R1.Hub.AutomationBase.Common
 			return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot, Name).Build();
 		}
 
+		/// <summary>
+		/// Delete the files from folder
+		/// </summary>
+		/// <param name="appFolderName"></param>
+		/// <param name="noOfDays"></param>
 		public void DeleteFilesFromFolder(string appFolderName, string noOfDays)
 		{
 			int num = Int32.Parse(noOfDays);
@@ -231,6 +248,17 @@ namespace R1.Hub.AutomationBase.Common
 				if (d.CreationTime < DateTime.Now.AddDays(-num))
 					d.Delete();
 			}
+		}
+
+		/// <summary>
+		/// Hightlight the control
+		/// </summary>
+		/// <param name="driver"></param>
+		/// <param name="element"></param>
+		public void HighLightControl(RemoteWebDriver driver,IWebElement element)
+		{
+			IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+			js.ExecuteScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid white;');", element);
 
 		}
 	}
