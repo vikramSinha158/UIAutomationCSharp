@@ -3,49 +3,50 @@ using R1.Hub.AutomationBase.Base;
 using System;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
-using System.Collections.Generic;
-using System.Text;
-using R1.Automation.UI.core.Reporting;
 using R1.Automation.UI.core.Commons;
 using TechTalk.SpecFlow;
-using R1.Automation.UI.core.Selenium.Extensions;
 using System.IO;
+using R1.Hub.AutomationBase.Reporting;
+using R1.Hub.AutomationBase.Common;
 
 namespace R1.Hub.AutomationBase.Config
 {
     public class TestInitializeHook
-    {
-        ExtentReport ER = new ExtentReport();
-
+    {       
         [ThreadStatic]
         private static ExtentTest featureName;
         [ThreadStatic]
         private static ExtentTest scenario;
         private static AventStack.ExtentReports.ExtentReports extent;
-        private static string path;
+        private DriverContext _driverContext;
+        public DriverFactory driverFactory = new DriverFactory();
+        private Utils util = new Utils();
+        private CommonUtility commonUtility=new CommonUtility();
+        private static string numberOfDaysToKeepExtent="0";
+        private ExtentReport extentReport = new ExtentReport();
 
+        public TestInitializeHook(DriverContext driverContext)
+        {
+            _driverContext = driverContext;
+        }
         /// <summary>
         /// Initialzing data,report and driver
         /// </summary>
+        public void InitializeDriver()
+        {         
+            _driverContext.Driver = driverFactory.InitDriver(Settings.BrowserName);
+            _driverContext.Driver.Manage().Window.Maximize();
+        }
+
         public static void InitializeSettings()
         {
             ConfigReader.SetConfigSetting();
-            DriverContext.driver = DriverFactory.InitDriver(Settings.BrowserName);
-
             if (Settings.ExtentReportReq)
-            {
+            {               
                 extent = ExtentReport.InitReport(Settings.ReportPath);
 
-                var folderName = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                string screenShotpath = Path.Combine(folderName.Substring(0, folderName.LastIndexOf("\\bin")), Settings.ScreenShotsPath);
-
-                if (!Directory.Exists(screenShotpath))
-                {
-                    Directory.CreateDirectory(screenShotpath);
-                }
-
-                path = CommonUtility.DeleteOldFolders(Settings.ScreenShotsPath, Settings.LastScreenShotDays);
-                path = CommonUtility.CreateFolder(path);
+                CommonUtility.DeleteOldFolders(Settings.ReportPath, Settings.KeepExtentReportDays);
+                new Utils().DeleteFilesFromFolder(Settings.ReportPath, numberOfDaysToKeepExtent);
             }
         }
 
@@ -62,7 +63,6 @@ namespace R1.Hub.AutomationBase.Config
             }
         }
 
-
         /// <summary>
         /// getscednario info
         /// </summary>
@@ -78,15 +78,11 @@ namespace R1.Hub.AutomationBase.Config
         public void GetStepInfo(ScenarioContext scenarioContext)
         {
             if (Settings.ExtentReportReq)
-            {
-                object TestResult = ER.ConfigSteps(scenarioContext);
-                bool pass = Settings.PassScreenShotReq;
-                bool fail = Settings.FailScreenShotReq;
-                ER.InsertStepsInReport(scenarioContext, TestResult, path, scenario, pass, fail);
+            {               
+                var mediaEntity = util.CaptureScreenshotAndReturnModel(_driverContext.Driver,scenarioContext.ScenarioInfo.Title.Trim());
+                extentReport.InsertStepsInReport(scenarioContext,scenario, mediaEntity);
             }
-
         }
-
 
         /// <summary>
         /// publish report
@@ -97,6 +93,7 @@ namespace R1.Hub.AutomationBase.Config
             {
                 //Flush report once test completes
                 extent.Flush();
+                CopyReport();
             }
         }
 
@@ -105,8 +102,8 @@ namespace R1.Hub.AutomationBase.Config
         /// </summary>
         public virtual void NaviateSite()
         {
-            DriverContext.driver.Navigate().GoToUrl(Settings.AUT);
-            DriverContext.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Settings.ImplicitWait);
+            _driverContext.Driver.Navigate().GoToUrl(Settings.AUT);
+            _driverContext.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Settings.ImplicitWait);
         }
 
 
@@ -114,16 +111,24 @@ namespace R1.Hub.AutomationBase.Config
         /// Close browser
         /// </summary>
         /// <param name="browsercloseflag"></param>
-        public void CloseBrowser(bool browsercloseflag)
+        public static  void CloseBrowser()
         {
-            if (browsercloseflag)
-            {
-                DriverFactory.CloseAllDrivers();
-            }
+            new DriverFactory().CloseAllDrivers();
         }
 
+        /// <summary>
+        /// Copy the report from Date folder to extent folder
+        /// </summary>
+        private static void CopyReport()
+        {         
+               string[] sourcefiles = Directory.GetFiles(Settings.ReportSourcePath);
 
-
-
+               foreach (string sourcefile in sourcefiles)
+               {
+                 string fileName = Path.GetFileName(sourcefile);
+                 string destFile = Path.Combine(Settings.ReportDestinationPath, fileName);
+                 File.Copy(sourcefile, destFile);
+                }          
+        }
     }
 }

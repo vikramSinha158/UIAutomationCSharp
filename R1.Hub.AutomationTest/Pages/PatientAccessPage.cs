@@ -2,22 +2,16 @@
 using R1.Automation.UI.core.Selenium.Extensions;
 using R1.Hub.AutomationBase.Base;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TechTalk.SpecFlow;
-using OpenQA.Selenium.Interactions;
 
 namespace R1.Hub.AutomationTest.Pages
 {
     public class PatientAccessPage:BasePage
     {
+        private string conversionFollow = "//a/span[text()='Conversion Followup']";
 
-        string conversionFollow = "//a/span[text()='Conversion Followup']";
-
-        public PatientAccessPage(ScenarioContext scenarioContext) : base(scenarioContext)
+        public PatientAccessPage(DriverContext driverContext) : base(driverContext)
         {
-            PageFactory.InitElements(DriverContext.driver, this);
+            PageFactory.InitElements(driverContext.Driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//a[contains(@href,'Pre-Registration')]")]
@@ -26,7 +20,6 @@ namespace R1.Hub.AutomationTest.Pages
         [FindsBy(How = How.XPath, Using = "//a/span[text()='Conversion Followup']")]
         private IWebElement lnkConversionFollowup;
 
-
         /// <summary>
         /// Click on pre registration link
         /// </summary>
@@ -34,25 +27,18 @@ namespace R1.Hub.AutomationTest.Pages
         public PreRegistrationPage ClickOnPreRegistration()
         {
             lnkPreRegistration.Click();
-
-            return new PreRegistrationPage(_scenarioContext);
+            return new PreRegistrationPage(_driverContext);
         }
 
+        /// <summary>
+        /// Click On Conversion FollowUp
+        /// </summary>
+        /// <returns>Conversion Followup Page</returns>
         public ConversionFollowupPage ClickOnConversionFollowUp()
         {
-            DriverContext.driver.ScrollInView(lnkConversionFollowup);
-            DriverContext.driver.ClickOnElement(lnkConversionFollowup);
-            return new ConversionFollowupPage(_scenarioContext);
-
+            _driverContext.Driver.ScrollInView(lnkConversionFollowup);
+            _driverContext.Driver.ClickOnElement(lnkConversionFollowup);
+            return new ConversionFollowupPage(_driverContext);
         }
-
-
-
-        //public void ClickOnPatientAccessWorklist(string linkTxt)
-        //{
-        //    DriverContext.driver.FindElement(By.XPath("//a/span[text()='" + linkTxt + "']")).Click();
-        //}
-
-
     }
 }

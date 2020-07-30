@@ -16,6 +16,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.5" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="R1.Automation.Database.core" Version="1.0.1" />
+    <PackageReference Include="R1.Automation.UI.core" Version="2.0.0" />
     <PackageReference Include="Selenium.Chrome.WebDriver" Version="83.0.0" />
     <PackageReference Include="Selenium.Support" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
@@ -41,17 +43,6 @@
   <ItemGroup>
     <Folder Include="Features\" />
     <Folder Include="ExtentReport\" />
-    <Folder Include="ScreenShots\" />
-  </ItemGroup>
-  
-
-  <ItemGroup>
-    <Reference Include="R1.Automation.Database.core">
-      <HintPath>..\R1.Automation.Database.core.dll</HintPath>
-    </Reference>
-    <Reference Include="R1.Automation.UI.core">
-      <HintPath>..\R1.Automation.UI.core.dll</HintPath>
-    </Reference>
   </ItemGroup>
   
 

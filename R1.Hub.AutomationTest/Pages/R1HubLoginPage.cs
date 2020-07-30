@@ -1,20 +1,15 @@
 ﻿using OpenQA.Selenium;
 using R1.Hub.AutomationBase.Base;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TechTalk.SpecFlow;
-using R1.Automation.UI.core.Selenium.Extensions;
+
 
 namespace R1.Hub.AutomationTest.Pages
 {
     class R1HubLoginPage:BasePage
     {
-
-        public R1HubLoginPage(ScenarioContext scenarioContext):base(scenarioContext)
+        public R1HubLoginPage(DriverContext driverContext) :base(driverContext)
         {
-            PageFactory.InitElements(DriverContext.driver, this);
+            PageFactory.InitElements(driverContext.Driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//input[contains(@id,'Username')]")]
@@ -25,7 +20,6 @@ namespace R1.Hub.AutomationTest.Pages
 
         [FindsBy(How = How.XPath, Using = "//a[contains(@id,'Login') and @title = 'Login']")]
         private IWebElement btnLogin;
-
 
         /// <summary>
         /// Method to user and password
@@ -47,10 +41,7 @@ namespace R1.Hub.AutomationTest.Pages
         public HomePage ClickLoginButton()
         {
             btnLogin.Click();
-            return new HomePage(_scenarioContext);
-  
+            return new HomePage(_driverContext);  
         }
-
-
     }
 }

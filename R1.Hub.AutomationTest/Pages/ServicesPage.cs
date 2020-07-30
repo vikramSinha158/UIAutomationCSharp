@@ -3,34 +3,26 @@ using R1.Hub.AutomationBase.Base;
 using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using TechTalk.SpecFlow;
 using R1.Automation.UI.core.Selenium.Extensions;
 using R1.Hub.AutomationBase.Config;
 using Xunit;
-using System.Threading;
 
 
 namespace R1.Hub.AutomationTest.Pages
 {
     public class ServicesPage : BasePage
     {
-
-
-        public ServicesPage(ScenarioContext scenarioContext) : base(scenarioContext)
-        {
-
-            PageFactory.InitElements(DriverContext.driver, this);
-
-        }
-
-
         private string delRowsHCPCSelected = "//table[contains(@id,'grdHCPCSelected')]//tr[@class='PanelDetail']//td//a/img[@src='/images/delete.gif']";
         private string rowsHCPCSelected = "//table[contains(@id,'grdHCPCSelected')]//tr[@class='PanelDetail']";
         private string colHCPCSelected = "//table[contains(@id,'grdHCPCSelected')]//tr[@class='PanelTitle tableHeader']//td";
         private string delRowsICDSelected = "//table[contains(@id,'grdICD9Selected')]//tr[@class='PanelDetail']//td//a/img[@src='/images/delete.gif']";
         private string rowsICDSelected = "//table[contains(@id,'grdICD9Selected')]//tr[@class='PanelDetail']";
         private string colICDSelected = "//table[contains(@id,'grdICD9Selected')]//tr[@class='PanelTitle tableHeader']//td";
+
+        public ServicesPage(DriverContext driverContext) : base(driverContext)
+        {
+            PageFactory.InitElements(driverContext.Driver, this);
+        }
 
         [FindsBy(How = How.XPath, Using = "//a[contains(@id,'lnkViewMode') and text()='Admitting']")]
         private IWebElement lnkAdmiitingServices;
@@ -66,15 +58,13 @@ namespace R1.Hub.AutomationTest.Pages
         /// Click on Addminting link in service
         /// </summary>
         public void ClickAddmittingServices()
-        {
-            
+        {          
             try
             {
-                DriverContext.driver.ScrollInView(lnkAdmiitingServices);
+                _driverContext.Driver.ScrollInView(lnkAdmiitingServices);
                 lnkAdmiitingServices.Click();
             }
             catch (NoSuchElementException) { }
-
         }
 
         /// <summary>
@@ -96,7 +86,6 @@ namespace R1.Hub.AutomationTest.Pages
         public void AddServiceCode()
         {
             AddCode(delHCPCSelected, delRowsHCPCSelected, rowsHCPCSearch, firstRowHCPCSearch);
-
         }
 
         /// <summary>
@@ -113,9 +102,8 @@ namespace R1.Hub.AutomationTest.Pages
         /// <returns></returns>
         public List<String> GetServiceCPTcode()
         {
-            return util.GetColvalues(rowsHCPCSelected, colHCPCSelected, "HCPC");
+            return util.GetColvalues(_driverContext.Driver,rowsHCPCSelected, colHCPCSelected, "HCPC");
         }
-
 
         /// <summary>
         /// Get ICD code from Diagonosis table
@@ -123,9 +111,8 @@ namespace R1.Hub.AutomationTest.Pages
         /// <returns></returns>
         public List<String> GetDiagonosisCode()
         {
-            return util.GetColvalues(rowsICDSelected, colICDSelected, "ICD");
+            return util.GetColvalues(_driverContext.Driver,rowsICDSelected, colICDSelected, "ICD");
         }
-
 
         /// <summary>
         /// Method to get code from table in service page
@@ -136,7 +123,7 @@ namespace R1.Hub.AutomationTest.Pages
         /// <param name="firstRowSearchResult"></param>
         public void AddCode(IList<IWebElement> delTblRowCnt, string xpathDelrow, IList<IWebElement> rowsSearchResultCnt, IWebElement firstRowSearchResult)
         {
-            DriverContext.driver.ScrollInView(txtSearchService);
+            _driverContext.Driver.ScrollInView(txtSearchService);
 
             try
             {
@@ -145,23 +132,20 @@ namespace R1.Hub.AutomationTest.Pages
                     int delBtnCnt = delTblRowCnt.Count;
                     for (int i = 1; i <= delBtnCnt; i++)
                     {
-                        IWebElement delele = DriverContext.driver.FindElement(By.XPath(xpathDelrow));
+                        IWebElement delele = _driverContext.Driver.FindElement(By.XPath(xpathDelrow));
                         delele.Click();
-                        DriverContext.driver.ScrollInView(txtSearchService);
+                        _driverContext.Driver.ScrollInView(txtSearchService);
                     }
-
                 }
-
             }
             catch (NoSuchElementException) { }
             txtSearchService.SendKeys(Settings.SerachServiceCode);
             btnSearchService.Click();
-
             try
             {
                 if (rowsSearchResultCnt.Count > 1)
                 {
-                    DriverContext.driver.ScrollInView(firstRowSearchResult);
+                    _driverContext.Driver.ScrollInView(firstRowSearchResult);
                     firstRowSearchResult.Click();
                 }
             }
@@ -170,6 +154,5 @@ namespace R1.Hub.AutomationTest.Pages
                 Assert.True(false, "Not CPT found for " + Settings.SerachServiceCode + "please Check data ");
             }
         }
-
     }
 }

@@ -14,7 +14,6 @@ namespace R1.Hub.AutomationBase.Common
         readonly string queryValue = "SELECT Replace(Replace(serverpath, '[', ''), ']', '')  AS servername, databasename from locations where code = @facilitycode";
         private IDbConnection con;
 
-
         public IConfigurationRoot GetAppsetting
         {
             get
@@ -32,7 +31,6 @@ namespace R1.Hub.AutomationBase.Common
         private List<DataAccess> GetTranServerDB(string facilityCode)
         {
             LoadAppSettingsJson();
-
             string connectionString = String.Empty;
             if (auth == "Window")
             {
@@ -42,12 +40,10 @@ namespace R1.Hub.AutomationBase.Common
             {
                 connectionString = "Data Source = " + coreServer + "; Initial Catalog = " + coreDataBase + "; User ID = " + userId + " ; Password =" + passWord + "";
             }
-            con = ConnectToDB(connectionString);
-       
+            con = ConnectToDB(connectionString);     
             var parameters = new DynamicParameters();
             var facilitycode = facilityCode;
             parameters.Add("@facilitycode", facilitycode, DbType.String, ParameterDirection.Input, facilitycode.Length);
-
             List<DataAccess> listValue = con.Query<DataAccess>(queryValue, parameters, commandType: CommandType.Text).ToList();
             return listValue;
         }
@@ -62,7 +58,6 @@ namespace R1.Hub.AutomationBase.Common
                 auth = GetAppsetting["Connection:Auth"].Trim();
                 userId = GetAppsetting["Connection:UserID"].Trim();
                 passWord = GetAppsetting["Connection:PWD"].Trim();
-                //facilityCode = GetAppsetting["Connection:Facility"].Trim();
             }
         }
         /// <summary>
@@ -79,8 +74,6 @@ namespace R1.Hub.AutomationBase.Common
                 {
                     ServerName = listValue[0].ServerName;
                     DatabaseName = listValue[0].DatabaseName;
-                   // connectionString = auth.Equals("Window") ? "Data Source = " + ServerName + "; Initial Catalog = " + base.DatabaseName + "; Integrated Security = True" : "Data Source = " + ServerName + "; Initial Catalog = " + base.DatabaseName + "; User ID = " + userId + " ; Password =" + passWord + "";
-                    //connectionString = "Data Source = " + ServerName + "; Initial Catalog = " + DatabaseName + "; User ID = " + userId + " ; Password =" + passWord + "";
                     if (auth == "Window")
                     {
                         connectionString = "Data Source = " + ServerName + "; Initial Catalog = " + DatabaseName + "; Integrated Security = True";
@@ -112,14 +105,12 @@ namespace R1.Hub.AutomationBase.Common
                     ServerName = url.Contains("rcohub") ? ServerName + ".EXTAPP.LOCAL" : ServerName;
                     connectionString = auth.Equals("Window") ? "Data Source = " + ServerName + "; Initial Catalog = " + accretiveDb + "; Integrated Security = True" : "Data Source = " + ServerName + "; Initial Catalog = " + accretiveDb + "; User ID = " + userId + " ; Password =" + passWord + "";
                 }
-            }
-       
+            }      
             catch (Exception)
             {
                 return null; //return null in case of exception
             }
             return connectionString;
         }
-
     }
 }

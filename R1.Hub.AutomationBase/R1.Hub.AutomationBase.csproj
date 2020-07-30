@@ -11,6 +11,8 @@
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="ExtentReports.Core" Version="1.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="R1.Automation.Database.core" Version="1.0.1" />
+    <PackageReference Include="R1.Automation.UI.core" Version="2.0.0" />
     <PackageReference Include="Selenium.Support" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     <PackageReference Include="SpecFlow" Version="3.3.30" />
@@ -20,15 +22,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.5" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="R1.Automation.Database.core">
-      <HintPath>..\R1.Automation.Database.core.dll</HintPath>
-    </Reference>
-    <Reference Include="R1.Automation.UI.core">
-      <HintPath>..\R1.Automation.UI.core.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

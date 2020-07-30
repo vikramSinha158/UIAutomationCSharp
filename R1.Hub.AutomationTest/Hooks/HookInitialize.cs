@@ -1,20 +1,7 @@
-﻿using AventStack.ExtentReports;
-using AventStack.ExtentReports.Gherkin.Model;
-using Microsoft.Extensions.Configuration;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using R1.Automation.Database.core.Base;
-using R1.Automation.UI.core.Commons;
-using R1.Automation.UI.core.Reporting;
-using R1.Automation.UI.core.Selenium.Base;
+﻿
 using R1.Hub.AutomationBase.Base;
-using R1.Hub.AutomationBase.Common;
 using R1.Hub.AutomationBase.Config;
 using R1.Hub.AutomationTest.TestData;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
 using TechTalk.SpecFlow;
 
 
@@ -26,12 +13,13 @@ namespace R1.Hub.AutomationTest.Hooks
     {    
         private readonly ScenarioContext _scenariocontext;
         private Settings _settings;
+        private DriverContext _driverContext;
 
-        public HookInitialize(ScenarioContext scenarioContext, Settings settings)
+        public HookInitialize(DriverContext driverContext,ScenarioContext scenarioContext, Settings settings) : base(driverContext)
         {
+            _driverContext = driverContext;
             _scenariocontext = scenarioContext;
             _settings = settings;
-
         }
 
         [BeforeTestRun]
@@ -42,17 +30,17 @@ namespace R1.Hub.AutomationTest.Hooks
 
         [BeforeFeature]
         public static void BeforeFeature(FeatureContext featureContext)
-        {
+        {            
             GetFeatureInfo(featureContext);
-            DataReader.SetTestData();
         }
 
         [BeforeScenario]
         public void TestInitalize()
         {
+            DataReader.SetTestData();
+            InitializeDriver();
             NaviateSite();
             GetScenarioInfo(_scenariocontext);
-
         }
 
         [BeforeScenario("DBConnection")]
@@ -66,8 +54,7 @@ namespace R1.Hub.AutomationTest.Hooks
         public void AfterScenario()
         {
            _settings.DataAccess.CloseDBConnection();
-            CloseBrowser(Settings.BrowserFlag);
-            
+            _driverContext.Driver.Quit();
         }
 
         [AfterStep]
@@ -80,7 +67,7 @@ namespace R1.Hub.AutomationTest.Hooks
         public static void TearDownReport()
         {
             PublishReport();
-            DriverFactory.CloseAllDrivers();
+            CloseBrowser();
         }
     }
 }

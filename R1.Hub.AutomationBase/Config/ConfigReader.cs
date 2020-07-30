@@ -48,6 +48,8 @@ namespace R1.Hub.AutomationBase.Config
             Settings.TestQueryFile = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().TestQueryFileName;
 
             Settings.FacilatyCode = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().Facility;
+
+            Settings.KeepExtentReportDays = Settings.configurationRoot.GetSection("Connection").Get<TestSettings>().NumberOfDaysToKeepExtentReport;
         }
     }
 }

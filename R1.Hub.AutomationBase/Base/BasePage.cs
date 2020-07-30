@@ -8,12 +8,6 @@ namespace R1.Hub.AutomationBase.Base
 {
     public class BasePage:Base
     {
-        public BasePage(ScenarioContext scenarioContext):base(scenarioContext)
-        {
-
-        }
-
-        
-
+        public BasePage(DriverContext driverContext) : base(driverContext) { }
     }
 }

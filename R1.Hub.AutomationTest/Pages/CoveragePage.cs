@@ -2,8 +2,6 @@
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using TechTalk.SpecFlow;
 using R1.Automation.UI.core.Selenium.Extensions;
 using SeleniumExtras.PageObjects;
 using R1.Hub.AutomationBase.Config;
@@ -13,17 +11,17 @@ namespace R1.Hub.AutomationTest.Pages
 {
     public class CoveragePage : BasePage
     {
-        public CoveragePage(ScenarioContext scenarioContext) : base(scenarioContext)
-        {
-            PageFactory.InitElements(DriverContext.driver, this);
-        }
-
         private string HeaderTypeCol = "Plan Name";
         private readonly int toprow = 1;
         private string delCoverageRows = "//table[contains(@id,'grdCoverageSelected')]//tr[@class='PanelDetail']//td//a//img[@title='Delete']";
         private string searchResult = String.Empty;
         private string searchRowLocator = "//table[contains(@id,'grdCoverageSearchResults')]//tr[@class='PanelDetail']";
         private string passCoveragetatus = "Passed";
+
+        public CoveragePage(DriverContext driverContext) : base(driverContext)
+        {
+            PageFactory.InitElements(driverContext.Driver, this);
+        }
 
         [FindsBy(How = How.XPath, Using = "//a[text()='Check Out']")]
         private IWebElement btnCheckOut;
@@ -77,33 +75,28 @@ namespace R1.Hub.AutomationTest.Pages
                     int delBtnCnt = covergeTblRows.Count;
                     for (int i = 1; i <= delBtnCnt; i++)
                     {
-                        IWebElement delele = DriverContext.driver.FindElement(By.XPath(delCoverageRows));
-                        DriverContext.driver.ScrollInView(delele);
+                        IWebElement delele = _driverContext.Driver.FindElement(By.XPath(delCoverageRows));
+                        _driverContext.Driver.ScrollInView(delele);
                         delele.Click();
-
                     }
-
-                }
-   
+                }  
             }
             catch (NoSuchElementException e) { }
-            DriverContext.driver.ScrollInView(txtSearchCoverage);
+            _driverContext.Driver.ScrollInView(txtSearchCoverage);
             if (CoverageType.Equals("Medicare", StringComparison.OrdinalIgnoreCase))
                 txtSearchCoverage.SendKeys(Settings.MedicareCoverageType);
             if (CoverageType.Equals("NonMedicare",StringComparison.OrdinalIgnoreCase))
                 txtSearchCoverage.SendKeys(Settings.AETNACovergaeType);
 
             btnFindCoverage.Click();
-            SearchCoverage();
-           
+            SearchCoverage();         
             ChangeCoverageStatus();
-
         }
 
         /// <summary>
         /// Method to search coverage
         /// </summary>
-        public void SearchCoverage()
+        private void SearchCoverage()
         {
             int searchEleCount = 0;
             foreach (IWebElement colHeader in serachResultCol)
@@ -114,30 +107,27 @@ namespace R1.Hub.AutomationTest.Pages
                     break;
                 }
             }
-
             if (serachResultRows.Count > 1)
             {
-                searchResult = DriverContext.driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + searchEleCount + "]")).Text;
+                searchResult = _driverContext.Driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + searchEleCount + "]")).Text;
 
                 if (searchResult.Contains(Settings.MedicareCoverageType))
-                    DriverContext.driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
+                    _driverContext.Driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
                 if (searchResult.Contains(Settings.AETNACovergaeType))
-                   DriverContext.driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
+                    _driverContext.Driver.FindElement(By.XPath(searchRowLocator + "[" + toprow + "]/td[" + toprow + "]//a")).Click();
             }
             btnNewCoverage.Click();
-
         }
-
 
         /// <summary>
         /// Method to change status of coverage 
         /// </summary>
-        public void ChangeCoverageStatus()
+        private void ChangeCoverageStatus()
         {
             if (tblCoverageHeader.Displayed)
             {
                 lnkTBD.Click();
-                DriverContext.driver.ScrollInView(verificationStatus);
+                _driverContext.Driver.ScrollInView(verificationStatus);
                 verificationStatus.ClickDropDownValuebyContainingText(passCoveragetatus);
                 btnUpdateVerifiedStatus.Click();
             }

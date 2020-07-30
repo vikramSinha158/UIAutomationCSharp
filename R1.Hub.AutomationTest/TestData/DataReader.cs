@@ -20,8 +20,6 @@ namespace R1.Hub.AutomationTest.TestData
             Settings.AETNACovergaeType = Settings.TData.GetSection("TestData").Get<DataSettings>().AETNACoverageType;
 
             Settings.ConversionFollowup = Settings.TData.GetSection("TestData").Get<DataSettings>().ConversionFollowup;
-
-
         }
     }
 }
