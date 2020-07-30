@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {}
+    "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {}
   },
   "projects": {
-    "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {
+    "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
+        "projectUniqueName": "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
         "projectName": "R1.Hub.AutomationBase",
-        "projectPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
+        "projectPath": "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj",
         "packagesPath": "C:\\Users\\in303350\\.nuget\\packages\\",
-        "outputPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\obj\\",
+        "outputPath": "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Development\\Automation\\r1-hub-uiautomation\\.nuget\\NuGet.Config",
+          "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\.nuget\\NuGet.Config",
           "C:\\Users\\in303350\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

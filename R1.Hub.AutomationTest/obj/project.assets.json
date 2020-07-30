@@ -9223,14 +9223,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj",
+      "projectUniqueName": "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj",
       "projectName": "R1.Hub.AutomationTest",
-      "projectPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj",
+      "projectPath": "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\R1.Hub.AutomationTest.csproj",
       "packagesPath": "C:\\Users\\in303350\\.nuget\\packages\\",
-      "outputPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\obj\\",
+      "outputPath": "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\R1.Hub.AutomationTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Development\\Automation\\r1-hub-uiautomation\\.nuget\\NuGet.Config",
+        "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\.nuget\\NuGet.Config",
         "C:\\Users\\in303350\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9246,8 +9246,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {
-              "projectPath": "C:\\Development\\Automation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj"
+            "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj": {
+              "projectPath": "C:\\Development\\UIAutomation\\r1-hub-uiautomation\\R1.Hub.AutomationBase\\R1.Hub.AutomationBase.csproj"
             }
           }
         }
