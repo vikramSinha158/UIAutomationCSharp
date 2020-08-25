@@ -88,9 +88,6 @@ namespace R1.Hub.AutomationTest.Features
 #line 6
   testRunner.When("user clicks on Patient Access link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 7
-  testRunner.Given("user clicks on Conversion Followup worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
         }
         
         void System.IDisposable.Dispose()
@@ -130,9 +127,12 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 11
- testRunner.When("user verify subfilter folder of conversion followup worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("user clicks on Conversion Followup worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 12
+ testRunner.When("user verify subfilter folder of conversion followup worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 13
  testRunner.Then("user should be able to view following subfilter folder tree in conversion followu" +
                         "p worklist:", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -164,7 +164,7 @@ this.FeatureBackground();
             argumentsOfScenario.Add("FilterFolder", filterFolder);
             argumentsOfScenario.Add("QueryID", queryID);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify records in folder", null, tagsOfScenario, argumentsOfScenario);
-#line 17
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -187,17 +187,20 @@ this.ScenarioInitialize(scenarioInfo);
 #line 3
 this.FeatureBackground();
 #line hidden
-#line 18
- testRunner.When(string.Format("user clicks on \"{0}\" filter folder", filterFolder), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
 #line 19
- testRunner.Then(string.Format("user should be able to view \"{0}\" filter folder", filterFolder), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Given("user clicks on Conversion Followup worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 20
+ testRunner.When(string.Format("user clicks on \"{0}\" filter folder", filterFolder), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 21
+ testRunner.Then(string.Format("user should be able to view \"{0}\" filter folder", filterFolder), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 22
  testRunner.When(string.Format("user connect to Tran database and fetch data from Tran database using DB query \"{" +
                             "0}\"", queryID), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 21
+#line 23
  testRunner.Then("db query result count should be matched with I/S at Risk worklist count.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -226,7 +229,7 @@ this.FeatureBackground();
             argumentsOfScenario.Add("QueryCoverageOnDeck", queryCoverageOnDeck);
             argumentsOfScenario.Add("QueryCoveragePending", queryCoveragePending);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Care Coverage filter folder and it\'s sub-folders", null, tagsOfScenario, argumentsOfScenario);
-#line 34
+#line 36
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -249,20 +252,23 @@ this.ScenarioInitialize(scenarioInfo);
 #line 3
 this.FeatureBackground();
 #line hidden
-#line 35
+#line 37
+    testRunner.Given("user clicks on Conversion Followup worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 38
  testRunner.When(string.Format("user clicks on \"{0}\" filter folder", filterFolder), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 36
+#line 39
  testRunner.Then(string.Format("user should be able to view \"{0}\" filter folder", filterFolder), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 37
+#line 40
  testRunner.When(string.Format("user connect to Tran database and fetch data from Tran database using DB query \"{" +
                             "0}\"", queryID), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 38
+#line 41
  testRunner.Then("db query result count should be matched with I/S at Risk worklist count.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 39
+#line 42
     testRunner.When("user clicks on + button of Care Coverage filter folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -271,34 +277,90 @@ this.FeatureBackground();
                 table1.AddRow(new string[] {
                             "On-Deck",
                             "Pending"});
-#line 40
+#line 43
     testRunner.Then("following list of sub filter folders should be appear", ((string)(null)), table1, "Then ");
 #line hidden
-#line 43
+#line 46
     testRunner.When(string.Format("user clicks on Coveragecare  \"{0}\" sub filter folder", coverageCareOnDeck), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 44
+#line 47
     testRunner.Then(string.Format("user should be able to view \"{0}\" filter folder", coverageCareOnDeck), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 45
+#line 48
     testRunner.When(string.Format("user connect to Tran database and fetch data from Tran database using DB query \"{" +
                             "0}\"", queryCoverageOnDeck), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 46
+#line 49
     testRunner.Then("db query result count should be matched with I/S at Risk worklist count.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 47
+#line 50
      testRunner.When(string.Format("user clicks on Coveragecare  \"{0}\" sub filter folder", coverageCarePending), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 48
+#line 51
     testRunner.Then(string.Format("user should be able to view \"{0}\" filter folder", coverageCarePending), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 49
+#line 52
     testRunner.When(string.Format("user connect to Tran database and fetch data from Tran database using DB query \"{" +
                             "0}\"", queryCoveragePending), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 50
+#line 53
     testRunner.Then("db query result count should be matched with I/S at Risk worklist count.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="433967 : Verify PFA override account should be fall in conversion followup workli" +
+            "st")]
+        [Xunit.TraitAttribute("FeatureTitle", "CWL")]
+        [Xunit.TraitAttribute("Description", "433967 : Verify PFA override account should be fall in conversion followup workli" +
+            "st")]
+        public virtual void _433967VerifyPFAOverrideAccountShouldBeFallInConversionFollowupWorklist()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("433967 : Verify PFA override account should be fall in conversion followup workli" +
+                    "st", null, tagsOfScenario, argumentsOfScenario);
+#line 59
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 3
+this.FeatureBackground();
+#line hidden
+#line 60
+   testRunner.Given("user clicks on \"R1 Detect\" worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 61
+   testRunner.And("user is on R1 detect worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 62
+   testRunner.When("user open an account from worklist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 63
+   testRunner.And("user clicks on PFA tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 64
+   testRunner.And("user clicks on override tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 65
+   testRunner.And("user verify FollowUp Date field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

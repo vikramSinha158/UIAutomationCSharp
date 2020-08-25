@@ -19,6 +19,9 @@ namespace R1.Hub.AutomationTest.Pages
 
         [FindsBy(How = How.XPath, Using = "//a[text()='Services']")]
         private IWebElement serviceTab;
+        
+        [FindsBy(How = How.XPath, Using = "//a[text()='PFA']")]
+        private IWebElement pfaTab;
 
         [FindsBy(How = How.XPath, Using = "//a[text()='Check Out']")]
         private IWebElement btnCheckOut;
@@ -28,6 +31,8 @@ namespace R1.Hub.AutomationTest.Pages
 
         [FindsBy(How = How.XPath, Using = "//a[text()='Complete']")]
         private IWebElement btnComplete;
+
+     
 
         public CoveragePage ClickOnCoverageTab()
         {
@@ -72,6 +77,16 @@ namespace R1.Hub.AutomationTest.Pages
         {
             R1NecessityTab.Click();
             return new R1NecessityPage(_driverContext);
+        }
+
+        /// <summary>
+        /// Click on PFA tab
+        /// </summary>
+        /// <returns>return PFAPage</returns>
+        public PFAPage ClickOnPFA()
+        {
+            pfaTab.Click();
+            return new PFAPage(_driverContext);
         }
 
         /// <summary>

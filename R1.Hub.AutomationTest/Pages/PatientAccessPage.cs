@@ -2,6 +2,7 @@
 using R1.Automation.UI.core.Selenium.Extensions;
 using R1.Hub.AutomationBase.Base;
 using SeleniumExtras.PageObjects;
+using System;
 
 namespace R1.Hub.AutomationTest.Pages
 {
@@ -19,6 +20,10 @@ namespace R1.Hub.AutomationTest.Pages
 
         [FindsBy(How = How.XPath, Using = "//a/span[text()='Conversion Followup']")]
         private IWebElement lnkConversionFollowup;
+
+
+        [FindsBy(How = How.XPath, Using = "//a/span[text()='R1 Detect']")]
+        private IWebElement lnkR1DetectWorkList;
 
         /// <summary>
         /// Click on pre registration link
@@ -40,5 +45,29 @@ namespace R1.Hub.AutomationTest.Pages
             _driverContext.Driver.ClickOnElement(lnkConversionFollowup);
             return new ConversionFollowupPage(_driverContext);
         }
+
+        public R1DetectPage ClickOnR1DetectWorkList()
+        {          
+            ClickOnWorklist(lnkR1DetectWorkList);
+            return new R1DetectPage(_driverContext);
+        }
+
+        private void ClickOnWorklist(IWebElement elemnent)
+        {
+            _driverContext.Driver.ScrollInView(elemnent);
+            _driverContext.Driver.ClickOnElement(elemnent);
+        }
+
+      
+
+        //public void ThenIClickButton(string buttonName)
+        //{
+        //    if (buttonName == "login")
+        //        _parallelConfig.CurrentPage = _parallelConfig.CurrentPage.As<LoginPage>().ClickLoginButton();
+        //    else if (buttonName == "createnew")
+        //        _parallelConfig.CurrentPage = _parallelConfig.CurrentPage.As<EmployeeListPage>().ClickCreateNew();
+        //    else if (buttonName == "create")
+        //        _parallelConfig.CurrentPage = _parallelConfig.CurrentPage.As<CreateEmployeePage>().ClickCreateButton();
+        //}
     }
 }

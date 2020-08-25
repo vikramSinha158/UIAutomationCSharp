@@ -34,7 +34,7 @@ namespace R1.Hub.AutomationTest.Pages
             PageFactory.InitElements(driverContext.Driver, this);
         }
 
-        [FindsBy(How = How.XPath, Using = "//div/span[text()='Conversion Followup']")]
+        [FindsBy(How = How.XPath, Using = "//span[@class='subhead']//span[text()='Conversion Followup']")]
         private IWebElement conversionFollowup;
 
         [FindsBy(How = How.XPath, Using = "//div[contains(@id,'dnnctr1478WorklistPaneltreeProcessUltraWebTree1_1')]//div//span[@igtxt='1']")]

@@ -17,7 +17,7 @@ namespace R1.Hub.AutomationTest.Pages
         [FindsBy(How = How.XPath, Using = "//table[@class='worklistTable']//tbody/tr[@valign='middle']")]
         private IList<IWebElement> totalAccontRows;
 
-        [FindsBy(How = How.XPath, Using = "//table[@class='worklistTable']//tbody/tr[@valign='middle'][7]//td[@class='rowNumber']")]
+        [FindsBy(How = How.XPath, Using = "//table[@class='worklistTable']//tbody/tr[@valign='middle'][1]//td[@class='rowNumber']")]
         private IWebElement firstAccount;
 
         /// <summary>

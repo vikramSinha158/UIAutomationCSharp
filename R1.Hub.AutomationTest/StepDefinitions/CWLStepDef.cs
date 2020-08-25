@@ -92,5 +92,45 @@ namespace R1.Hub.AutomationTest.StepDefinitions
         {
             _driverContext.CurrentPage.As<ConversionFollowupPage>().ClickOnCoveraegCareFilterFolder(coverageCarefilterFolder);
         }
+
+
+        [Given(@"user clicks on ""(.*)"" worklist")]
+        public void GivenUserClicksOnWorklist(string p0)
+        {
+            _driverContext.CurrentPage = _driverContext.CurrentPage.As<PatientAccessPage>().ClickOnR1DetectWorkList();
+        }
+
+        [Given(@"user is on R(.*) detect worklist")]
+        public void GivenUserIsOnRDetectWorklist(int p0)
+        {
+            _driverContext.CurrentPage = _driverContext.CurrentPage.As<R1DetectPage>().VerifyR1DetectWorklistDisplay();
+        }
+
+        [When(@"user open an account from worklist")]
+        public void WhenUserOpenAnAccountFromWorklist()
+        {
+            _driverContext.CurrentPage = _driverContext.CurrentPage.As<ExtendedPage>().ClickOnAccount();
+        }
+
+        [When(@"user clicks on PFA tab")]
+        public void WhenUserClicksOnPFATab()
+        {
+            _driverContext.CurrentPage.As<AccountPage>().ClickCheckOutAndRedo();
+            _driverContext.CurrentPage = _driverContext.CurrentPage.As<AccountPage>().ClickOnPFA();
+        }
+
+        [When(@"user clicks on override tab")]
+        public void WhenUserClicksOnOverrideTab()
+        {
+            _driverContext.CurrentPage.As<PFAPage>().ClickOnOverrideTab();
+        }
+
+        [When(@"user verify FollowUp Date field")]
+        public void WhenUserVerifyFollowUpDateField()
+        {
+            _driverContext.CurrentPage.As<PFAPage>().VerifyDateFollowUpField();
+        }
+
+
     }
 }

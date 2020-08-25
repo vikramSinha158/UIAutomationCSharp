@@ -555,12 +555,12 @@ C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\ne
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\netcoreapp3.1\R1.Hub.AutomationTest.csproj.CopyComplete
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\netcoreapp3.1\R1.Hub.AutomationTest.dll
 C:\Development\Automation\r1-hub-uiautomation\R1.Hub.AutomationTest\obj\Debug\netcoreapp3.1\R1.Hub.AutomationTest.pdb
-C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\testhost.exe
 C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\testhost.dll
+C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\TechTalk.SpecFlow.xUnit.SpecFlowPlugin.dll
+C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\testhost.exe
 C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\xunit.runner.reporters.netcoreapp10.dll
 C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\xunit.runner.utility.netcoreapp10.dll
-C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\TechTalk.SpecFlow.xUnit.SpecFlowPlugin.dll
 C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\TestData\TestData.json
 C:\Development\UIAutomation\r1-hub-uiautomation\R1.Hub.AutomationTest\bin\Debug\netcoreapp3.1\TestData\TestQuery.json
